@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<languagelist>
+    <language>
+        <isocode>zh</isocode>
+        <name>Chinese - 中文</name>
+    </language>
+    <language>
+        <isocode>da</isocode>
+        <name>Danish - Dansk</name>
+    </language>
+    <language>
+        <isocode>nl</isocode>
+        <name>Dutch - Nederlands</name>
+    </language>
+    <language>
+        <isocode>en</isocode>
+        <name>English</name>
+    </language>
+    <language>
+        <isocode>fr</isocode>
+        <name>French - Français</name>
+    </language>
+    <language>
+        <isocode>de</isocode>
+        <name>German - Deutsch (du)</name>
+    </language>
+    <language>
+        <isocode>de_sie</isocode>
+        <name>German - Deutsch (Sie)</name>
+    </language>
+    <language>
+        <isocode>id</isocode>
+        <name>Indonesian - bahasa Indonesia</name>
+    </language>
+    <language>
+        <isocode>it</isocode>
+        <name>Italian - Italiano</name>
+    </language>
+    <language>
+        <isocode>nb</isocode>
+        <name>Norwegian Bokmål - Norsk Bokmål</name>
+    </language>
+    <language>
+        <isocode>pt</isocode>
+        <name>Portuguese - Português</name>
+    </language>
+    <language>
+        <isocode>es</isocode>
+        <name>Spanish - Español</name>
+    </language>
+    <language>
+        <isocode>sw</isocode>
+        <name>Swahili - Kiswahili</name>
+    </language>
+</languagelist>

@@ -1,0 +1,573 @@
+AWSTATS DATA FILE 7.0 (build 1.971)
+# If you remove this file, all statistics for date 201808 will be lost/reset.
+# Last config file used to build this data file was /etc/awstats/awstats.members.musicwithstrangers.com.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 27
+POS_GENERAL 2010                
+POS_TIME 2683                
+POS_VISITOR 9542                
+POS_DAY 10051               
+POS_DOMAIN 3391                
+POS_LOGIN 3624                
+POS_ROBOT 3779                
+POS_WORMS 3973                
+POS_EMAILSENDER 4104                
+POS_EMAILRECEIVER 4247                
+POS_SESSION 10353               
+POS_SIDER 10558               
+POS_FILETYPES 4382                
+POS_DOWNLOADS 4597                
+POS_OS 4645                
+POS_BROWSER 4748                
+POS_SCREENSIZE 4976                
+POS_UNKNOWNREFERER 5050                
+POS_UNKNOWNREFERERBROWSER 5137                
+POS_ORIGIN 5219                
+POS_SEREFERRALS 5357                
+POS_PAGEREFS 5512                
+POS_SEARCHWORDS 5660                
+POS_KEYWORDS 5812                
+POS_MISC 2346                
+POS_ERRORS 5871                
+POS_CLUSTER 3480                
+POS_SIDER_404 6014                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20180901003929 1 0 13284729150042
+FirstTime 20180801081250
+LastTime 20180829155623
+LastUpdate 20180901010110 1 0 0 0 0
+TotalVisits 20                  
+TotalUnique 9                   
+MonthHostsKnown 0                   
+MonthHostsUnknown 11                  
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 35 0
+RealPlayerSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 0 0 0 0 2 655
+1 0 0 0 2 4 4731
+2 0 0 0 2 9 6416
+3 0 0 0 2 3 4111
+4 0 0 0 0 7 2307
+5 0 0 0 6 7 5761
+6 0 0 0 3 3 345
+7 21 58 498563 4 5 12018
+8 34 191 2624882 5 19 14118
+9 14 46 1333541 6 8 18230
+10 83 193 8892293 14 16 9748
+11 88 249 5111764 19 21 21614
+12 48 56 1190538 17 19 2647
+13 22 34 2300453 11 17 20832
+14 19 145 1188882 47 60 43207
+15 221 680 13597815 80 107 59953
+16 19 88 839465 7 16 17138
+17 0 0 0 4 5 17004
+18 0 0 0 7 22 30772
+19 80 130 2309041 22 36 57711
+20 204 430 24351377 39 42 34176
+21 99 177 12016710 30 47 64036
+22 67 74 2953096 9 14 11346
+23 0 0 0 1 12 4022
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 1
+ip 1019 2551 79208420
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 2
+wget 30 0 20180831141502 0
+favicon 22 176675 20180831130104 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 8
+php 44 33802 0 0
+css 781 2913188 0 0
+png 168 223128 0 0
+html 59 905915 0 0
+jpg 3 7923 0 0
+js 567 5314707 0 0
+Unknown 916 69785345 0 0
+gif 13 24412 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 0
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS 6
+macosx 189
+linuxandroid 8
+unix 1629
+winnt 276
+linux 18
+win7 431
+END_OS
+
+# Browser ID - Hits
+BEGIN_BROWSER 9
+chrome67.0.3396.87 1629
+firefox62.0 276
+safari11.0 27
+chrome68.0.3440.84 78
+chrome68.0.3440.75 187
+chrome52.0.2743.98 8
+chrome68.0.3440.106 166
+chrome41.0.2272.118 18
+safari 162
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 0
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 0
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 50 616
+From1 0 0
+From2 1 1
+From3 0 0
+From4 968 1934
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 1
+google 1 1
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 0
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 6
+403 27 69205
+302 152 0
+500 42 0
+504 1 345
+301 8 2784
+404 181 111581
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referer
+BEGIN_SIDER_404 39
+/adm_program/modules/dates/rss_dates.php 1 -
+/adm_program/modules/registration/registration.php 6 -
+/robots.txt 33 -
+/adm_program/libs/bootstrap-datepicker/dist/locales/bootstrap-datepicker.en.min.js 3 https://members.musicwithstrangers.com/adm_program/modules/dates/dates.php
+/adm_program/libs/zxcvbn/dist/zxcvbn.js 1 https://members.musicwithstrangers.com/adm_program/modules/profile/profile_new.php
+/adm_program/libs/select2/dist/js/select2.min.js 1 https://members.musicwithstrangers.com/adm_program/modules/messages/messages_write.php
+/adm_program/libs/select2/dist/js/i18n/en.js 1 https://members.musicwithstrangers.com/adm_program/modules/messages/messages_write.php
+/adm_themes/mws/icons/download_big.png 1 -
+/drupal/songs 1 -
+/adm_program/modules/messages/messages_write.php 4 -
+/adm_program/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css 3 https://members.musicwithstrangers.com/adm_program/modules/dates/dates.php
+/adm_program/modules/dates/dates_function.php 1 -
+/adm_program/libs/noblecount/jquery.noblecount.min.js 1 https://members.musicwithstrangers.com/adm_program/modules/profile/profile_new.php
+/adm_program/libs/select2-bootstrap-theme/dist/select2-bootstrap.min.css 1 https://members.musicwithstrangers.com/adm_program/modules/messages/messages_write.php
+/manager/index.php 1 http://members.musicwithstrangers.com/manager/index.php
+/adm_program/libs/bootstrap/css/bootstrap.min.css 12 https://members.musicwithstrangers.com/adm_program/index.php
+/drupal/admin/structure/views/view/register_song/preview/page/ajax 1 http://members.musicwithstrangers.com/drupal/admin/structure/views/view/register_song
+/drupal/relation 1 -
+/adm_program/libs/bootstrap/js/bootstrap.min.js 12 https://members.musicwithstrangers.com/adm_program/index.php
+/adm_program/libs/select2/dist/css/select2.min.css 1 https://members.musicwithstrangers.com/adm_program/modules/messages/messages_write.php
+/adm_program/modules/links/links.php 2 -
+/adm_program/modules/announcements/rss_announcements.php 1 -
+/adm_program/modules/dates/ical_dates.php 1 -
+/adm_program/modules/dates/dates.php 15 -
+/adm_themes/mws/icons/database_out.png 3 -
+/adm_plugins/login_form/login_form.css 13 https://members.musicwithstrangers.com/adm_program/index.php
+/drupal/song 1 -
+/adm_program/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js 3 https://members.musicwithstrangers.com/adm_program/modules/dates/dates.php
+/drupal/relations 1 -
+/drupal/all/modules 1 -
+/drupal/admin/structure/views/view/register_song/edit/block 1 http://members.musicwithstrangers.com/drupal/admin/structure/views/view/register_song
+/adm_program/modules/links/rss_links.php 1 -
+/adm_program/modules/announcements/announcements.php 7 -
+/drupal/admin/structure/views/view/register_song 1 http://members.musicwithstrangers.com/drupal/admin/structure/views/view/register_song
+/adm_program/system/js/common_functions.js 12 https://members.musicwithstrangers.com/adm_program/index.php
+/adm_program/libs/jquery/jquery.min.js 12 https://members.musicwithstrangers.com/adm_program/index.php
+/adm_themes/mws/css/admidio.css 13 https://members.musicwithstrangers.com/adm_program/index.php
+/adm_program/modules/lists/lists.php 6 -
+/adm_themes/mws 1 -
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 11
+145.130.103.201 835 1560 68134829 20180810200334
+92.111.143.170 53 350 4861640 20180803153623
+172.94.73.39 48 166 1910162 20180809153328
+92.109.129.171 35 165 1657280 20180803162702
+43.228.156.9 30 187 1723485 20180801083002
+43.228.156.11 9 78 621198 20180808165128
+77.171.239.169 6 8 110073 20180802134329
+193.173.39.45 2 19 19652 20180829155623
+66.249.81.214 1 8 55910 20180805103517
+66.249.81.216 0 8 108056 
+66.249.81.212 0 2 6135 
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 10
+20180801 45 289 2539604 2
+20180802 6 8 110073 1
+20180803 310 895 38773980 4
+20180804 407 595 20647462 4
+20180805 192 516 14652338 4
+20180808 8 61 454071 1
+20180809 48 166 1910162 1
+20180810 1 2 101078 1
+20180813 1 1 7965 1
+20180829 1 18 11687 1
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 7
+1h+ 3
+5mn-15mn 2
+2mn-5mn 1
+15mn-30mn 2
+30s-2mn 2
+0s-30s 6
+30mn-1h 4
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 256
+/drupal/ 58 892261 13 6
+/drupal/admin/modules 46 40602735 0 0
+/drupal/events/test-event-1 37 661404 0 0
+/drupal/admin/structure/types/manage/event/fields 35 2808990 0 0
+/drupal/system/ajax 33 446291 0 0
+/drupal/index.php 32 2536 0 1
+/drupal/admin/structure/menu/parents 29 3035 0 1
+/drupal/admin/structure/relation/manage/is_musician_in/fields 27 1129898 0 1
+/drupal/admin/structure/relation 25 300968 0 0
+/drupal/admin/content 20 497518 0 0
+/drupal/admin/appearance/settings/bootstrap 4 254817 0 0
+/drupal/members/sjaak 12 423775 0 0
+/drupal/js/admin_menu/cache/b64588396a6b38e87a1251e62ca87b16 1 5401 0 0
+/drupal/admin/structure/relation/add 5 114172 0 0
+/drupal/admin/modules/uninstall 3 111690 0 0
+/drupal/admin/structure/ds/view_modes/manage 1 11808 0 0
+/drupal/admin/config/group/group-membership/manage/musician/fields 2 76588 0 0
+/drupal/js/admin_menu/cache/19a1269cce93b12dd0da7aa94e370493 1 4513 0 0
+/drupal/admin/reports/status 1 30269 0 0
+/drupal/admin/structure/relation/manage/is_musician_in 4 102789 0 0
+/drupal/admin/structure 6 63740 1 0
+/drupal/admin/structure/entityform_types/add 1 46792 0 0
+/drupal/admin/structure/views/view/register_song/preview/page/ajax 1 16600 0 0
+/drupal/admin/structure/taxonomy/add 1 11775 0 0
+/drupal/admin/structure/entityform_types/manage/sign_up_for_a_song/display 3 66391 0 0
+/drupal/admin/structure/entityform_types/manage/sign_up_for_a_song/submissions 1 18055 0 0
+/drupal/node 1 8142 0 0
+/drupal/admin/modules/update 1 15330 0 0
+/drupal/admin/structure/relation/import 1 11018 0 0
+/drupal/js/admin_menu/cache/0612adb7c76f0a0f00678016af761d06 1 2546 0 0
+/drupal/admin/appearance 4 176828 1 0
+/drupal/node/14 10 153424 0 0
+/drupal/admin/structure/ds/classes 1 12273 0 0
+/drupal/admin/structure/types/manage/song/fields/field_media_url/field-settings 3 41589 0 0
+/drupal/admin/structure/block/demo/bootstrap 2 16952 0 0
+/drupal/admin/structure/relation/manage/is_musician_in/fields/endpoints/field-settings 6 81948 0 0
+/drupal/js/admin_menu/cache/fb416c518c16be2c143c6c418d74283d 1 4412 0 0
+/drupal/admin/structure/block 13 821706 0 0
+/drupal/signupsongstatus/submitted 1 9296 0 0
+/drupal/admin/structure/views/view/test/preview/block/ajax 7 70146 0 0
+/drupal/admin/structure/menu 4 43774 0 0
+/drupal/js/admin_menu/cache/b04dbb949afe089efaf9ec52b40e6b46 1 5468 0 0
+/drupal/admin/config/group/group-membership/manage/musician/fields/field_instrument 1 19514 0 0
+/drupal/admin/structure/relation/manage/songeventregister/edit 10 245403 0 0
+/drupal/node/6/edit 16 697455 0 0
+/drupal/admin/structure/entityform_types/manage/sign_up_for_a_song/preview 5 70098 0 0
+/drupal/admin/content/relation 5 62582 0 0
+/drupal/js/admin_menu/cache/dde740a3c91d392a52d9622c696bb362 1 4378 0 0
+/drupal/js/admin_menu/cache/2d8d79d0c210b693e18bf4ed49c7ca33 1 2590 0 0
+/drupal/admin/config/workflow 2 18372 0 0
+/drupal/admin/structure/ds/view_modes 4 130896 0 0
+/drupal/admin/structure/relation/manage/songeventregister/fields/field_setlist_index/field-settings 1 14498 0 0
+/drupal/admin/structure/views 9 444465 0 0
+/drupal/js/admin_menu/cache/c11dc4402508810d99cbfa67af851fbc 1 4512 0 0
+/drupal/admin/reports/entityforms/submissions/sign_up_for_a_song/entityforms_admin_page 1 17091 0 0
+/drupal/relation/1 1 14592 0 0
+/drupal/admin/config/administration/admin_menu 4 101815 1 2
+/drupal/admin/config/group/group-membership/manage/musician/fields/field_instrument/field-settings 1 14083 0 0
+/drupal/admin/structure/types/manage/song/fields/field_tablature/field-settings 1 15907 0 0
+/drupal/admin/structure/taxonomy/signupsongstatus 6 100194 0 1
+/drupal/admin/config/development/performance 2 39338 0 0
+/drupal/admin/structure/types/manage/event/fields/field_publish_public 2 33844 0 0
+/drupal/js/admin_menu/cache/b077028a79a4df64e5e5afb0206add1e 1 4402 0 0
+/drupal/admin/structure/views/view/registeropenevents/edit 4 161959 0 0
+/drupal/js/admin_menu/cache/d4020bce908d4eea5020df2506b6ee24 1 4862 0 0
+/drupal/js/admin_menu/cache/9f384f7cf04d32242bb7b3f2b6c0a954 1 6165 0 0
+/drupal/admin/structure/views/ajax/config-item/test/block/field/title 1 40161 0 0
+/drupal/admin/structure/types/manage/location/fields 3 112409 0 0
+/drupal/admin/structure/relation/manage/songeventregister/fields/field_status/widget-type 1 13969 0 0
+/drupal/admin/structure/entityform_types/manage/sign_up_for_a_song/fields/field_event 2 56013 0 0
+/drupal/admin/structure/menu/settings 1 12983 0 0
+/drupal/content/members 14 113136 1 0
+/drupal/admin/structure/views/ajax/display/registeropenevents/block/style_options 1 7847 0 0
+/drupal/admin/config/workflow/rules/schedule 1 13931 0 0
+/drupal/members 1 16211 0 0
+/drupal/admin/structure/types 6 78081 0 0
+/drupal/members/admin 1 77220 0 0
+/drupal/admin/structure/types/manage/event/fields/field_subscribe_song/delete 1 8991 0 0
+/drupal/admin/config/group/group-membership 4 107503 0 0
+/drupal/admin/structure/types/manage/event/fields/field_song 1 25911 0 0
+/drupal/admin/config/workflow/rules/reaction/add 4 74291 0 1
+/drupal/admin/structure/types/manage/location/fields/field_location_address 1 20939 0 0
+/drupal/relation/1/delete 1 14843 0 0
+/drupal/admin/structure/views/view/register_song/preview/block/ajax 1 6120 0 0
+/drupal/admin/structure/entityform_types/manage/sign_up_for_a_song/fields 14 570806 1 0
+/drupal/admin/structure/types/manage/event/fields/field_events_member_description 3 62606 0 0
+/drupal/admin/structure/entityform_types/manage/sign_up_for_a_song/fields/field_song/field-settings 3 67947 0 0
+/drupal/admin/structure/views/view/test/preview/page/ajax 1 16483 0 0
+/drupal/admin/structure/types/manage/event 11 257766 0 0
+/drupal/admin/structure/relation/manage/is_musician_in/fields/field_also_does_backing_vocals 2 40361 0 0
+/drupal/admin/config/group/fields 1 17600 0 1
+/drupal/authorize.php 12 31266 0 1
+/drupal/admin/structure/entityform_types/manage/sign_up_for_a_song 5 234372 0 0
+/drupal/js/admin_menu/cache/2ee8395e1d6db5268f51e4e01705153a 1 2584 0 0
+/drupal/js/admin_menu/cache/f1dff3862968a025047cf3e8c7cad163 1 4378 0 0
+/drupal/admin/structure/views/ajax/display/registeropenevents/page/exposed_form_options 1 10042 0 0
+/drupal/admin/structure/types/manage/event/fields/group_group/widget-type 1 13463 0 0
+/drupal/admin/structure/relation/1/fields 1 11436 0 0
+/drupal/token/tree 3 4053457 0 0
+/drupal/admin/config/group 1 10961 0 0
+/drupal/admin/structure/types/manage/song/fields 16 679848 0 0
+/drupal/admin/structure/types/manage/song/fields/field_media_url/widget-type 2 26850 0 0
+/drupal/js/admin_menu/cache/c8220397ab62ed38b9d04b2cb8c641a0 1 4201 0 0
+/drupal/admin/structure/relation/manage/songeventregister 3 77685 0 0
+/drupal/admin/structure/types/manage/song/fields/field_media_url 4 82159 0 0
+/drupal/admin/structure/entityform_types/manage/sign_up_for_a_song/fields/title_field/edit 1 21221 0 0
+/drupal/admin/structure/relation/manage/is_musician_in/fields/field_primary_instrument/field-settings 7 104136 0 0
+/drupal/admin/structure/block/list/bootstrap 3 171640 0 0
+/drupal/admin/structure/relation/manage/is_musician_in/edit 7 176105 0 0
+/drupal/js/admin_menu/cache/409f9b3c147353c07d5e51397f93333a 1 4228 0 0
+/drupal/signupsongstatus/suggested 1 17022 0 0
+/drupal/js/admin_menu/cache/d5822b21fb30a658a38456b4dc9b337a 1 4513 0 0
+/drupal/admin/config/workflow/rules/settings 2 81878 0 0
+/drupal/js/admin_menu/cache/62b1ae0dbf48843b41177ec73b2c1f14 1 4370 0 0
+/drupal/admin/structure/types/manage/ 1 13654 0 0
+/drupal/admin/structure/types/manage/song/fields/og_group_ref 1 28849 0 0
+/drupal/admin/config/people/accounts 1 37842 0 0
+/drupal/admin/appearance/settings/mws 1 23388 0 0
+/drupal/admin/structure/types/add 12 401643 0 0
+/drupal/admin/structure/relation/manage/songeventregister/fields/field_scheduled_start_time 2 75846 0 0
+/drupal/admin/structure/types/manage/event/fields/field_publish_public/widget-type 1 9535 0 0
+/drupal/admin/structure/block/manage/system/main/configure 1 19686 0 0
+/drupal/admin/structure/views/add 3 80288 0 0
+/drupal/admin/structure/types/manage/event/fields/field_event_date/field-settings 1 15866 0 0
+/drupal/js/admin_menu/cache/5b5efc584a7ad30c35a6c4cb0b990945 1 4374 0 0
+/drupal/admin/structure/views/ajax/add-item/register_song/block/filter 1 78602 0 0
+/drupal/admin/structure/types/manage/event/display 5 342637 0 0
+/drupal/js/admin_menu/cache/0e2dc8b6ef14e811e898c338088f3183 1 4209 0 0
+/drupal/js/admin_menu/cache/dc5c27a53f6ec251588d851fd7ae002e 1 2713 0 0
+/drupal/js/admin_menu/cache/87e11583d9546f0b849b00920ea28e1d 1 6148 0 0
+/drupal/admin/structure/views/ajax/add-item/test/block/field 2 132994 0 0
+/drupal/js/admin_menu/cache/9c7372fce067f49793c235e65b3cb9bf 1 2514 0 0
+/drupal/admin/structure/ds/fields/manage_ctools 1 12562 0 1
+/drupal/admin/structure/entityform_types/manage/sign_up_for_a_song/fields/field_song 3 84770 0 0
+/drupal/admin/structure/menu/manage/main-menu/edit 2 18664 0 0
+/drupal/js/admin_menu/cache/573d017e5faa8eb05afbe6b5ddc7da4b 1 4406 0 0
+/drupal/js/admin_menu/cache/5eab5fb279bcabb0c20d54cfd0f899ef 1 4885 0 0
+/drupal/node/add/song 1 22615 0 0
+/drupal/admin/structure/relation/manage/songeventregister/fields 6 238982 0 0
+/drupal/admin/structure/types/manage/event/fields/field_publish_public/field-settings 1 9899 0 0
+/drupal/user 18 157472 0 0
+/drupal/groups/songs/test-song-2-group-2 1 17834 0 0
+/drupal/admin/structure/ds/fields 2 15192 0 0
+/drupal/js/admin_menu/cache/2f45239f49f42f55683ea097755cb19a 2 12338 0 0
+/drupal/admin/structure/types/manage/song/fields/og_group_ref/delete 1 13068 0 0
+/drupal/admin/structure/block/demo/mws 1 12647 0 0
+/drupal/admin/structure/types/manage/song/fields/field_media_url/delete 1 13083 0 0
+/drupal/admin/structure/views/view/test/edit/block 1 37243 0 0
+/drupal/admin/structure/types/manage/event/fields/body 2 41642 0 0
+/drupal/admin/config/administration 3 27307 0 0
+/drupal/admin/structure/types/manage/song 5 146300 0 0
+/drupal/admin/appearance/install 3 25746 0 0
+/drupal/admin/structure/relation/edit/songeventregister 7 230551 0 0
+/drupal/admin/config/workflow/rules/components 1 14267 0 0
+/drupal/admin/structure/types/manage/song/fields/og_group_ref/widget-type 1 12198 0 0
+/drupal/admin/structure/relation/manage/is_musician_in/fields/field_is_song_owner/widget-type 2 27894 0 0
+/drupal/admin/structure/relation/manage/is_musician_in/fields/field_primary_instrument 6 123668 0 0
+/drupal/admin/structure/types/manage/location/fields/field_location_address/field-settings 1 14458 0 0
+/drupal/admin/structure/entityform_types/manage/sign_up_for_a_song/fields/title_field/field-settings 2 28216 0 0
+/drupal/admin/structure/views/view/registeropenevents/preview/page/ajax 5 69121 0 1
+/drupal/relation/1/edit 1 15013 0 0
+/drupal/events 13 142871 0 1
+/drupal/admin/structure/relation/manage/is_musician_in/fields/field_is_song_owner 3 104907 0 0
+/drupal/admin/people/permissions 7 3292855 0 0
+/drupal/admin/modules/install 12 959083 0 0
+/drupal/admin/structure/views/view/registeropenevents/edit/page 1 40036 0 0
+/drupal/admin/structure/views/ajax/config-item/test/block/filter/status 2 34195 0 0
+/drupal/admin/structure/block/manage/relation_add_block/block/configure 1 23084 0 0
+/drupal/admin/structure/types/manage/song/display 1 31602 0 0
+/drupal/js/admin_menu/cache/af67d25bdd6f27da924df76254202808 1 4376 0 0
+/drupal/admin/structure/menu/manage/main-menu 1 34199 0 0
+/drupal/admin/modules/list/confirm 3 28986 0 0
+/drupal/js/admin_menu/cache/a6f20503fe75acd38d6c228f6525e1da 1 4375 0 0
+/drupal/admin/structure/ds/view_modes/manage/event 1 11938 0 0
+/drupal/admin/structure/views/view/registeropenevents/preview/block/ajax 4 50544 0 0
+/drupal/admin/structure/views/view/register_song/edit/block 1 37801 0 0
+/drupal/admin/structure/views/view/registeropenevents/edit/block 2 83943 0 0
+/drupal/admin/structure/relation/manage/is_musician_in/fields/field_also_does_backing_vocals/field-settings 1 15112 0 0
+/drupal/admin/structure/types/manage/event/fields/field_event_date 2 61236 0 0
+/drupal/admin/structure/relation/1 1 11376 0 0
+/drupal/js/admin_menu/cache/4be552138773b2641926450aa648390c 1 2543 0 0
+/drupal/admin/structure/types/manage/event/fields/field_subscribe_song 1 21916 0 0
+/drupal/admin/structure/relation/manage/songeventregister/fields/field_scheduled_start_time/field-settings 2 39715 0 0
+/drupal/admin/structure/relation/manage/is_musician_in/fields/endpoints/widget-type 4 55079 0 0
+/drupal/admin/structure/entityform_types/manage/sign_up_for_a_song/fields/title_field/widget-type 1 13889 0 0
+/drupal/admin/structure/relation/manage/songeventregister/fields/field_status/field-settings 3 45393 0 0
+/drupal/registeropenevents 3 46513 0 0
+/drupal/admin/structure/views/ajax/config-item/test/block/field/ctools_dropdown 2 110627 0 0
+/drupal/js/admin_menu/cache/8c6dc3b80a2e84196ab7c92542b1adc0 2 9788 0 1
+/drupal/admin/structure/types/manage/event/fields/field_subscribe_song/field-settings 1 9782 0 0
+/drupal/overlay-ajax/page_bottom 2 2510 0 0
+/drupal/admin/config/group/group-membership/manage/musician 1 12775 0 0
+/drupal/members/akash 1 17117 0 0
+/drupal/node/14/edit 4 92055 0 0
+/drupal/js/admin_menu/cache/4c869dc2b7bd4a48a4e364230d72e257 1 4236 0 0
+/drupal/js/admin_menu/cache/39d2075732ebc05ac40f76347e257ccd 1 5504 0 0
+/drupal/admin/structure/entityform_types/manage/sign_up_for_a_song/fields/field_event/widget-type 2 28308 0 0
+/drupal/admin/reports/dblog 1 34412 0 0
+/drupal/relation/2 4 53638 0 0
+/drupal/js/admin_menu/cache/073bffe02283bb938af98591b41a9cb5 1 2545 0 0
+/drupal/admin/reports/entityforms 3 33752 1 0
+/drupal/admin/structure/views/ajax/display/registeropenevents/page/style_options 4 58793 0 0
+/drupal/admin/structure/types/manage/group/fields 2 93201 0 0
+/drupal/admin/structure/relation/manage/is_musician_in/fields/field_instrument/delete 1 13519 0 0
+/drupal/admin/structure/types/manage/song/fields/field_tablature 1 22443 0 0
+/drupal/admin/structure/relation/manage/is_musician_in/export 2 25536 0 0
+/drupal/node/7/edit 1 25433 0 0
+/drupal/admin/structure/types/manage/event/fields/field_event_doors_open 1 28510 0 0
+/drupal/admin/structure/types/manage/song/fields/body/field-settings 1 13239 0 0
+/drupal/admin/structure/views/view/test 1 36192 0 0
+/drupal/admin/structure/entityform_types/manage/sign_up_for_a_song/fields/field_event/field-settings 3 68032 0 0
+/drupal/admin/structure/relation/manage/songeventregister/fields/field_setlist_index 1 21292 0 0
+/drupal/admin/structure/views/ajax/config-item/registeropenevents/block/field/field_event_public 1 35131 0 0
+/drupal/admin/structure/views/add-template 1 7408 0 0
+/drupal/admin/config/group/group-membership/add 1 11779 0 0
+/drupal/admin/structure/types/manage/group 1 30105 0 0
+/drupal/admin/structure/relation/edit/is_musician_in 3 145562 0 0
+/drupal/admin/structure/entityform_types/manage/sign_up_for_a_song/fields/title_field 2 41498 0 0
+/drupal/js/admin_menu/cache/4e912970c313304a1b5ca31db00a070e 1 5473 0 0
+/drupal/admin/structure/block/manage/views/76dec720952735d3d87c8984138b3b5d/configure 1 21805 0 0
+/drupal/admin/config/content/entityform 1 27474 0 0
+/drupal/admin/structure/types/manage/event/fields/field_song/edit 1 26195 0 0
+/drupal/admin/structure/types/manage/song/comment/fields 1 41017 0 0
+/drupal/locations/hub 2 13104 0 0
+/drupal/admin/structure/views/ajax/display/registeropenevents/block/style_plugin 1 6512 0 0
+/drupal/js/admin_menu/cache/59c53e4fa1c2c63c1f4fed98e055151f 1 2544 0 0
+/drupal/relation/2/edit 2 40614 0 0
+/drupal/js/admin_menu/cache/1f1210cf715ef3b7e8728614393fd740 1 2721 0 0
+/drupal/admin/reports/entityforms/submissions/sign_up_for_a_song 2 33732 0 1
+/drupal/admin/structure/ds 8 110985 0 0
+/drupal/admin/structure/relation/manage/songeventregister/fields/field_scheduled_start_time/widget-type 1 14111 0 0
+/drupal/taxonomy/term/15/edit 4 58075 0 0
+/drupal/admin/structure/relation/manage/songeventregister/display 1 30103 0 0
+/drupal/node/add/event 1 39362 0 0
+/drupal/node/6/group 1 7462 0 0
+/drupal/admin/structure/ds/view_modes/manage/test 1 11932 0 0
+/drupal/admin/config/workflow/rules 6 126465 0 0
+/drupal/admin/structure/types/manage/location 1 29912 0 0
+/drupal/admin/structure/relation/manage/is_musician_in/fields/field_primary_instrument/widget-type 6 82305 0 0
+/drupal/admin/structure/relation/manage/is_musician_in/fields/endpoints 9 168936 0 0
+/drupal/js/admin_menu/cache/b93d07b0bcb3f1ce73feefd88b810931 1 5468 0 0
+/drupal/admin/structure/taxonomy 1 19056 0 0
+/drupal/js/admin_menu/cache/b3780c221a70903dd8781991927bf706 1 4392 0 0
+/drupal/admin/structure/taxonomy/signupsongstatus/add 6 101703 0 0
+/drupal/admin/structure/entityform_types/manage/sign_up_for_a_song/fields/title_field/delete 1 13558 0 0
+/drupal/admin/config 2 29317 0 0
+/drupal/admin/structure/views/view/register_song 1 36732 0 0
+/drupal/admin/structure/relation/manage/songeventregister/fields/field_status 3 61217 0 0
+/drupal/admin/appearance/settings 1 18905 0 0
+/drupal/js/admin_menu/cache/465a6a1a1b3f1d1897b94010d5d3687b 1 2720 0 0
+/drupal/admin/people 1 32755 0 0
+/drupal/js/admin_menu/cache/caca58c96ccf1c8c986982643a71eda0 2 9790 0 0
+/drupal/admin/structure/relation/manage/is_musician_in/fields/field_is_song_owner/field-settings 3 42522 1 0
+/drupal/admin/structure/relation/manage/is_musician_in/display 3 82704 0 0
+/drupal/admin/structure/entityform_types 9 116703 0 0
+/drupal/admin/structure/views/ajax/add-item/registeropenevents/block/field 2 150942 0 0
+END_SIDER

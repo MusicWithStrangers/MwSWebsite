@@ -1,0 +1,379 @@
+AWSTATS DATA FILE 7.7 (build 20180105)
+# If you remove this file, all statistics for date 201901 will be lost/reset.
+# Last config file used to build this data file was /etc/awstats/awstats.members.musicwithstrangers.com.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 28
+POS_GENERAL 2013                
+POS_TIME 2676                
+POS_VISITOR 7564                
+POS_DAY 7953                
+POS_DOMAIN 3254                
+POS_LOGIN 3487                
+POS_ROBOT 3642                
+POS_WORMS 3847                
+POS_EMAILSENDER 3978                
+POS_EMAILRECEIVER 4121                
+POS_SESSION 8110                
+POS_SIDER 8305                
+POS_FILETYPES 4256                
+POS_DOWNLOADS 4471                
+POS_OS 4519                
+POS_BROWSER 4624                
+POS_SCREENSIZE 4750                
+POS_UNKNOWNREFERER 4824                
+POS_UNKNOWNREFERERBROWSER 5014                
+POS_ORIGIN 5096                
+POS_SEREFERRALS 5234                
+POS_PAGEREFS 5378                
+POS_SEARCHWORDS 5553                
+POS_KEYWORDS 5705                
+POS_MISC 2339                
+POS_ERRORS 5764                
+POS_CLUSTER 3343                
+POS_SIDER_404 5924                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20190201020951 13 2044 4885284230455
+FirstTime 0
+LastTime 20190129143348
+LastUpdate 20190201030106 1 0 0 0 0
+TotalVisits 8                   
+TotalUnique 7                   
+MonthHostsKnown 0                   
+MonthHostsUnknown 7                   
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 19 0
+RealPlayerSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 0 0 0 0 0 0
+1 0 0 0 12 14 2964
+2 0 0 0 2 2 415
+3 2 2 174 0 4 854
+4 0 0 0 0 0 0
+5 0 0 0 4 4 830
+6 0 0 0 2 2 0
+7 0 0 0 0 0 0
+8 0 0 0 8 28 5861
+9 0 0 0 4 4 844
+10 0 0 0 4 4 830
+11 0 0 0 12 12 1711
+12 0 0 0 10 10 1259
+13 0 0 0 2 2 415
+14 25 52 1117257 81 87 43632
+15 0 0 0 2 2 0
+16 0 0 0 4 4 415
+17 386 1270 79856397 112 128 99338
+18 234 675 161050108 64 69 101129
+19 0 0 0 6 6 844
+20 0 0 0 12 28 5372
+21 0 0 0 2 2 415
+22 0 0 0 4 4 415
+23 0 0 0 2 2 415
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 1
+ip 647 1999 242023936
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 2
+Wget/ 68 0 20190131141507 0
+facebookexternalhit/ 2 1484 20190126171206 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 8
+css 819 2976738 0 0
+png 73 286625 0 0
+php 41 1158723 0 0
+html 54 757243 0 0
+js 453 3753848 0 0
+jpg 1 2641 0 0
+Unknown 552 233078772 0 0
+gif 6 9346 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 0
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 3
+Unknown 2 2
+win10 816 219
+win7 1181 426
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 4
+firefox65.0 15 11
+chrome71.0.3578.98 1945 620
+firefox64.0 37 14
+mozilla 2 2
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 1
+Mozilla/5.0_(compatible;_Let's_Encrypt_validation_server;__https://www.letsencrypt.org) 20190104033309
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 0
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 59 874
+From1 0 0
+From2 0 0
+From3 6 6
+From4 582 1119
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 0
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 1
+https://l.facebook.com 6 6
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 7
+403 102 70724
+413 3 1818
+503 8 2440
+302 148 2600
+500 8 51960
+301 4 873
+404 52 26713
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referrer
+BEGIN_SIDER_404 12
+/robots.txt 16 -
+/.git/config 6 -
+/adm_program/libs/bootstrap-datepicker/dist/locales/bootstrap-datepicker.en.min.js 2 https://members.musicwithstrangers.com/adm_program/modules/dates/dates.php
+/adm_plugins/login_form/login_form.css 4 https://members.musicwithstrangers.com/adm_program/modules/announcements/announcements.php
+/adm_program/libs/bootstrap/js/bootstrap.min.js 4 https://members.musicwithstrangers.com/adm_program/modules/announcements/announcements.php
+/adm_program/system/js/common_functions.js 2 https://members.musicwithstrangers.com/adm_program/modules/dates/dates.php
+/adm_program/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js 2 https://members.musicwithstrangers.com/adm_program/modules/dates/dates.php
+/drupal/room_reservations-rooms 2 -
+/adm_program/libs/jquery/jquery.min.js 4 https://members.musicwithstrangers.com/adm_program/modules/announcements/announcements.php
+/adm_themes/mws/css/admidio.css 4 https://members.musicwithstrangers.com/adm_program/modules/announcements/announcements.php
+/adm_program/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css 2 https://members.musicwithstrangers.com/adm_program/modules/dates/dates.php
+/adm_program/libs/bootstrap/css/bootstrap.min.css 4 https://members.musicwithstrangers.com/adm_program/modules/announcements/announcements.php
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 7
+108.171.129.188 318 848 53553924 20190126182902
+82.171.74.185 194 764 167691111 20190126181506
+108.171.128.188 106 331 18680043 20190126173047
+77.173.252.161 25 52 1117257 20190129143348
+80.254.150.67 2 2 981427 20190126173136
+2600:3000:2710:200::1e 1 1 87 20190104033309
+2600:3000:2710:200::1d 1 1 87 20190104033307
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 4
+20190104 2 2 174 2
+20190123 32 94 128808753 1
+20190126 588 1851 112097752 4
+20190129 25 52 1117257 1
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 6
+1h+ 1
+5mn-15mn 1
+30s-2mn 1
+15mn-30mn 1
+0s-30s 3
+30mn-1h 1
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 106
+/drupal/admin/modules 84 82423766 0 0
+/drupal/ 50 745499 4 0
+/drupal/admin/structure/menu/parents 22 7098 0 0
+/drupal/admin/people/permissions 20 11452306 1 2
+/drupal/admin/modules/uninstall 20 749344 0 0
+/drupal/node/add/room-reservations-room 18 416394 0 0
+/drupal/admin/modules/install 16 138518 0 0
+/drupal/admin/content 16 491727 0 0
+/drupal/node/add/room-reservations-category 16 331354 0 1
+/drupal/user 14 117672 0 0
+/drupal/admin/appearance/settings/bootstrap 2 122684 0 0
+/drupal/js/admin_menu/cache/f66a683e419fdc668a074fe3eb4cb622 2 10461 0 0
+/drupal/node/15/edit 8 174038 0 0
+/drupal/admin/structure/types/manage/rehearsal_room 2 65504 0 0
+/drupal/js/admin_menu/cache/b2cb755a7d31f22d6cbc09531926503c 2 11871 0 0
+/drupal/node/19 4 42116 0 0
+/drupal/node/16/edit 2 40116 0 0
+/drupal/room_reservations/list 4 37224 0 0
+/drupal/admin/modules/uninstall/confirm 8 61442 0 0
+/drupal/js/admin_menu/cache/b05f86708b1ccc88f9d349060cda9f25 2 10143 0 0
+/drupal/admin/config/system/room_reservations 12 204148 0 0
+/drupal/admin/appearance 4 64586 0 0
+/drupal/node/20 2 19850 0 0
+/drupal/admin/config/system/backup_migrate/export/advanced 4 127627529 0 1
+/drupal/admin/structure/block 2 127168 0 0
+/drupal/js/admin_menu/cache/1410404e3b36343e49b8b4aca089b5c9 2 10497 0 0
+/drupal/node/6/edit 2 78240 0 0
+/phpmyadmin/ 4 11744 0 0
+/drupal/admin/structure/views/view/room_reservations/preview/page_2/ajax 2 10559 0 0
+/drupal/js/admin_menu/cache/4e45627768dcb6dde228b4d623247c22 2 11577 0 0
+/drupal/room_reservations/policies 4 35644 0 0
+/drupal/admin/config/system/room_reservations/hours 14 965423 0 0
+/drupal/admin/config/system/room_reservations/page 10 231146 0 0
+/drupal/js/admin_menu/cache/58fc6282895480a36f554e17f5c34163 2 10485 0 0
+/drupal/admin/modules/list/confirm 6 47319 0 0
+/drupal/admin/structure/views/view/room_reservations/edit/page_1 2 81804 0 0
+/drupal/node/18 4 40644 0 0
+/drupal/admin/content/manage-reservations 12 126785 0 0
+/drupal/admin/config/administration/admin_menu 2 135288 0 0
+/phpmyadmin/js/messages.php 7 51797 0 1
+/drupal/admin/structure/views/view/room_reservations/preview/page_1/ajax 4 28242 0 0
+/drupal/js/admin_menu/cache/31041d05a3f1478a48c8825656341d31 2 10509 0 0
+/.well-known/acme-challenge/Ba5S6aFJZ_UosJ1A7lwo9S5Gn7-jeGPIl7qP0ImDwV8 1 87 1 1
+/drupal/js/admin_menu/cache/94cd92978678baff6202fc1715a561f4 2 10701 0 0
+/drupal/js/admin_menu/cache/f93946e677ee8ae080edbf3dfa08039f 4 20606 0 0
+/drupal/admin/structure/types/manage/room_reservations_category 4 132230 0 0
+/drupal/admin/structure/types/manage/room_reservations_room/fields 10 581749 0 0
+/drupal/system/ajax 4 92995 0 0
+/drupal/admin/structure/types/manage/room-reservations-room/fields 6 325417 0 0
+/drupal/admin/config/system/backup_migrate/restore 8 236982 0 0
+/drupal/admin/structure/types/manage/room-reservations-room/fields/reservations_room_category/delete 2 18710 0 0
+/drupal/admin/structure/types/manage/room-reservations-room/fields/reservations_room_capacity/delete 2 18710 0 0
+/drupal/content/members 4 27550 1 0
+/phpmyadmin/js/whitelist.php 7 3522 0 0
+/drupal/admin/structure/views/view/room_reservations/edit/page_2 2 83592 0 0
+/drupal/admin/structure/types/manage/room_reservations_room 8 238208 0 0
+/drupal/admin/structure/views/nojs/display/room_reservations/page_1/path 2 17610 0 0
+/drupal/members 2 24213 0 1
+/drupal/js/admin_menu/cache/9422fe1968f529ac7e04a5529469d7de 2 11913 0 0
+/drupal/node/20/edit 2 48201 0 0
+/drupal/node/20/delete 2 15933 0 0
+/drupal/js/admin_menu/cache/9ff72afd84e791c6126311a4fb80a88a 2 11023 0 0
+/drupal/node/add 4 36008 0 0
+/phpmyadmin/phpmyadmin.css.php 3 64242 0 0
+/drupal/node/7/edit 2 46938 0 0
+/drupal/user/44/edit 6 518499 0 0
+/drupal/js/admin_menu/cache/bf105e9f470a54aff3d1dedee97d49b9 2 11763 0 0
+/drupal/js/admin_menu/cache/142bfdc4402c3dca123fd90f04bc8f64 2 10719 0 0
+/drupal/js/admin_menu/cache/05058197d076762c2ca964dac60221be 4 23638 0 0
+/drupal/js/admin_menu/cache/3e277d0bbec749a14617aea5de226ae2 2 11671 0 0
+/drupal/authorize.php 6 15753 0 0
+/drupal/js/admin_menu/cache/bd3941f0eb5c02d19c63590a0901c09b 2 11779 0 0
+/drupal/admin/config/system/backup_migrate 10 1343024 0 0
+/drupal/admin/structure/views/view/room_reservations 2 212281 0 0
+/drupal/js/admin_menu/cache/e475153ec962e088043bb30c831f355b 6 35625 0 0
+/drupal/room_reservations/rooms 6 62250 0 0
+/drupal/admin/structure/views/ajax/edit-details/room_reservations 2 7858 0 0
+/drupal/js/admin_menu/cache/6e6d77c3bab5672847046277db9dd532 4 20922 0 0
+/drupal/content/hub 2 19492 0 0
+/drupal/admin/structure/types/manage/room_reservations_reservation/fields 2 120618 0 0
+/drupal/node/16 6 58970 0 0
+/.well-known/acme-challenge/OrdVfgOiX1JF8pI5KUGNPtX0_1KxYyn1PwssObVkz0Y 1 87 1 1
+/drupal/js/admin_menu/cache/2dbf20f7e6f72c97b09fd93b46af43c9 2 10249 0 0
+/drupal/user/44 10 546572 0 0
+/drupal/js/admin_menu/cache/289fae5c58984a08ac3fd0630c3c86e5 2 11571 0 0
+/drupal/admin/config/system/room_reservations/hours/daily_hours 2 548627 0 0
+/drupal/events/test-event-1 4 82660 0 0
+/drupal/admin/config/system/backup_migrate/backups 2 26474 0 0
+/drupal/js/admin_menu/cache/7389336d875e0b5757580c30b28d87dd 2 11669 0 0
+/drupal/node/17 2 21328 0 0
+/phpmyadmin/js/get_scripts.js.php 9 1000196 0 0
+/drupal/js/admin_menu/cache/5d829c267553c3f57268b2ece1ae1bda 2 10693 0 0
+/phpmyadmin/js/get_image.js.php 3 5511 0 0
+/drupal/admin/structure/views/ajax/display/room_reservations/page_1/path 2 5088 0 0
+/drupal/js/admin_menu/cache/07adee0f4df83fb121ab6b3eb9055cd4 2 10297 0 0
+/drupal/admin/structure/types/manage/room_reservations_reservation 4 110428 0 0
+/drupal/node/add/rehearsal-room 2 33002 0 0
+/drupal/js/admin_menu/cache/3fa02ceeff4031822b4efc06642aac79 2 10473 0 0
+/drupal/admin/appearance/settings 2 30640 0 0
+/drupal/js/admin_menu/cache/c876bbb931be8f61fa45309cc5f6d360 2 11843 0 0
+/drupal/admin/people 2 65506 0 0
+/drupal/admin/structure/block/list/mws 4 392099 0 0
+/drupal/js/admin_menu/cache/5a282b3fc2b4fd50a0a52d7238aaedb6 2 11807 0 0
+/phpmyadmin/index.php 6 17702 0 0
+/drupal/node/15 8 76832 0 0
+/drupal/js/admin_menu/cache/b44613f63c18bf3ff5e3020ee3af173a 2 11121 0 0
+END_SIDER

@@ -1,0 +1,1 @@
+[2020-01-19 16:44:35.885229] Admidio.WARNING: XML-Update file not found! {"filePath":"M:\\wamp64\\www/adm_program/installation/db_scripts/update_3_3.xml"} {"file":"M:\\wamp64\\www\\adm_program\\system\\classes\\ComponentUpdate.php","line":77,"class":"ComponentUpdate","function":"getXmlObject"}

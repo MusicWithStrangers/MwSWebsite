@@ -1,0 +1,394 @@
+AWSTATS DATA FILE 7.7 (build 20180105)
+# If you remove this file, all statistics for date 201912 will be lost/reset.
+# Last config file used to build this data file was /etc/awstats/awstats.members.musicwithstrangers.com.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 28
+POS_GENERAL 2013                
+POS_TIME 2683                
+POS_VISITOR 7334                
+POS_DAY 8389                
+POS_DOMAIN 3310                
+POS_LOGIN 3543                
+POS_ROBOT 3698                
+POS_WORMS 4028                
+POS_EMAILSENDER 4159                
+POS_EMAILRECEIVER 4302                
+POS_SESSION 8641                
+POS_SIDER 8815                
+POS_FILETYPES 4437                
+POS_DOWNLOADS 4717                
+POS_OS 4765                
+POS_BROWSER 4911                
+POS_SCREENSIZE 5178                
+POS_UNKNOWNREFERER 5252                
+POS_UNKNOWNREFERERBROWSER 5442                
+POS_ORIGIN 5524                
+POS_SEREFERRALS 5662                
+POS_PAGEREFS 5806                
+POS_SEARCHWORDS 5954                
+POS_KEYWORDS 6106                
+POS_MISC 2347                
+POS_ERRORS 6165                
+POS_CLUSTER 3399                
+POS_SIDER_404 6332                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20191218185653 506 170155 21456003604316
+FirstTime 0
+LastTime 20191218185653
+LastUpdate 20191218190107 454 0 454 0 0
+TotalVisits 26                  
+TotalUnique 19                  
+MonthHostsKnown 0                   
+MonthHostsUnknown 21                  
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 4 0
+RealPlayerSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 0 0 0 0 0 0
+1 0 0 0 0 0 0
+2 0 0 0 0 0 0
+3 8 8 696 2 2 884
+4 2 20 633561 2 2 0
+5 0 0 0 0 0 0
+6 4 4 1768 0 0 0
+7 8 52 1297630 6 8 644
+8 12 31 485913 0 2 0
+9 2 2 884 26 26 5668
+10 2 2 884 30 30 6758
+11 4 4 32186 30 30 6106
+12 8 26 634445 2 2 0
+13 0 0 0 2 2 884
+14 0 0 0 40 40 2990
+15 0 0 0 2 2 872
+16 2 25 651685 2 2 0
+17 14 51 465099 4 4 0
+18 395 420 13564201 67 115 13718
+19 335 463 13689018 43 107 39132
+20 321 335 11446887 97 159 609579
+21 8 69 186189 134 140 223442
+22 0 0 0 0 0 0
+23 0 0 0 0 0 0
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 1
+ip 1125 1512 43091046
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 5
+CFNetwork 56 591635 20191216203621 0
+Wget/ 30 0 20191217141512 0
+bot[\s_+:,\.\;\/\\-] 8 3536 20191213134042 0
+netcraft 6 2616 20191205103803 0
+(firefox/)([0-9]\.|[0-1][0]\.) 4 5660 20191216192908 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 12
+css 58 1367700 0 0
+png 277 444841 0 0
+ttf 2 284144 0 0
+lang 2 1618 0 0
+woff 2 167176 0 0
+woff2 8 338608 0 0
+php 1065 34898874 0 0
+html 38 234360 0 0
+jpg 4 601380 0 0
+js 47 4751591 0 0
+Unknown 8 696 0 0
+gif 1 58 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 0
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS ID - Hits - Pages 6
+ios_iphone 67 30
+macosx10 4 4
+Unknown 8 8
+win10 1392 1063
+linux 10 10
+win7 31 10
+END_OS
+
+# Browser ID - Hits - Pages
+BEGIN_BROWSER 11
+firefox61.0 54 12
+firefox62.0 2 2
+chrome74.0.3729.131 2 2
+mozilla 8 8
+safari12.0 42 28
+chrome40.0.2214.85 8 8
+chrome79.0.3945.79 563 496
+chrome39.0.2171.95 4 4
+chrome78.0.3904.108 796 555
+firefox58.0 8 8
+safari 25 2
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 1
+Mozilla/5.0_(compatible;_Let's_Encrypt_validation_server;__https://www.letsencrypt.org) 20191202031016
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 0
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 64 68
+From1 0 0
+From2 0 0
+From3 0 0
+From4 1061 1444
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 0
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 0
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 8
+403 18 3702
+503 3 897
+303 118 0
+302 54 2592
+499 5 0
+500 108 207514
+404 242 62340
+504 3 561
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referrer
+BEGIN_SIDER_404 28
+/store/ 2 -
+/back/ 4 -
+/wordpress/ 4 -
+/adm_program/libs/bootstrap-datepicker/dist/locales/bootstrap-datepicker.en.min.js 164 https://members.musicwithstrangers.com/adm_program/modules/lists/lists_show.php
+/adm_program/index_guest.php 2 https://members.musicwithstrangers.com/adm_program/system/logout.php
+/store/admin/ 2 -
+/shop/admin/ 2 -
+/new/ 4 -
+/magento/pub/errors/503.php 2 -
+/shop/ 2 -
+/2018/ 4 -
+/2017/ 4 -
+/backup/ 4 -
+/magento2/ 2 -
+/blog/ 4 -
+/temp/ 4 -
+/magento2/pub/errors/503.php 2 -
+/oldsite/ 4 -
+/magento2/admin/ 2 -
+/magento/ 2 -
+/store/pub/errors/503.php 2 -
+/wp/ 4 -
+/div/ 4 -
+/old/ 4 -
+/pub/errors/503.php 2 -
+/shop/pub/errors/503.php 2 -
+/magento/admin/ 2 -
+/admin/ 2 -
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 21
+145.130.103.201 1075 1363 40034381 20191218185653 20191218182839 /adm_program/modules/messages/messages_write.php
+108.171.129.189 12 54 1137295 20191217082241
+62.4.14.198 4 4 1768 20191204070342
+78.153.199.13 4 4 1768 20191216105408
+2001:4ca0:108:42::5 4 4 0 20191210123428
+62.4.14.206 4 4 1768 20191204065638
+138.246.253.5 4 4 0 20191207122719
+13.115.222.116 2 2 884 20191205124426
+62.253.3.70 2 20 633561 20191218122751
+66.102.8.13 2 6 355506 20191217072829
+2600:1f16:269:da00:4ec6:1cf7:34d5:6263 1 1 87 20191202031016
+2600:1f16:269:da01:4e9f:c9d7:3ffe:6166 1 1 87 20191202031011
+2600:3000:2710:200::1d 1 1 87 20191202031013
+66.102.8.15 0 10 101307 
+2600:3000:2710:200::1e 1 1 87 20191202031016
+195.121.71.69 2 20 633561 20191218042216
+66.102.8.11 0 7 187667 
+2600:1f14:804:fd00:312d:4aad:dca:87f1 1 1 87 20191202031016
+2a05:d014:3ad:702:b5ae:ea8c:29d5:5f5f 2 2 174 20191202031016
+185.230.125.90 2 2 884 20191214114151
+2600:1f14:804:fd02:1be3:bfea:ffcc:a21f 1 1 87 20191202031011
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 9
+20191202 8 8 696 7
+20191204 10 10 3536 3
+20191205 2 2 884 1
+20191207 2 2 0 1
+20191210 4 4 0 2
+20191214 2 2 884 1
+20191216 581 779 21890145 3
+20191217 165 312 7414752 4
+20191218 351 393 13780149 4
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 4
+1h+ 2
+5mn-15mn 1
+0s-30s 21
+30mn-1h 1
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 71
+/adm_program/modules/menu/menu.php 82 3915294 1 0
+/adm_program/libs/securimage/securimage_show.php 72 366156 0 1
+/adm_program/modules/menu/menu_new.php 68 2416038 0 0
+/adm_program/modules/dates/dates.php 56 1633008 0 0
+/adm_program/modules/preferences/preferences.php 54 7823498 0 0
+/adm_program/modules/preferences/fields.php 54 3662322 0 0
+/adm_program/index.php 50 1322141 5 4
+/adm_program/modules/preferences/fields_function.php 46 482864 0 0
+/adm_program/modules/preferences/fields_new.php 40 1226934 0 0
+/gzip_loader.php 36 1028578 0 0
+/ 34 225720 11 10
+//templates/base/fonts/fontawesome-webfont.ttf 2 284144 0 0
+/adm_program/modules/downloads/downloads.php 6 126850 0 0
+/adm_program/modules/downloads/folder_config.php 2 52562 0 0
+/adm_program/system/msg_window.php 2 7386 0 0
+/adm_program/modules/messages/messages_write.php 6 139020 0 0
+/adm_program/modules/categories/categories_new.php 18 431504 0 0
+/adm_program/modules/userrelations/relationtypes.php 8 202452 0 0
+/adm_program/modules/guestbook/guestbook_comment_new.php 2 42650 0 0
+/adm_program/system/login.php 12 197784 1 1
+/adm_program/modules/lists/lists_show.php 18 574732 0 0
+/adm_program/modules/links/links.php 2 41776 0 0
+/adm_program/modules/profile/profile_save.php 8 89572 0 0
+/adm_program/modules/registration/registration_function.php 6 482 0 0
+/adm_program/modules/members/members.php 14 381006 0 0
+/adm_program/system/login_check.php 10 108628 1 0
+/adm_program/modules/rooms/rooms.php 6 147232 0 0
+/browse.php 2 124566 0 0
+/adm_program/modules/preferences/preferences_function.php 18 126 0 0
+/adm_program/libs/datatables/language/datatables.en.lang 2 1618 0 0
+/adm_program/modules/profile/profile_photo_show.php 16 32800 0 0
+/adm_program/modules/rooms/rooms_function.php 2 8 0 0
+/adm_program/modules/lists/members_assignment.php 2 57890 0 0
+/adm_program/modules/members/members_data.php 14 20634 0 0
+/adm_program/modules/guestbook/guestbook_function.php 2 8 0 0
+/adm_program/modules/userrelations/relationtypes_function.php 10 40 0 0
+/adm_program/modules/lists/lists.php 18 690958 0 0
+/adm_program/modules/rooms/rooms_new.php 2 49066 0 0
+/mail.php 2 127178 0 0
+/adm_program/modules/registration/registration.php 10 211412 0 0
+/adm_program/modules/lists/members_assignment_data.php 2 1674 0 0
+/adm_program/modules/roles/roles_new.php 22 958028 0 0
+/adm_program/modules/lists/mylist.php 14 712754 0 0
+/adm_program/modules/profile/profile_new.php 14 404520 0 0
+/adm_program/modules/dates/dates_new.php 14 636286 0 0
+/adm_program/modules/photos/photos.php 2 34352 0 0
+/adm_program/modules/dates/popup_participation.php 2 6372 0 0
+/adm_program/modules/profile/profile.php 16 723198 0 0
+/adm_program/modules/guestbook/guestbook_new.php 4 86466 0 0
+//templates/base/fonts/fontawesome-webfont.woff 2 167176 0 0
+/adm_program/modules/categories/categories.php 24 683108 0 0
+/adm_program/modules/categories/categories_function.php 2 8 0 0
+/.well-known/acme-challenge/FQBCXq9GuCsUBUPD0JvJrLVdH0QWbTLpbr_3CLVEv5g 4 348 3 4
+/adm_program/system/popup_message.php 32 43302 0 0
+/administration/ 4 8640 0 0
+/adm_program/system/logout.php 7 78914 0 1
+/member.php 20 258278 0 0
+/.well-known/acme-challenge/0V6yhKXEGPavgRcQJFAcdQAiIJ7RnBa18IeCvPiuoh8 4 348 4 3
+/adm_program/modules/menu/menu_function.php 18 0 0 0
+/adm_program/modules/roles/roles.php 30 1372543 0 0
+/adm_program/modules/announcements/announcements.php 10 214066 0 1
+/adm_program/modules/roles/roles_function.php 16 226028 0 0
+/adm_program/modules/guestbook/guestbook.php 12 268394 0 0
+//templates/base/fonts/fontawesome-webfont.woff2 4 266496 0 0
+/adm_program/modules/members/profile_field_history.php 2 27816 0 0
+/adm_program/modules/messages/messages.php 2 44610 0 0
+/index.php 2 108774 0 0
+/adm_program/libs/bootstrap/fonts/glyphicons-halflings-regular.woff2 4 72112 0 0
+/adm_program/modules/userrelations/relationtypes_new.php 4 115776 0 0
+/get_rss_feed.php 10 156540 0 0
+/member_menu_queries.php 8 1912 0 0
+END_SIDER

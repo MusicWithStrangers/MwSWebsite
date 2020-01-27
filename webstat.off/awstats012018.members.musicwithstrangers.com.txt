@@ -1,0 +1,309 @@
+AWSTATS DATA FILE 7.0 (build 1.971)
+# If you remove this file, all statistics for date 201801 will be lost/reset.
+# Last config file used to build this data file was /etc/awstats/awstats.members.musicwithstrangers.com.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 27
+POS_GENERAL 2010                
+POS_TIME 2669                
+POS_VISITOR 6874                
+POS_DAY 7542                
+POS_DOMAIN 3303                
+POS_LOGIN 3533                
+POS_ROBOT 3688                
+POS_WORMS 3974                
+POS_EMAILSENDER 4105                
+POS_EMAILRECEIVER 4248                
+POS_SESSION 7826                
+POS_SIDER 7993                
+POS_FILETYPES 4383                
+POS_DOWNLOADS 4573                
+POS_OS 4621                
+POS_BROWSER 4724                
+POS_SCREENSIZE 4962                
+POS_UNKNOWNREFERER 5036                
+POS_UNKNOWNREFERERBROWSER 5277                
+POS_ORIGIN 5359                
+POS_SEREFERRALS 5496                
+POS_PAGEREFS 5640                
+POS_SEARCHWORDS 5831                
+POS_KEYWORDS 5983                
+POS_MISC 2333                
+POS_ERRORS 6042                
+POS_CLUSTER 3389                
+POS_SIDER_404 6178                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20180201042403 1 0 11697856389851
+FirstTime 0
+LastTime 20180121230229
+LastUpdate 20180201050109 1 0 0 0 0
+TotalVisits 14                  
+TotalUnique 14                  
+MonthHostsKnown 0                   
+MonthHostsUnknown 15                  
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 4 0
+RealPlayerSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 0 0 0 0 3 8685
+1 0 0 0 2 6 39143
+2 0 0 0 3 7 35261
+3 0 0 0 0 5 2807
+4 0 0 0 2 10 22455
+5 1 1 19375 3 30 1191223
+6 0 0 0 3 16 239167
+7 0 0 0 0 3 1211
+8 0 0 0 2 10 177418
+9 2 2 174 0 4 138957
+10 1 1 19375 3 6 1758
+11 1 1 19375 1 5 2702
+12 0 0 0 28 33 298074
+13 0 0 0 2 6 39082
+14 0 0 0 31 32 9358
+15 230 230 2190749 4 5 640
+16 5 44 116415 4 5 47960
+17 0 0 0 4 10 194909
+18 0 0 0 2 4 37778
+19 1 1 19375 1 1 0
+20 1 1 19375 1 1 0
+21 10 45 1397598 6 15 44516
+22 12 52 453371 6 15 52830
+23 6 53 929501 2 12 7707
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 1
+ip 270 431 5184683
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 4
+bot[\s_+:,\.\;\/\\-] 85 1616360 20180131081617 0
+wget 27 0 20180131141502 0
+no_user_agent 25 261697 20180120125303 0
+googlebot 19 673897 20180125120008 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 7
+css 60 601532 0 0
+php 246 2519052 0 0
+png 60 81016 0 0
+html 5 61682 0 0
+js 40 1532827 0 0
+Unknown 19 388217 0 0
+svg 1 357 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 0
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS 6
+macosx 293
+linuxandroid 2
+winnt 44
+Unknown 6
+winvista 1
+win7 85
+END_OS
+
+# Browser ID - Hits
+BEGIN_BROWSER 11
+firefox50.0 1
+firefox57.0 25
+safari11.0 22
+mozilla 12
+chrome34.0.1847.114 2
+safari5.1 1
+chrome4.0.212.1 226
+chrome41.0.2226.0 1
+chrome63.0.3239.132 96
+firefox58.0 44
+chrome62.0.3202.94 1
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 2
+Mozilla/5.0_(compatible;_Let's_Encrypt_validation_server;__https://www.letsencrypt.org) 20180117094520
+Mozilla/5.0_(compatible;_ips-agent) 20180102154124
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 0
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 251 292
+From1 0 0
+From2 0 0
+From3 3 3
+From4 16 136
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 0
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 1
+https://musicwithstrangers.com/events/ 3 3
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 6
+501 1 336
+302 4 0
+303 23 0
+301 2 696
+504 4 1380
+404 50 15617
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referer
+BEGIN_SIDER_404 6
+/robots.txt 39 -
+/license.txt 1 http://members.musicwithstrangers.com/license.txt
+/.git/config 2 -
+/README.txt 1 http://members.musicwithstrangers.com/README.txt
+/readme.html 1 http://members.musicwithstrangers.com/readme.html
+/adm_program/libs/bootstrap-datepicker/dist/locales/bootstrap-datepicker.en.min.js 6 https://members.musicwithstrangers.com/adm_program/modules/dates/dates.php
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 15
+185.222.211.54 226 226 2104026 20180113150215
+45.74.46.18 12 52 453371 20180110223414
+92.108.132.108 9 44 1378223 20180120213701
+77.173.252.161 5 44 116415 20180110161541
+145.130.103.201 5 22 329767 20180110231036
+69.58.178.56 4 4 86723 20180102154124
+66.133.109.36 2 2 174 20180117094520
+38.130.177.183 1 1 19375 20180117110450
+5.135.139.53 1 1 19375 20180111052852
+163.172.255.16 1 1 19375 20180112211607
+121.147.42.186 1 1 19375 20180114102019
+34.243.30.179 1 1 19375 20180102193505
+131.253.25.151 0 6 277703 
+211.115.79.122 1 1 19375 20180102200925
+104.250.188.14 1 25 322031 20180121230229
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 10
+20180102 6 6 125473 3
+20180103 0 6 277703 0
+20180110 22 118 899553 3
+20180111 1 1 19375 1
+20180112 1 1 19375 1
+20180113 226 226 2104026 1
+20180114 1 1 19375 1
+20180117 3 3 19549 2
+20180120 9 44 1378223 1
+20180121 1 25 322031 1
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 3
+5mn-15mn 1
+30s-2mn 4
+0s-30s 9
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 20
+/adm_program/modules/dates/dates.php 226 2104026 1 1
+/adm_program/index.php 11 213125 9 7
+/drupal/ 5 61682 2 0
+/drupal/events 3 85633 0 0
+/adm_program/system/login.php 3 46867 0 0
+/drupal/content/welcome 3 37844 0 0
+/adm_program/modules/profile/profile_new.php 3 111451 0 0
+/drupal/groups 3 43184 0 2
+/drupal/calendar 2 114003 0 0
+/adm_program/modules/links/links.php 1 14048 0 0
+/drupal/calendar/2018-02 1 56055 0 0
+/drupal/js/admin_menu/cache/a634ca26a08da57e6f696ea37d4bfcfc 1 5034 0 0
+/drupal/members 1 22827 0 1
+/.well-known/acme-challenge/t7PjTwCQwV5u33jpKtgyzGVGmV5NyAsy3GI0EjpXB30 1 87 0 1
+/drupal/js/admin_menu/cache/d422cb98f59fc85479f92a61b1b7c324 1 5041 1 0
+/drupal/node/7/edit 1 17555 0 0
+/adm_program/system/lost_password.php 1 14984 0 1
+/adm_program/modules/announcements/announcements.php 1 14551 0 1
+/.well-known/acme-challenge/7293HbZ3d-5eUGmSA31yKyRCIXbIqK6PDntPtgHW698 1 87 1 0
+/drupal/js/admin_menu/cache/85ba42efcd311db0ca000d8692afe6a8 1 867 0 0
+END_SIDER

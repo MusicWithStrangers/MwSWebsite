@@ -1,0 +1,7 @@
+AuthType Basic
+AuthName "/www/members.musicwithstrangers.com/webstat"
+AuthUserFile /var/www/qb402259/data/etc/10229460.passwd
+DirectoryIndex index.html
+<Limit GET POST>
+	require valid-user
+</Limit>

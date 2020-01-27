@@ -1,0 +1,282 @@
+AWSTATS DATA FILE 7.0 (build 1.971)
+# If you remove this file, all statistics for date 201812 will be lost/reset.
+# Last config file used to build this data file was /etc/awstats/awstats.members.musicwithstrangers.com.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 27
+POS_GENERAL 2010                
+POS_TIME 2669                
+POS_VISITOR 7272                
+POS_DAY 7470                
+POS_DOMAIN 3226                
+POS_LOGIN 3455                
+POS_ROBOT 3610                
+POS_WORMS 3804                
+POS_EMAILSENDER 3935                
+POS_EMAILRECEIVER 4078                
+POS_SESSION 7596                
+POS_SIDER 7764                
+POS_FILETYPES 4213                
+POS_DOWNLOADS 4399                
+POS_OS 4447                
+POS_BROWSER 4514                
+POS_SCREENSIZE 4612                
+POS_UNKNOWNREFERER 4686                
+POS_UNKNOWNREFERERBROWSER 4773                
+POS_ORIGIN 4855                
+POS_SEREFERRALS 4989                
+POS_PAGEREFS 5133                
+POS_SEARCHWORDS 5281                
+POS_KEYWORDS 5433                
+POS_MISC 2333                
+POS_ERRORS 5492                
+POS_CLUSTER 3311                
+POS_SIDER_404 5640                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20190101094519 1 0 15058529519508
+FirstTime 0
+LastTime 20181219225322
+LastUpdate 20190101100108 1 0 0 0 0
+TotalVisits 4                   
+TotalUnique 3                   
+MonthHostsKnown 0                   
+MonthHostsUnknown 3                   
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 5 0
+RealPlayerSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 0 0 0 3 5 11946
+1 0 0 0 0 0 0
+2 0 0 0 0 0 0
+3 0 0 0 3 5 5032
+4 0 0 0 5 5 15428
+5 0 0 0 1 1 0
+6 0 0 0 0 0 0
+7 0 0 0 3 4 4522
+8 0 0 0 2 2 3780
+9 0 0 0 0 0 0
+10 0 1 1797 2 5 4386
+11 0 0 0 0 0 0
+12 0 0 0 4 5 4707
+13 0 0 0 2 12 10979
+14 0 0 0 32 36 30473
+15 0 0 0 2 2 4110
+16 0 0 0 0 0 0
+17 0 0 0 1 3 606
+18 0 0 0 2 2 7560
+19 0 0 0 1 1 3780
+20 0 0 0 1 1 0
+21 9 52 493449 8 12 9168
+22 2 2 17872 1 1 3780
+23 27 164 5360499 25 33 93078
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 1
+ip 38 219 5873617
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 2
+wget 28 0 20181231141502 0
+facebook 13 76550 20181231140237 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 7
+css 112 324790 0 0
+png 21 9011 0 0
+html 6 90502 0 0
+js 44 625052 0 0
+jpg 1 2641 0 0
+Unknown 32 4816230 0 0
+gif 3 5391 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 0
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS 3
+macosx 33
+winnt 164
+win7 22
+END_OS
+
+# Browser ID - Hits
+BEGIN_BROWSER 3
+chrome71.0.3578.98 22
+firefox64.0 164
+safari 33
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 0
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 0
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 6 18
+From1 0 0
+From2 0 0
+From3 0 0
+From4 32 201
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 0
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 0
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 7
+403 41 115928
+302 8 0
+206 1 742
+500 5 0
+504 3 1035
+301 2 696
+404 26 8354
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referer
+BEGIN_SIDER_404 14
+/connectors/system/phpthumb.php 2 -
+/robots.txt 12 -
+/adm_program/system/lost_password.php 1 -
+/adm_program/libs/bootstrap-datepicker/dist/locales/bootstrap-datepicker.en.min.js 1 https://members.musicwithstrangers.com/adm_program/modules/dates/dates.php
+/adm_program/index.php 1 -
+/adm_plugins/login_form/login_form.css 1 https://members.musicwithstrangers.com/adm_program/modules/dates/dates.php
+/adm_program/libs/bootstrap/js/bootstrap.min.js 1 https://members.musicwithstrangers.com/adm_program/modules/dates/dates.php
+/adm_program/system/js/common_functions.js 1 https://members.musicwithstrangers.com/adm_program/modules/dates/dates.php
+/adm_program/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js 1 https://members.musicwithstrangers.com/adm_program/modules/dates/dates.php
+/adm_themes/mws/css/admidio.css 1 https://members.musicwithstrangers.com/adm_program/modules/dates/dates.php
+/adm_program/libs/jquery/jquery.min.js 1 https://members.musicwithstrangers.com/adm_program/modules/dates/dates.php
+/adm_program/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css 1 https://members.musicwithstrangers.com/adm_program/modules/dates/dates.php
+/adm_themes/mws 1 -
+/adm_program/libs/bootstrap/css/bootstrap.min.css 1 https://members.musicwithstrangers.com/adm_program/modules/dates/dates.php
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 3
+86.95.188.69 27 164 5360499 20181211235612
+145.130.103.201 8 33 322910 20181219225322
+95.174.67.43 3 22 190208 20181219212933
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 3
+20181211 27 164 5360499 1
+20181219 11 54 511321 3
+20181230 0 1 1797 0
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 3
+0s-30s 2
+15mn-30mn 1
+30s-2mn 1
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 19
+/drupal/user 5 45723 1 0
+/drupal/admin/modules 5 4418940 0 0
+/drupal/ 4 31860 3 0
+/drupal/admin/people/create 3 43090 0 0
+/drupal/admin/config/system/backup_migrate 3 39230 0 1
+/drupal/content/members 2 13756 0 0
+/drupal/events 2 15554 0 1
+/drupal/admin/config/system/backup_migrate/schedule 2 20121 0 0
+/drupal/admin/people/ 2 58642 0 0
+/drupal/members/sjaak 1 65064 0 1
+/drupal/admin/reports/dblog 1 28417 0 0
+/drupal/members/admin 1 66399 0 0
+/drupal/js/admin_menu/cache/ebaee13def6a1d8c0f523fe1d0fc420e 1 5408 0 0
+/drupal/js/admin_menu/cache/0f52cb7492470a06754ea1d4b1cc1a7e 1 5602 0 0
+/drupal/admin/reports/status 1 15815 0 0
+/drupal/admin/config/system/backup_migrate/schedule/edit/daily_backup_db_ 1 17206 0 0
+/drupal/js/admin_menu/cache/2d16329fec9de89183c659a8a6e11e74 1 5345 0 0
+/drupal/js/admin_menu/cache/3fc548d79f432376d84ae5fd7eff6080 1 5423 0 0
+/drupal/js/admin_menu/cache/99ad4a2eb9df7192bbe95e3b3e14854d 1 5137 0 1
+END_SIDER

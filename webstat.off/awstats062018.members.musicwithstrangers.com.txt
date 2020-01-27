@@ -1,0 +1,426 @@
+AWSTATS DATA FILE 7.0 (build 1.971)
+# If you remove this file, all statistics for date 201806 will be lost/reset.
+# Last config file used to build this data file was /etc/awstats/awstats.members.musicwithstrangers.com.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 27
+POS_GENERAL 2010                
+POS_TIME 2670                
+POS_VISITOR 8479                
+POS_DAY 8817                
+POS_DOMAIN 3284                
+POS_LOGIN 3515                
+POS_ROBOT 3670                
+POS_WORMS 3864                
+POS_EMAILSENDER 3995                
+POS_EMAILRECEIVER 4138                
+POS_SESSION 8951                
+POS_SIDER 9113                
+POS_FILETYPES 4273                
+POS_DOWNLOADS 4480                
+POS_OS 4528                
+POS_BROWSER 4605                
+POS_SCREENSIZE 4738                
+POS_UNKNOWNREFERER 4812                
+POS_UNKNOWNREFERERBROWSER 4899                
+POS_ORIGIN 4981                
+POS_SEREFERRALS 5118                
+POS_PAGEREFS 5273                
+POS_SEARCHWORDS 5421                
+POS_KEYWORDS 5573                
+POS_MISC 2333                
+POS_ERRORS 5632                
+POS_CLUSTER 3371                
+POS_SIDER_404 5773                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20180701091254 1 0 11824795657856
+FirstTime 0
+LastTime 20180622191850
+LastUpdate 20180701100109 1 0 0 0 0
+TotalVisits 5                   
+TotalUnique 5                   
+MonthHostsKnown 0                   
+MonthHostsUnknown 7                   
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 22 0
+RealPlayerSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 0 0 0 2 3 4122
+1 0 0 0 0 2 606
+2 0 0 0 1 1 315
+3 0 0 0 2 2 3780
+4 0 0 0 0 3 1021
+5 0 0 0 0 0 0
+6 0 0 0 3 4 11644
+7 0 0 0 1 2 23522
+8 1 18 200312 2 4 24168
+9 0 0 0 2 5 8492
+10 0 0 0 5 7 28236
+11 0 0 0 3 14 30862
+12 0 0 0 1 4 1310
+13 0 0 0 4 6 31406
+14 0 0 0 31 32 2371
+15 0 0 0 0 5 1587
+16 0 0 0 3 6 24767
+17 0 0 0 2 9 25806
+18 107 166 3480825 63 69 136999
+19 21 115 1375324 7 21 51102
+20 0 0 0 5 7 58384
+21 158 277 5996721 39 66 142279
+22 205 214 8238057 33 35 37360
+23 0 0 0 5 9 9420
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 1
+ip 492 790 19291239
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 0
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 2
+wget 25 0 20180630141501 0
+favicon 19 160284 20180629223252 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 8
+css 128 639447 0 0
+png 40 78750 0 0
+html 24 672172 0 0
+js 123 1180796 0 0
+jpg 2 5282 0 0
+Unknown 468 16706084 0 0
+gif 4 8350 0 0
+svg 1 358 0 0
+END_FILETYPES
+
+# Downloads - Hits - Bandwidth
+BEGIN_DOWNLOADS 0
+END_DOWNLOADS
+
+# OS ID - Hits
+BEGIN_OS 4
+macosx 58
+winnt 179
+linux 18
+win7 535
+END_OS
+
+# Browser ID - Hits
+BEGIN_BROWSER 4
+chrome67.0.3396.87 44
+chrome41.0.2272.118 18
+safari11.0 58
+chrome66.0.3359.181 670
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 0
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 0
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 12 106
+From1 0 0
+From2 1 1
+From3 0 0
+From4 479 683
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 1
+google 1 1
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 0
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 6
+403 32 125951
+302 80 0
+500 33 0
+404 98 48667
+504 5 1725
+301 2 696
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referer
+BEGIN_SIDER_404 26
+/adm_themes/mws/icons/email.png 2 -
+/adm_program/modules/dates/dates.php 1 -
+/robots.txt 28 -
+/adm_themes/mws/icons/database_out.png 1 -
+/adm_program/libs/bootstrap-datepicker/dist/locales/bootstrap-datepicker.en.min.js 3 https://members.musicwithstrangers.com/adm_program/modules/profile/profile_new.php
+/adm_plugins/login_form/login_form.css 5 https://members.musicwithstrangers.com/adm_program/modules/dates/dates.php
+/adm_program/index.php 12 -
+/adm_themes/mws/icons/dates.png 2 -
+/adm_program/libs/zxcvbn/dist/zxcvbn.js 2 https://members.musicwithstrangers.com/adm_program/modules/profile/profile_new.php
+/adm_program/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js 3 https://members.musicwithstrangers.com/adm_program/modules/dates/dates.php
+/drupal/content/event/add 1 -
+/.well-known/assetlinks.json 1 -
+/adm_program/libs/select2/dist/js/select2.min.js 1 https://members.musicwithstrangers.com/adm_program/modules/messages/messages_write.php
+/adm_program/libs/select2/dist/js/i18n/en.js 1 https://members.musicwithstrangers.com/adm_program/modules/messages/messages_write.php
+/adm_program/libs/noblecount/jquery.noblecount.min.js 1 https://members.musicwithstrangers.com/adm_program/modules/profile/profile_new.php
+/adm_program/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css 4 https://members.musicwithstrangers.com/adm_program/modules/dates/dates.php
+/adm_program/libs/select2-bootstrap-theme/dist/select2-bootstrap.min.css 1 https://members.musicwithstrangers.com/adm_program/modules/messages/messages_write.php
+/adm_program/libs/bootstrap/css/bootstrap.min.css 6 https://members.musicwithstrangers.com/adm_program/modules/dates/dates.php
+/adm_program/system/login.php 1 -
+/adm_program/system/js/common_functions.js 6 https://members.musicwithstrangers.com/adm_program/modules/dates/dates.php
+/adm_program/libs/bootstrap/js/bootstrap.min.js 4 https://members.musicwithstrangers.com/adm_program/modules/dates/dates.php
+/adm_themes/mws/css/admidio.css 4 https://members.musicwithstrangers.com/adm_program/modules/dates/dates.php
+/adm_program/libs/jquery/jquery.min.js 5 https://members.musicwithstrangers.com/adm_program/modules/dates/dates.php
+/adm_program/libs/select2/dist/css/select2.min.css 1 https://members.musicwithstrangers.com/adm_program/modules/messages/messages_write.php
+/adm_program/modules/lists/lists.php 1 -
+/drupal/content/events/add 1 -
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 7
+172.94.21.14 247 262 9687257 20180604223149
+145.130.103.201 124 237 4420901 20180603194251
+37.230.130.18 116 229 4547521 20180604213059
+37.230.130.15 4 44 435248 20180622191850
+66.249.81.216 1 6 51686 20180604085615
+66.249.81.214 0 4 93518 
+66.249.81.212 0 8 55108 
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 3
+20180603 124 237 4420901 1
+20180604 364 509 14435090 3
+20180622 4 44 435248 1
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 3
+1h+ 1
+0s-30s 2
+30mn-1h 2
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 144
+/drupal/events 31 938352 0 0
+/drupal/admin/structure/views/view/registeropenevents/preview/page/ajax 27 238598 0 0
+/drupal/ 24 672172 5 1
+/drupal/content/members 23 458855 0 1
+/drupal/node/6/edit 21 1964996 0 0
+/drupal/admin/structure/types/manage/event/fields 20 1268594 0 0
+/drupal/events/test-event-1 18 429251 0 2
+/drupal/admin/config/people/accounts/fields 16 744744 0 0
+/drupal/admin/structure/views/ajax/config-item/registeropenevents/page/filter/field_event_subscription_deadl_value 13 370106 0 0
+/drupal/admin/structure/views/view/event_calendar/preview/page_4/ajax 12 161881 0 0
+/drupal/members/sjaak 4 278106 0 0
+/drupal/admin/structure/types/manage/event/fields/group_content_access 1 19311 0 0
+/drupal/admin/structure/views/ajax/config-item/event_calendar/block_2/filter/type 1 28409 0 0
+/drupal/admin/structure/views/ajax/add-item/event_calendar/page_4/filter 7 455939 0 0
+/drupal/members/test-active-member 1 10738 0 0
+/drupal/admin/config/people/accounts/fields/field_creative_interest 2 39268 0 0
+/drupal/admin/structure/types/manage/event/fields/field_subscription_start 1 32178 0 0
+/drupal/admin/structure/types/manage/song/display/event 1 26726 0 0
+/drupal/admin/structure 3 33441 0 0
+/drupal/user/10/edit 2 123644 0 0
+/drupal/admin/structure/taxonomy/add 1 11775 0 0
+/drupal/admin/appearance 1 17211 0 0
+/drupal/groups/songs/test-song-1-group-1 4 52424 0 0
+/drupal/admin/structure/types/manage/group/fields/og_roles_permissions/field-settings 1 13010 0 0
+/drupal/admin/structure/views/ajax/config-item/registeropenevents/page/filter/field_subscription_start_value 7 210232 0 0
+/drupal/admin/config/content/name/settings 1 13993 0 0
+/drupal/js/admin_menu/cache/dc12940c4ccdc4a15c30df944dc81660 2 5096 0 0
+/drupal/admin/structure/panels/layouts 4 64228 0 0
+/drupal/admin/structure/ds/view_modes 1 10808 0 0
+/drupal/admin/config/people/accounts/fields/field_address 2 40996 0 0
+/drupal/admin/config/people/accounts/fields/field_creative_interest/field-settings 2 26799 0 0
+/drupal/user/12/reservations 1 17361 0 0
+/drupal/admin/structure/views 2 107144 0 0
+/drupal/admin/structure/views/ajax/config-item-extra/registeropenevents/page/filter/field_event_subscription_deadl_value 4 146344 0 0
+/drupal/node/13/edit 1 26009 0 0
+/drupal/js/admin_menu/cache/4ec3563df840fcf9aebd6b8008645367 1 5377 0 0
+/drupal/admin/structure/types/manage/event/fields/field_publish_public 4 75999 0 0
+/drupal/admin/structure/types/manage/location/fields 4 158928 0 0
+/drupal/members 6 204386 0 0
+/drupal/admin/structure/views/ajax/config-item/event_calendar/block_2/filter/field_event_public_value 1 28815 0 0
+/drupal/admin/structure/types/manage/event/fields/field_event_subscription_req 2 37584 0 0
+/drupal/node/add 2 19892 0 0
+/drupal/admin/structure/views/ajax/config-item/event_calendar/page_4/filter/field_event_public_value 1 28448 0 0
+/drupal/admin/content 1 25080 0 0
+/drupal/admin/structure/views/ajax/add-item/registeropenevents/page/filter 10 626483 0 0
+/drupal/admin/structure/taxonomy/instruments 1 28347 0 0
+/drupal/admin/config/people/accounts/fields/field_family_name/field-settings 1 13520 0 0
+/drupal/admin/structure/types/manage/location/fields/body/field-settings 2 23968 0 0
+/drupal/admin/structure/views/view/event_calendar/preview/page_1/ajax 1 39293 0 0
+/drupal/admin/structure/taxonomy/creative_interest/edit 1 12755 0 0
+/drupal/node/2/edit 3 112830 0 0
+/drupal/token/tree 3 1567419 0 0
+/drupal/js/admin_menu/cache/9dd9be52034fa722b45f3dbde2f7ebf6 1 5395 0 0
+/drupal/admin/structure/types/manage/song/fields 1 42733 0 0
+/drupal/admin/structure/types/manage/page/comment/fields 1 40856 0 0
+/drupal/admin/config/people/accounts/fields/field_city/field-settings 1 13343 0 0
+/drupal/admin/people/permissions/roles/edit/8 1 10614 0 0
+/drupal/js/admin_menu/cache/3c01abf1a765a127d711a489d24b80e4 1 5393 0 0
+/drupal/group/node/6/admin/people/add-user 1 14672 0 0
+/drupal/admin/dashboard 2 41455 0 0
+/drupal/admin/structure/block/manage/masquerade/masquerade/configure 1 22273 0 0
+/drupal/admin/config/people/accounts 3 110883 0 0
+/drupal/admin/appearance/settings/mws 4 90950 0 0
+/drupal/admin/structure/types/manage/page/display 1 25118 0 0
+/drupal/admin/structure/types/manage/event/fields/field_publish_public/widget-type 1 12484 0 0
+/drupal/admin/structure/views/add 3 86765 0 0
+/drupal/js/admin_menu/cache/394ee6016ab1d0542198f697ff3b795e 1 5383 0 0
+/drupal/admin/config/people/accounts/fields/field_address/field-settings 1 13418 0 0
+/drupal/admin/structure/views/view/event_calendar/edit/page_4 5 199174 0 0
+/drupal/admin/structure/types/manage/event/display 10 627260 0 0
+/drupal/admin/structure/views/view/event_calendar/edit/block_2 1 39386 0 0
+/drupal/js/admin_menu/cache/3032d3ea96fae641e53e3b9b951f27f1 1 5381 0 0
+/drupal/admin/config/people/accounts/fields/field_family_name 1 20938 0 0
+/drupal/admin/structure/views/view/event_calendar 1 40334 0 0
+/drupal/admin/config/people/accounts/fields/field_instruments 1 22322 0 0
+/drupal/js/admin_menu/cache/55a53d27b6c43e512b8c321300bbd3f6 1 5383 0 0
+/drupal/admin/structure/types/manage/event/fields/field_publish_public/field-settings 3 39576 0 0
+/drupal/user 5 44957 0 0
+/drupal/admin/structure/views/view/members/preview/page/ajax 1 16178 0 0
+/drupal/admin/structure/pages/wizard 1 9787 0 0
+/drupal/admin/config/people/accounts/fields/field_phone_number 1 20965 0 0
+/drupal/js/admin_menu/cache/c35cbdda6759f0efa8e631f3cb3014ba 1 5394 0 0
+/drupal/js/admin_menu/cache/1093c14b1366e4d818442a5132bca140 1 5371 0 0
+/drupal/admin/structure/views/view/members/edit/page 1 38369 0 0
+/drupal/admin/appearance/install 2 21152 0 0
+/drupal/admin/structure/types/manage/rehearsal_room/fields 1 40267 0 0
+/drupal/js/admin_menu/cache/412cd33f871df83512e869ed1a2309ce 1 5376 0 0
+/drupal/js/admin_menu/cache/8eb0ee83babf7ff21da98c4c845503ed 2 10782 0 0
+/drupal/admin/structure/types/manage/group/fields/body/field-settings 1 12102 0 0
+/drupal/admin/structure/taxonomy/creative_interest 2 27832 0 0
+/drupal/admin/people/permissions 3 329969 0 0
+/drupal/admin/structure/views/view/registeropenevents/edit/page 1 38980 0 0
+/drupal/admin/structure/views/ajax/config-item/registeropenevents/page/filter/type 1 27571 0 0
+/drupal/admin/structure/views/ajax/config-item/registeropenevents/page/filter/field_event_subscription_req_value 8 177702 0 0
+/drupal/admin/structure/types/manage/event/fields/field_event_public 1 18547 0 0
+/drupal/admin/config/people/accounts/fields/field_phone_number/field-settings 1 13545 0 0
+/drupal/admin/structure/types/manage/song/display 1 31602 0 0
+/drupal/admin/config/people/accounts/fields/field_city 1 20749 0 0
+/drupal/admin/structure/views/ajax/display/event_calendar/page_1/path 1 3455 0 0
+/drupal/admin/structure/ds/view_modes/manage/event 1 14854 0 0
+/drupal/admin/structure/panels/layouts/list/event_layout/edit 1 24630 0 0
+/drupal/admin/structure/views/view/reservations_ui_incoming_res/preview/page_1/ajax 1 7401 0 0
+/drupal/user/39/reservations 3 50477 0 0
+/drupal/js/admin_menu/cache/61d72a6114823d8b13b70e807d40d37c 1 5371 0 0
+/drupal/admin/structure/taxonomy/genre/fields 1 39154 0 0
+/drupal/registeropenevents 6 202936 0 0
+/drupal/admin/structure/taxonomy/creative_interest/fields 1 40021 0 0
+/drupal/system/ajax 6 178179 0 0
+/drupal/overlay-ajax/page_bottom 6 7530 0 0
+/drupal/admin/structure/types/manage/group/fields/group_group/field-settings 1 12700 0 0
+/drupal/js/admin_menu/cache/064d06fb0b948ca52770b5af9ab063df 1 5377 0 0
+/drupal/admin/structure/views/ajax/config-item/event_calendar/page_4/filter/type 1 28767 0 0
+/drupal/content/welcome 2 75730 0 0
+/drupal/admin/structure/views/ajax/add-item/event_calendar/block_2/filter 4 252762 0 0
+/drupal/admin/structure/types/manage/group/fields 2 94752 0 0
+/drupal/admin/structure/taxonomy/creative_interest/add 4 67726 0 0
+/drupal/node/7/edit 2 52346 0 0
+/drupal/admin/structure/views/ajax/rearrange-filter/registeropenevents/page/filter 3 50474 0 0
+/drupal/admin/structure/views/view/reservations_ui_incoming_res 1 42099 0 0
+/drupal/admin/structure/types/manage/event/fields/field_eventdate/delete 1 11988 0 0
+/drupal/js/admin_menu/cache/23efb4549a9deac52a2e56aa4fa65771 2 5269 0 0
+/drupal/admin/structure/panels/layouts/import 1 11606 0 0
+/drupal/admin/config/people/accounts/fields/field_first_name 1 20911 0 0
+/drupal/user/10/reservations 2 20352 0 0
+/drupal/admin/config/people/accounts/fields/field_first_name/field-settings 1 13495 0 0
+/drupal/js/admin_menu/cache/7fbc49ffb853a659c23ae22acf59369f 1 5377 0 0
+/drupal/admin/structure/views/ajax/config-item-extra/event_calendar/page_4/filter/date_filter 2 46847 0 0
+/drupal/admin/structure/types/manage/event/fields/field_subscription_start/field-settings 1 19635 0 0
+/drupal/admin/structure/panels/layouts/add-flexible 4 74664 0 0
+/drupal/admin/structure/types/manage/location/fields/body 1 22430 0 0
+/drupal/admin/structure/views/view/event_calendar/preview/block_2/ajax 5 43022 0 0
+/drupal/admin/structure/types/manage/event/comment/fields 4 161808 0 0
+/drupal/node/add/event 5 512287 0 0
+/drupal/node/6/group 4 94442 0 0
+/drupal/admin/config/people/accounts/display 1 41435 0 0
+/drupal/admin/structure/panels/settings 2 22779 0 0
+/drupal/admin/structure/taxonomy 1 17792 0 0
+/drupal/user/39/edit 1 64293 0 0
+/drupal/admin/structure/types/manage/group/fields/group_content_access/field-settings 1 13803 0 0
+/drupal/admin/appearance/settings 3 52635 0 0
+/drupal/admin/people 2 70400 0 0
+/drupal/admin/structure/views/ajax/config-item-extra/registeropenevents/page/filter/field_subscription_start_value 1 58053 0 0
+/drupal/user/12/edit 2 139384 0 1
+/drupal/admin/people/permissions/roles 3 50259 0 0
+END_SIDER

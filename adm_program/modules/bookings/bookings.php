@@ -105,6 +105,8 @@ else
 {
     // create dummy date object
     $booking = new TableBooking($gDb);
+    $firstElement = true;
+    $htmlBookElements = '';
 
     foreach($booksResult['recordset'] as $row)
     {
@@ -120,8 +122,6 @@ else
         $outputButtonEdit   = '';
         $outputButtonDelete = '';
         $outputButtonCopy   = '';
-        $outputButtonParticipation      = '';
-        $outputButtonParticipants       = '';
         $outputButtonParticipantsEmail  = '';
         $outputButtonSongRegister       = '';
         $outputButtonParticipantsAssign = '';
@@ -136,20 +136,52 @@ else
         $outputConcept         = '';
         $outputFinancial       = '';
         $outputDeadline        = '';
-        $dateElements          = array();
+        $htmlBookElements      = '';
+        $bookElements          = array();
         $participantsArray     = array();
         $participateModalForm  = false;
         $participationPossible = true;
+        $startValue = $row['slotstart'];
 
+        if($firstElement)
+        {
+            $htmlBookElements .= '<div class="row">';
+        }
+        if ($row['canbook']===0)
+        {
+            $htmlBookElements.= '<div class="panel-body">' . 'This room is not open for booking at this moment' . '</div>';
+        } else {
+            $htmlBookElements.= '<div class="panel-body">' . $startValue->format('M d'). ' from ' . $startValue->format('H:i') . '</div>';
+        }
+        $htmlBookElements.='</div>';
+        $slotTimes=$row['slotTimes'];
+        $slotBookings=$row['slotBookings'];
+        $slotBookingsName=$row['slotBookingsName'];
+        #foreach ($slotTimes as $slotTime)
+        foreach($slotTimes as $key => $value)
+        {
+            $htmlBookElements.='<div class="row">';
+            $htmlBookElements.='<div class="col-sm-2 col-xs-4">'.$key.'</div>';
+            $htmlBookElements.='<div class="col-sm-2 col-xs-4">'.$value->format('H:i').'</div>';
+            $status='Free';
+            if ($slotBookings[$key]>0)
+            {
+                $status='Booked';
+            }
+            $htmlBookElements.='<div class="col-sm-2 col-xs-4">'.$status.'</div>';
+            $htmlBookElements.='<div class="col-sm-2 col-xs-4">'.$slotBookingsName[$key].'</div>';
+            $htmlBookElements.='</div>';
+        }
+        
 
+         $outputRoomDescription = $booking->getValue('rbd_roomDescription');
 
-        // change and delete is only for users with additional rights
+        $outputVenueName = $booking->getValue('ven_name');
+        $bookHeadline=$outputVenueName . ': ' . $outputRoomDescription;
+
+                // change and delete is only for users with additional rights
         if ($bookAdmin)
         {
-            $outputRoomDescription = $booking->getValue('rbd_roomDescription');
-            
-            $outputVenueName = $date->getValue('rbd_venueName');
-            $outputSetupPlan = '<strong>Setup:</strong><br>'.$date->getValue('dat_ev_setupPlan');
             $outputButtonEdit = '
                 <a class="admidio-icon-link" href="'.safeUrl(ADMIDIO_URL.FOLDER_MODULES.'/bookings/roombooking_new.php', array('rbd_id' => $bookId, 'headline' => $getHeadline)) . '">
                     <img src="'.THEME_URL.'/icons/edit.png" alt="' . $gL10n->get('SYS_EDIT') . '" title="' . $gL10n->get('SYS_EDIT') . '" /></a>';
@@ -158,6 +190,25 @@ else
                     href="'.safeUrl(ADMIDIO_URL.'/adm_program/system/popup_message.php', array('type' => 'rbd', 'element_id' => 'rbd_' . $bookId)) . '">
                     <img src="'.THEME_URL.'/icons/delete.png" alt="' . $gL10n->get('SYS_DELETE') . '" title="' . $gL10n->get('SYS_DELETE') . '" /></a>';
         }
+
+        $page->addHtml('
+            <div class="panel panel-primary ' . $cssClassHighlight . '" id="rbd_id' . $bookId . '">
+                <div class="panel-heading">
+                    <div class="pull-left">
+                        <img class="admidio-panel-heading-icon" src="'.THEME_URL.'/icons/bookings.png" alt="' . $bookHeadline . '" />' .
+                         $bookHeadline . '
+                    </div>
+                    <div class="pull-right text-right">' .
+                        $outputButtonEdit . $outputButtonDelete . '
+                    </div>
+                </div>
+                <div class="panel-body">
+                    ' . $htmlBookElements . '<br />' );
+
+        $page->addHtml('
+            </div>
+            <div class="panel-footer"></div>
+            </div>');
 
         if($booksResult['canbook'] )
         {
@@ -172,6 +223,6 @@ else
 
 }
 // If necessary show links to navigate to next and previous recordsets of the query
-$baseUrl = safeUrl(ADMIDIO_URL.FOLDER_MODULES.'/bookings/bookings.php', array('view' => $getView, 'mode' => $getMode, 'headline' => $getHeadline, 'cat_id' => $getCatId, 'date_from' => $dates->getParameter('dateStartFormatEnglish'), 'date_to' => $dates->getParameter('dateEndFormatEnglish'), 'view_mode' => $getViewMode));
-$page->addHtml(admFuncGeneratePagination($baseUrl, $datesResult['totalCount'], $getStart));
+$baseUrl = safeUrl(ADMIDIO_URL.FOLDER_MODULES.'/bookings/bookings.php', array('mode' => $getMode, 'headline' => $getHeadline, ));
+$page->addHtml(admFuncGeneratePagination($baseUrl, $bookResult['totalCount'],12, 1));
 $page->show();

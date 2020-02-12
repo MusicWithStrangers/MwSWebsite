@@ -27,16 +27,6 @@ if (!$gCurrentUser->editBookings()) //viewBookings())
     // => EXIT
 }
 
-// set headline of the script
-if ($getGboId > 0)
-{
-    $headline = $getHeadline . ' - ' . $gL10n->get('SYS_EDIT_ENTRY');
-}
-else
-{
-    $headline = $getHeadline . ' - ' . $gL10n->get('SYS_WRITE_ENTRY');
-}
-
 // add current url to navigation stack
 $gNavigation->addUrl(CURRENT_URL, $headline);
 
@@ -49,6 +39,11 @@ if(isset($_SESSION['roombook_entry_request']))
     // nun die vorher eingegebenen Inhalte ins Objekt schreiben
     $bookings->setArray($_SESSION['roombook_entry_request']);
     unset($_SESSION['roombook_entry_request']);
+} else {
+    if ($getrbd_id > 0)
+    {
+        $roombookingDay->readDataById($getrbd_id);
+    }
 }
 
 
@@ -60,13 +55,15 @@ $bookingsCreateMenu = $page->getMenu();
 $bookingsCreateMenu->addItem('menu_item_back', $gNavigation->getPreviousUrl(), $gL10n->get('SYS_BACK'), 'back.png');
 
 // Html des Modules ausgeben
-if ($getrbdId > 0)
+if ($getrbd_id > 0)
 {
     $mode = '3';
+    $headline = $getHeadline . ' - ' . $gL10n->get('SYS_EDIT_ENTRY');
 }
 else
 {
     $mode = '1';
+    $headline = $getHeadline . ' - ' . $gL10n->get('SYS_WRITE_ENTRY');
 }
 $sqlAdmins='select * from mws__roles where rol_bookingadmin=1';
 $AdminData= $gDb->queryPrepared($sqlAdmins);
@@ -122,11 +119,11 @@ $buttonURL = safeUrl(ADMIDIO_URL.FOLDER_MODULES.'/bookings/venue_new.php'); //, 
 $outputButtonAddVenue = '
     <button class="btn btn-default" onclick="window.location.href=\'' . $buttonURL . '\'">
         <img src="'.THEME_URL.'/icons/add.png" alt="Add venue" />Add venue</button>';
-$form = new HtmlForm('roombooking_edit_form', safeUrl(ADMIDIO_URL.FOLDER_MODULES.'/bookings/booking_function.php', array('id' => $getrbdId, 'headline' => $getHeadline, 'mode' => $mode)), $page);
+$form = new HtmlForm('roombooking_edit_form', safeUrl(ADMIDIO_URL.FOLDER_MODULES.'/bookings/booking_function.php', array('id' => $$getrbd_id, 'headline' => $getHeadline, 'mode' => $mode)), $page);
 $form->addSelectBoxFromSql('rbd_ven_id', 'Venue', $gDb, $sqlDataVenue,
-    array('property' => HtmlForm::FIELD_REQUIRED, 'search' => true, 'htmlAfter' => $outputButtonAddVenue));
+    array('property' => HtmlForm::FIELD_REQUIRED, 'search' => true, 'htmlAfter' => $outputButtonAddVenue,'defaultValue' => $roombookingDay->getValue('rbd_ven_id')));
 $form->addSelectBoxFromSql('rbd_operationalContact', 'MWS Contact', $gDb, $sqlDataContact,
-    array('property' => HtmlForm::FIELD_REQUIRED, 'search' => true));
+    array('property' => HtmlForm::FIELD_REQUIRED, 'search' => true,'defaultValue' => $roombookingDay->getValue('rbd_operationalContact')));
 $form->addInput(
     'rbd_slotLength', 'Slot length (minutes)', $roombookingDay->getValue('rbd_slotLength'),
     array('type' => 'number', 'minNumber' => 0, 'maxNumber' => 540, 'step' => 1)

@@ -1,0 +1,3 @@
+[2020-02-11 20:46:04.020766] Admidio.CRITICAL: Class-File for Class "ModuleSongs" could not be found and included!  {"file":"M:\\wamp64\\www\\adm_program\\system\\autoload.php","line":51,"class":null,"function":"admFuncAutoload"}
+[2020-02-11 20:46:31.641793] Admidio.ERROR: L10N: Could not found text-id! {"textId":"DAT_SONGLOGIN_POSSIBLE"} {"file":"M:\\wamp64\\www\\adm_program\\system\\classes\\Language.php","line":119,"class":"Language","function":"get"}
+[2020-02-11 20:47:16.011332] Admidio.ERROR: L10N: Could not found text-id! {"textId":"DAT_SONGLOGIN_POSSIBLE"} {"file":"M:\\wamp64\\www\\adm_program\\system\\classes\\Language.php","line":119,"class":"Language","function":"get"}

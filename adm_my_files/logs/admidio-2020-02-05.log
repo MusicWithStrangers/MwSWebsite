@@ -1,0 +1,2 @@
+[2020-02-05 21:37:09.344508] Admidio.WARNING: XML-Update file not found! {"filePath":"M:\\wamp64\\www/adm_program/installation/db_scripts/update_3_3.xml"} {"file":"M:\\wamp64\\www\\adm_program\\system\\classes\\ComponentUpdate.php","line":77,"class":"ComponentUpdate","function":"getXmlObject"}
+[2020-02-05 22:06:34.851619] Admidio.CRITICAL: Class-File for Class "ModuleSongs" could not be found and included!  {"file":"M:\\wamp64\\www\\adm_program\\system\\autoload.php","line":51,"class":null,"function":"admFuncAutoload"}

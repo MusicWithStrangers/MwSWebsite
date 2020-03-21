@@ -1,0 +1,2 @@
+[2020-02-26 17:26:26.692000] Admidio.WARNING: AUTHENTICATION: Incorrect username/password! {"username":"mws_admin","numberInvalid":1,"dateInvalid":"2020-02-26 17:26:26"} {"file":"M:\\wamp64\\www\\adm_program\\system\\classes\\User.php","line":1518,"class":"User","function":"handleIncorrectPasswordLogin"}
+[2020-02-26 22:09:36.205498] Admidio.CRITICAL: Class-File for Class "ModuleSongs" could not be found and included!  {"file":"M:\\wamp64\\www\\adm_program\\system\\autoload.php","line":51,"class":null,"function":"admFuncAutoload"}

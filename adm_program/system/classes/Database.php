@@ -673,6 +673,10 @@ class Database
             if ($this->pdoStatement !== false && admStrStartsWith(strtoupper($sql), 'SELECT'))
             {
                 $gLogger->debug('SQL: Found rows: ' . $this->pdoStatement->rowCount());
+            } else {
+                #$errcode=$this->pdo->errorinfo();
+                #$errmsg=$this->pdoStatement->errorInfo();
+                $pause=true;
             }
 
             $gLogger->debug('SQL: Execution time ' . getExecutionTime($startTime));
@@ -712,6 +716,7 @@ class Database
      */
     public function queryPrepared($sql, array $params = array(), $showError = true)
     {
+        $err0=0;
         global $gLogger;
 
         if ($this->engine === self::PDO_ENGINE_PGSQL)
@@ -738,8 +743,8 @@ class Database
                 }
             } else {
                 $err0=$this->pdo->errorInfo();
-                $err1=$this->pdoStatement->errorCode();
-                $err2=$this->pdoStatement->errorInfo();
+                #$err1=$this->pdoStatement->errorCode();
+                $gLogger->debug('SQL error: '.$err0);
             }
             $gLogger->debug('SQL: Execution time ' . getExecutionTime($startTime));
         }

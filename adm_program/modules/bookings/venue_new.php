@@ -61,7 +61,7 @@ else
     $mode = '1';
 }
 // show form
-$form = new HtmlForm('venue_edit_form', safeUrl(ADMIDIO_URL.FOLDER_MODULES.'/bookings/venue_function.php', array('id' => $getvenId, 'headline' => $getHeadline, 'mode' => $mode)), $page);
+$form = new HtmlForm('venue_edit_form', safeUrl(ADMIDIO_URL.FOLDER_MODULES.'/bookings/venue_function.php', array('ven_id' => $getvenId, 'headline' => $getHeadline, 'mode' => $mode)), $page);
 $form->addInput(
     'ven_name', 'Venue name', $venue->getValue('ven_name'),array('property' => HtmlForm::FIELD_REQUIRED)
 );

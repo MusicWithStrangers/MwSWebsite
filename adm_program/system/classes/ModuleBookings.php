@@ -149,6 +149,7 @@ class ModuleBookings extends Modules
     public function getDataSet($startElement = 0, $limit = null)
     {
         global $gDb, $gSettingsManager, $gCurrentUser;
+        $gCurrentUserId=$gCurrentUser->getValue('usr_id');
 
         if ($limit === null)
         {
@@ -167,17 +168,10 @@ class ModuleBookings extends Modules
         $bookResults=array();
         if ($bookCount>0)
         {
-            $aBooking=array();
             $bookData = $pdoStatement->fetchAll();
             foreach ($bookData as $abook)
             {
-                $sql = 'SELECT * FROM mws__roombookingday inner join mws__bookings on mws__roombookingday.rbd_id=mws__bookings.boo_rbd_id where rbd_id='. $abook['rbd_id'];
-                $pdoStatementbusy = $gDb->queryPrepared($sql); // TODO add more params
-                $bookCountbusy=$pdoStatementbusy->rowCount();
-                if ($bookCountbusy>0)
-                {
-                    $slotData=$pdoStatementbusy->fetchAll();
-                }
+                $aBooking=array();
                 $canBook=False;
                 $showRoom=False;
                 $bookTimestamp=strtotime($abook['rbd_startTime']);
@@ -193,17 +187,37 @@ class ModuleBookings extends Modules
                     $startTime=date("h:i:s A T",$bookTimestamp);
                     $startDate=date("m/d/Y",$nextTimestamp);
                     $slotStart=DateTime::createFromFormat('m/d/Y h:i:s A T', $startDate.' '.$startTime);
-                    $showBook=true;
                     //copy time from bookdate to bookday
                 } else
                 {
                     // else if date is today
                     $slotStart=strtotime($abook['rbd_startTime']);
                 }
+                $now = new DateTime();
+                $bookDate=$slotStart->format("Y-m-d");
+                $minutesFromStart = abs($now->getTimestamp() - $slotStart->getTimestamp()) / 60;
                 #$slotStart=strtotime($abook['rbd_startTime']);
                 $slotEnd= clone $slotStart;
                 $minutes=strval((int)$abook['rbd_slotCount']*(int)$abook['rbd_slotLength']);
+                $bookWithSong=$abook['rbd_hoursBookingSNR'];
+                $bookWithSongStart= clone $slotStart;
+                $bookWithSongStart->modify('-'.(int)$bookWithSong.' hours' );
+                $bookNonSong=$abook['rbd_hoursBookingNonSNR'];
+                $bookNonSongStart= clone $slotStart;
+                $bookNonSongStart->modify('-'.(int)$bookNonSong.'hours');
                 $slotEnd->modify('+'.$minutes.' minutes' );
+                # DATE(mws_bookings.bookdate)=DATE($slotStart)
+                # WHERE DATE(timestamp) = '2012-05-05'
+                $bookDelayAfterBook=$abook['rbd_hoursBookDelayAfterbooked'];
+                $sql = 'SELECT * FROM mws__roombookingday inner join mws__bookings on mws__roombookingday.rbd_id=mws__bookings.boo_rbd_id inner join mws__users on mws__users.usr_id=mws__bookings.boo_usr_id inner join mws__user_data on mws__user_data.usd_usr_id=mws__users.usr_id where mws__user_data.usd_usf_id IN (1,2) and rbd_id='. $abook['rbd_id'].' AND DATE(mws__bookings.boo_bookdate)=DATE('.$bookDate.')';
+                $sql='SELECT GROUP_CONCAT(mws__user_data.usd_value order by mws__user_data.usd_usf_id DESC SEPARATOR \' \') as \'name\', mws__roombookingday.rbd_startTime, mws__bookings.boo_bookdate, mws__roombookingday.rbd_enable, mws__roombookingday.rbd_slotCount, mws__roombookingday.rbd_slotLength, mws__roombookingday.rbd_id, mws__bookings.boo_id, mws__bookings.boo_usr_id, mws__bookings.boo_slotindex FROM mws__roombookingday inner join mws__bookings on mws__roombookingday.rbd_id=mws__bookings.boo_rbd_id inner join mws__users on mws__users.usr_id=mws__bookings.boo_usr_id inner join mws__user_data on mws__user_data.usd_usr_id=mws__users.usr_id where mws__user_data.usd_usf_id IN (1,2) and mws__roombookingday.rbd_id='.$abook['rbd_id'].' AND DATE(mws__bookings.boo_bookdate)=\''.$bookDate.'\' group by mws__bookings.boo_id';
+                $pdoStatementbusy = $gDb->queryPrepared($sql); // TODO add more params
+                $bookCountbusy=$pdoStatementbusy->rowCount();
+                $slotData = new stdClass();
+                if ($bookCountbusy>0)
+                {
+                    $slotData=$pdoStatementbusy->fetchAll();
+                }
                 
                 #$slotStartStamp = date("m/d/Y h:i:s A T",$slotStart);
                 #$slotEndStamp = date("m/d/Y h:i:s A T",$slotEnd);
@@ -212,21 +226,32 @@ class ModuleBookings extends Modules
                     $showRoom=1;
                 }
                 // check for exceptions on $bookDay (null it)
+                $IBooked=0;
                 if ($showRoom)
                 {
                     $sql='SELECT * FROM mws__bookexceptions where bex_rbd_id="'.$abook['rbd_id'].'"';
                     // bex_rbd_from bex_rbd_to
-                      // check bookable   
-                    $canBook=True;
+                    // check bookable   
+                    $now = new DateTime();
+                    if ($now>$bookWithSongStart)
+                    {
+                        $canBookSong=True;
+                    }
+                    if ($now>$bookNonSongStart)
+                    {
+                        $canBookNonSong=True;
+                    }
                     $aBooking['slotstart'] = $slotStart;
                     $aBooking['slotend'] = $slotEnd;
-                    $aBooking['canbook']=$canBook;
+                    $aBooking['bookWithSongStart']=$bookWithSongStart;
+                    $aBooking['bookNonSongStart']=$bookNonSongStart;
                     $aBooking['venuename']=$abook['ven_name'];
                     $aBooking[] = $abook;
                     $slotCount=$abook['rbd_slotCount'];
                     $slotLength=$abook['rbd_slotLength'];
                     $slotTimes=[];
                     $slotBookings=[];
+                    $slotBookingsDescription=[];
                     for ($i=0;$i<$slotCount;$i++)
                     {
                         $slotTime= clone $slotStart;
@@ -235,12 +260,19 @@ class ModuleBookings extends Modules
                     }
                     foreach ($slotData as $aSlot)
                     {
+                        if ($aSlot['boo_usr_id']===$gCurrentUserId)
+                        {
+                            $IBooked++;
+                        }
                         $sindex=(int)$aSlot['boo_slotindex'];
                         $slotBookings[$sindex]=$aSlot['boo_id'];
+                        $slotBookingsDescription[$sindex]=$aSlot['name'];
                     }
                 }
                 $aBooking['slotTimes']=$slotTimes;
+                $aBooking['IBooked']=$IBooked;
                 $aBooking['slotBookings']=$slotBookings;
+                $aBooking['slotBookingsName']=$slotBookingsDescription;
                 // create slots from start time
                 $bookResults[]=$aBooking;
             }

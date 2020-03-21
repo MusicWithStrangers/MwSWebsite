@@ -13,6 +13,7 @@
  * mode   : 1 - Create a new bookingroom
  *          2 - Delete the bookingroom
  *          5 - Edit an existing bookingroom
+ *          6 - Book a room
 
  * rol_id : vorselektierte Rolle der Rollenauswahlbox
  * copy   : true - The event of the dat_id will be copied and the base for this new event
@@ -27,7 +28,11 @@ if($_GET['mode'] == 2)
 }
 
 // Initialize and check the parameters
-$getRoomBookingDay       = admFuncVariableIsValid($_GET, 'rbd_id', 'int');
+$getRoomBookingDayId    = admFuncVariableIsValid($_GET, 'rbd_id', 'int');
+$getSnrId               = admFuncVariableIsValid($_GET, 'boo_snr_id', 'int');
+$getBookId               = admFuncVariableIsValid($_GET, 'boo_id', 'int');
+$getslotindex           = admFuncVariableIsValid($_GET, 'boo_slotindex', 'int');
+$bookDate               = admFuncVariableIsValid($_GET, 'boo_bookdate', 'string');
 $getMode                = admFuncVariableIsValid($_GET, 'mode',   'int', array('requireValue' => true));
 $getUserId              = admFuncVariableIsValid($_GET, 'usr_id', 'int', array('defaultValue' => $gCurrentUser->getValue('usr_id')));
 
@@ -73,7 +78,8 @@ if($getMode === 1 || $getMode === 5)  // Create a new venue or edit an existing 
     {
         $e->showHtml();
     }
-
+    $startDateTime = \DateTime::createFromFormat($gSettingsManager->getString('system_date').' '.$gSettingsManager->getString('system_time'), $_POST['rbday_startTime'].' '.$_POST['rbday_startTime_time']);
+    $roombookingday->setValue('rbd_startTime', $startDateTime->format('Y-m-d H:i:s'));
     $gDb->startTransaction();
 
     // save room booking day in database
@@ -90,9 +96,41 @@ if($getMode === 1 || $getMode === 5)  // Create a new venue or edit an existing 
 }
 elseif($getMode === 2)
 {
+    if ($getRoomBookingDayId>0)
+    {
     // delete current announcements, right checks were done before
     $roombookingday->delete();
 
     // Delete successful -> Return for XMLHttpRequest
     echo 'done';
+    }
+    if ($getBookId>0)
+    {
+            $booking = new TableBooking($gDb);
+            $booking->readDataById($getBookId);
+            $booking->delete();
+    // Delete successful -> Return for XMLHttpRequest
+            //echo 'done';
+            admRedirect($gNavigation->getUrl());
+    }
+} elseif ($getMode ===6)
+{
+    $booking = new TableBooking($gDb);
+    $booking->readDataById(0);
+    $booking->setValue('boo_rbd_id', $getRoomBookingDayId);
+    $booking->setValue('boo_snr_id', $getSnrId);
+    $booking->setValue('boo_usr_id', $getUserId);
+    $booking->setValue('boo_slotindex', $getslotindex);
+    $booking->setValue('boo_bookdate', $bookDate);
+    $gDb->startTransaction();
+    // save room booking day in database
+    $returnCode = $booking->save();
+
+    $booking = (int) $roombookingday->getValue('boo_id');
+
+    $gDb->endTransaction();
+
+    $gNavigation->deleteLastUrl();
+
+    admRedirect($gNavigation->getUrl());
 }

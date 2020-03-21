@@ -89,6 +89,74 @@ class TableRoomBookingDay extends TableAccess
      * @param bool   $checkValue The value will be checked if it's valid. If set to **false** than the value will not be checked.
      * @return bool Returns **true** if the value is stored in the current object and **false** if a check failed
      */
+    protected function readData($sqlWhereCondition, array $queryParams = array())
+    {
+        $sqlAdditionalTables = '';
+
+        // create sql to connect additional tables to the select statement
+        if (count($this->additionalTables) > 0)
+        {
+            foreach ($this->additionalTables as $arrAdditionalTable)
+            {
+                $sqlAdditionalTables .= ', '.$arrAdditionalTable['table'];
+                $sqlWhereCondition   .= ' AND '.$arrAdditionalTable['columnNameAdditionalTable'].' = '.$arrAdditionalTable['columnNameClassTable'].' ';
+            }
+        }
+
+        // if condition starts with AND then remove this
+        if (admStrStartsWith(strtoupper(ltrim($sqlWhereCondition)), 'AND'))
+        {
+            $sqlWhereCondition = substr($sqlWhereCondition, 4);
+        }
+
+        if ($sqlWhereCondition !== '')
+        {
+            $sql = 'SELECT *
+                      FROM '.$this->tableName.'
+                           '.$sqlAdditionalTables.'
+                     WHERE '.$sqlWhereCondition;
+            $readDataStatement = $this->db->queryPrepared($sql, $queryParams); // TODO add more params
+
+            if ($readDataStatement->rowCount() === 1)
+            {
+                $row = $readDataStatement->fetch();
+                $this->newRecord = false;
+
+                // Daten in das Klassenarray schieben
+                foreach ($row as $key => $value)
+                {
+                    if ($value === null)
+                    {
+                        $this->dbColumns[$key] = ''; // TODO: remove
+                    }
+                    else
+                    {
+                        $this->dbColumns[$key] = $value;
+                    }
+                }
+
+                return true;
+            }
+
+            $this->clear();
+        }
+
+        return false;
+    }
+    public function readDataById($id)
+    {
+        // initialize the object, so that all fields are empty
+        $this->clear();
+
+        // add id to sql condition
+        if ($id > 0)
+        {
+            // call method to read data out of database
+            return $this->readData(' AND ' . $this->keyColumnName . ' = ? ', array($id));
+        }
+
+        return false;
+    }
     public function setValue($columnName, $newValue, $checkValue = true)
     {
         return parent::setValue($columnName, $newValue, $checkValue);

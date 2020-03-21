@@ -961,6 +961,12 @@
   <string name="PRO_VIEW_ROLES_OTHER_ORGAS">Only roles of other organizations which are visible to all registered users are displayed. If you are a member of this organization, you will also be shown the roles that you may see with your rights within the organization.</string>
   <string name="PRO_WANT_DELETE_PHOTO">Would you like to delete the selected photo?</string>
   <string name="PRO_YEARS">Years</string>
+  <string name="RBD_WEEKLY_LINK">Select weekly if the room is to be made available every week on the same day and time as the start time/day</string>
+  <string name="RBD_ENABLED_LINK">Only when 'enabled' the room is shown to members for booking.</string>
+  <string name="RBD_HOURSBOOKSNR_LINK">The number of hours before the first slot when the room is open for booking when a member books for an event-registered song</string>
+  <string name="RBD_HOURSBOOKNONSNR_LINK">The number of hours before the first slot when the room is open for any booking.</string>
+ 
+  <string name="RBD_AUTODISABLE_LINK">With auto disable on, the 'enabled' box is automatically disabled when the event is over. This is typically useful for a second room that is only made available when the first is full</string>
   <!--Phrases only in Relationssmodule-->
   <string name="REL_EDIT_USER_DESC">If set, then a user can edit the profile of another user to which he is related to. For an asymmetric relationship, the right is assigned separately for each relationship, and for a symmetric relationship, both users can edit the other profile, and in case of a unidirectional relationship, only the user with the relationship stored can edit the other profile.</string>
   <string name="REL_EDIT_USER_IN_RELATION">Edit user profile of this relationship</string>
@@ -1161,6 +1167,7 @@
   <string name="SYS_DECIMAL_NUMBER">Decimal number</string>
   <string name="SYS_DELETE">Delete</string>
   <string name="SYS_DELETE_DATA">Data has been deleted.</string>
+  <string name="SYS_DELETE_BOOKING">Would you like to cancel your reservation?</string>
   <string name="SYS_DELETE_ENTRY">Would you like to delete entry #VAR1_BOLD#?</string>
   <string name="SYS_DELETE_LAST_CATEGORY">There is no other category in this area. For this reason, the category can not be deleted.</string>
   <string name="SYS_DELETE_SYSTEM_CATEGORY">You can not delete system categories.</string>

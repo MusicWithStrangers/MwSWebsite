@@ -27,7 +27,7 @@ class TableBooking extends TableAccess
      */
     public function __construct(Database $database, $booId = 0)
     {
-        parent::__construct($database, TBL_GUESTBOOK, 'boo', $booId);
+        parent::__construct($database, 'mws__bookings', 'boo', $booId);
     }
 
     /**

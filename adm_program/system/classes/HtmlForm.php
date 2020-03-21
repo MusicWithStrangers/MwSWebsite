@@ -1941,6 +1941,13 @@ class HtmlForm extends HtmlFormBasic
      * @param string          $parameter If you need an additional parameter for the text you can set this parameter.
      * @return string Return a html snippet that contains a help icon with a link to a popup box that shows the message.
      */
+        public static function getHelpTextIconRandom($text)
+    {
+
+        return '<img class="admidio-icon-help" src="' . THEME_URL . '/icons/help.png"
+            title="' . $gL10n->get('SYS_NOTE') . '" alt="Help" data-toggle="popover" data-html="true"
+            data-trigger="hover" data-placement="auto" data-content="' . htmlspecialchars($text) . '" />';
+    }
     public static function getHelpTextIcon($textId, $parameter = null)
     {
         global $gL10n, $gProfileFields;

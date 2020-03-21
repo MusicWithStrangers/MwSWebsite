@@ -37,6 +37,7 @@ if(isset($_SESSION['roombook_entry_request']))
 {
     // durch fehlerhafte Eingabe ist der User zu diesem Formular zurueckgekehrt
     // nun die vorher eingegebenen Inhalte ins Objekt schreiben
+    $_SESSION['rbday_request']['rbd_startTime'] = $_SESSION['rbday_request']['rbday_startTime'].' '.$_SESSION['rbday_request']['rbday_startTime_time'];
     $bookings->setArray($_SESSION['roombook_entry_request']);
     unset($_SESSION['roombook_entry_request']);
 } else {
@@ -57,7 +58,7 @@ $bookingsCreateMenu->addItem('menu_item_back', $gNavigation->getPreviousUrl(), $
 // Html des Modules ausgeben
 if ($getrbd_id > 0)
 {
-    $mode = '3';
+    $mode = '5';
     $headline = $getHeadline . ' - ' . $gL10n->get('SYS_EDIT_ENTRY');
 }
 else
@@ -119,30 +120,30 @@ $buttonURL = safeUrl(ADMIDIO_URL.FOLDER_MODULES.'/bookings/venue_new.php'); //, 
 $outputButtonAddVenue = '
     <button class="btn btn-default" onclick="window.location.href=\'' . $buttonURL . '\'">
         <img src="'.THEME_URL.'/icons/add.png" alt="Add venue" />Add venue</button>';
-$form = new HtmlForm('roombooking_edit_form', safeUrl(ADMIDIO_URL.FOLDER_MODULES.'/bookings/booking_function.php', array('id' => $$getrbd_id, 'headline' => $getHeadline, 'mode' => $mode)), $page);
-$form->addSelectBoxFromSql('rbd_ven_id', 'Venue', $gDb, $sqlDataVenue,
-    array('property' => HtmlForm::FIELD_REQUIRED, 'search' => true, 'htmlAfter' => $outputButtonAddVenue,'defaultValue' => $roombookingDay->getValue('rbd_ven_id')));
+$form = new HtmlForm('roombooking_edit_form', safeUrl(ADMIDIO_URL.FOLDER_MODULES.'/bookings/booking_function.php', array('rbd_id' => $getrbd_id, 'headline' => $getHeadline, 'mode' => $mode)), $page);
+$form->addSelectBoxFromSql('rbd_venue', 'Venue', $gDb, $sqlDataVenue,
+    array('property' => HtmlForm::FIELD_REQUIRED, 'search' => true, 'defaultValue' => $roombookingDay->getValue('rbd_venue')));
 $form->addSelectBoxFromSql('rbd_operationalContact', 'MWS Contact', $gDb, $sqlDataContact,
     array('property' => HtmlForm::FIELD_REQUIRED, 'search' => true,'defaultValue' => $roombookingDay->getValue('rbd_operationalContact')));
 $form->addInput(
     'rbd_slotLength', 'Slot length (minutes)', $roombookingDay->getValue('rbd_slotLength'),
-    array('type' => 'number', 'minNumber' => 0, 'maxNumber' => 540, 'step' => 1)
+    array('type' => 'number', 'minNumber' => 15, 'maxNumber' => 540, 'step' => 1)
 );
 $form->addInput(
-    'rbd_startTime', 'Start time/day', $roombookingDay->getValue('rbd_slotCount'),
-    array('type' => 'datetime')
+    'rbday_startTime', 'Start time/day', $roombookingDay->getValue('rbd_startTime', $gSettingsManager->getString('system_date').' '.$gSettingsManager->getString('system_time')),
+    array('type' => 'datetime','property' => HtmlForm::FIELD_REQUIRED)
 );
 $form->addInput(
     'rbd_slotCount', 'Number of slots', $roombookingDay->getValue('rbd_slotCount'),
-    array('type' => 'number', 'minNumber' => 0, 'maxNumber' => 20, 'step' => 1)
+    array('type' => 'number', 'minNumber' => 1, 'maxNumber' => 20, 'step' => 1)
 );
 $form->addInput(
     'rbd_hoursBookingSNR', 'Hours ahead booking for songs', $roombookingDay->getValue('rbd_hoursBookingSNR'),
-    array('type' => 'number', 'minNumber' => 0, 'maxNumber' => 200, 'step' => 1)
+    array('type' => 'number', 'minNumber' => 0, 'maxNumber' => 200, 'step' => 1,'helpTextIdLabel' => 'RBD_HOURSBOOKSNR_LINK')
 );
 $form->addInput(
     'rbd_hoursBookingNonSNR', 'Hours ahead booking for non-songs', $roombookingDay->getValue('rbd_hoursBookingNonSNR'),
-    array('type' => 'number', 'minNumber' => 0, 'maxNumber' => 200, 'step' => 1)
+    array('type' => 'number', 'minNumber' => 0, 'maxNumber' => 200, 'step' => 1,'helpTextIdLabel' => 'RBD_HOURSBOOKNONSNR_LINK')
 );
 //$form->addInput(
 //    'rbd_repeatdays', 'Repeat frequency (days)', $roombookingDay->getValue('rbd_rbd_repeatdays'),
@@ -151,9 +152,9 @@ $form->addInput(
 $form->addInput(
     'rbd_roomDescription', 'Room description', $roombookingDay->getValue('rbd_roomDescription'),array('property' => HtmlForm::FIELD_REQUIRED)
 );
-$form->addCheckbox('rbd_weekly','Weekly', $roombookingDay->getValue('rbd_weekly'));
-$form->addCheckbox('rbd_enable','Enabled', $roombookingDay->getValue('rbd_enable'));
-$form->addCheckbox('rbd_autoDisable','Auto disable', $roombookingDay->getValue('rbd_Autodisable'));
+$form->addCheckbox('rbd_weekly','Weekly', $roombookingDay->getValue('rbd_weekly'),array('helpTextIdLabel' => 'RBD_WEEKLY_LINK'));
+$form->addCheckbox('rbd_enable','Enabled', $roombookingDay->getValue('rbd_enable'), array('helpTextIdLabel' => 'RBD_ENABLED_LINK'));
+$form->addCheckbox('rbd_autoDisable','Auto disable', $roombookingDay->getValue('rbd_Autodisable'),array('helpTextIdLabel' => 'RBD_AUTODISABLE_LINK'));
 
 
 // show information about user who creates the recordset and changed it
@@ -164,5 +165,15 @@ $form->addSubmitButton('btn_save', $gL10n->get('SYS_SAVE'), array('icon' => THEM
 //));
 
 // add form to html page and show page
+$buttonURL = safeUrl(ADMIDIO_URL.FOLDER_MODULES.'/bookings/venue_new.php'); //, array('rol_id' => $dateRolId));
+$outputButtonAddVenue = '
+    <button class="btn btn-default" onclick="window.location.href=\'' . $buttonURL . '\'">
+        <img src="'.THEME_URL.'/icons/add.png" alt="Add venue" />Add venue</button>';
+$exceptURL = safeUrl(ADMIDIO_URL.FOLDER_MODULES.'/bookings/exceptions_new.php', array('rbd_id' => $getrbd_id)); //, array('rol_id' => $dateRolId));
+$outputButtonExceptions = '
+    <button class="btn btn-default" onclick="window.location.href=\'' . $exceptURL . '\'">
+    <img src="'.THEME_URL.'/icons/dates.png" alt="Weekly exceptions" />Weekly Exceptions</button>';
+$page->addHtml('<div class="btn-group">'.$outputButtonExceptions.'</div>');
+$page->addHtml('<div class="btn-group">'.$outputButtonAddVenue.'</div>');
 $page->addHtml($form->show(false));
 $page->show();

@@ -145,6 +145,13 @@ switch ($getType)
     case 'ure':
         $url = safeUrl(ADMIDIO_URL . FOLDER_MODULES . '/userrelations/userrelations_function.php', array('mode' => 2, 'ure_id' => $getDatabaseId));
         break;
+    case 'boo':
+        $url = safeUrl(ADMIDIO_URL . FOLDER_MODULES . '/bookings/booking_function.php', array('mode' => 2, 'boo_id' => $getDatabaseId));
+        $text='SYS_DELETE_BOOKING';
+        break;
+    case 'rbd':
+        $url = safeUrl(ADMIDIO_URL . FOLDER_MODULES . '/bookings/booking_function.php', array('mode' => 2, 'rbd_id' => $getDatabaseId));
+        break;
     default:
         $url = '';
         break;

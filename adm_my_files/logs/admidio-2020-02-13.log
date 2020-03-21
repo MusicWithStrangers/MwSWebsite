@@ -1,0 +1,1 @@
+[2020-02-13 19:11:32.751755] Admidio.WARNING: AUTHENTICATION: Incorrect username/password! {"username":"mws_admin","numberInvalid":1,"dateInvalid":"2020-02-13 19:11:32"} {"file":"M:\\wamp64\\www\\adm_program\\system\\classes\\User.php","line":1518,"class":"User","function":"handleIncorrectPasswordLogin"}

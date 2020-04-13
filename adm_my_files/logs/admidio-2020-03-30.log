@@ -1,0 +1,1 @@
+[2020-03-30 20:43:06.574233] Admidio.ERROR: L10N: Could not found text-id! {"textId":"DAT_SONGLOGIN_POSSIBLE"} {"file":"M:\\wamp64\\www\\adm_program\\system\\classes\\Language.php","line":119,"class":"Language","function":"get"}

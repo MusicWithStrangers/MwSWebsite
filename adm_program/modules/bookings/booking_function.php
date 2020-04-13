@@ -11,9 +11,11 @@
  *
  * dat_id     - ID of the event that should be edited
  * mode   : 1 - Create a new bookingroom
- *          2 - Delete the bookingroom
+ *          2 - Delete the booking or bookingroom or exception
  *          5 - Edit an existing bookingroom
  *          6 - Book a room
+ *          7 - Create an exception
+ *          8 - Create a new special booking
 
  * rol_id : vorselektierte Rolle der Rollenauswahlbox
  * copy   : true - The event of the dat_id will be copied and the base for this new event
@@ -30,7 +32,10 @@ if($_GET['mode'] == 2)
 // Initialize and check the parameters
 $getRoomBookingDayId    = admFuncVariableIsValid($_GET, 'rbd_id', 'int');
 $getSnrId               = admFuncVariableIsValid($_GET, 'boo_snr_id', 'int');
-$getBookId               = admFuncVariableIsValid($_GET, 'boo_id', 'int');
+$get_bexdate            = admFuncVariableIsValid($_GET, 'bex_rbd_date', 'string');
+$get_bexdescription     = admFuncVariableIsValid($_GET, 'bex_description', 'string');
+$getBookId              = admFuncVariableIsValid($_GET, 'boo_id', 'int');
+$getExceptionId         = admFuncVariableIsValid($_GET, 'bex_id', 'int');
 $getslotindex           = admFuncVariableIsValid($_GET, 'boo_slotindex', 'int');
 $bookDate               = admFuncVariableIsValid($_GET, 'boo_bookdate', 'string');
 $getMode                = admFuncVariableIsValid($_GET, 'mode',   'int', array('requireValue' => true));
@@ -49,7 +54,7 @@ $roombookingday = new TableRoomBookingDay($gDb);
 $roombookingday->readDataById($getRoomBookingDayId);
 
 
-if($getMode === 1 || $getMode === 5)  // Create a new venue or edit an existing event
+if($getMode === 1 || $getMode === 5)  // Create a roombooking or edit.
 {
     if(!isset($_POST['rbd_enable']))
     {
@@ -104,6 +109,13 @@ elseif($getMode === 2)
     // Delete successful -> Return for XMLHttpRequest
     echo 'done';
     }
+    if ($getExceptionId>0)
+    {
+        $exception=new TableBookingException($gDb);
+        $exception->readDataById($getExceptionId);
+        $exception->delete();
+        admRedirect($gNavigation->getUrl());
+    }
     if ($getBookId>0)
     {
             $booking = new TableBooking($gDb);
@@ -115,6 +127,7 @@ elseif($getMode === 2)
     }
 } elseif ($getMode ===6)
 {
+    //Direct booking (GET not POST)
     $booking = new TableBooking($gDb);
     $booking->readDataById(0);
     $booking->setValue('boo_rbd_id', $getRoomBookingDayId);
@@ -122,6 +135,7 @@ elseif($getMode === 2)
     $booking->setValue('boo_usr_id', $getUserId);
     $booking->setValue('boo_slotindex', $getslotindex);
     $booking->setValue('boo_bookdate', $bookDate);
+    
     $gDb->startTransaction();
     // save room booking day in database
     $returnCode = $booking->save();
@@ -133,4 +147,75 @@ elseif($getMode === 2)
     $gNavigation->deleteLastUrl();
 
     admRedirect($gNavigation->getUrl());
+} elseif ($getMode ===7) {
+    $exception=new TableBookingException($gDb);
+    try
+    {
+        // write all POST parameters into the date object
+        foreach($_POST as $key => $value) // TODO possible security issue
+        {
+            if(admStrStartsWith($key, 'bex_'))
+            {
+                $exception->setValue($key, $value);
+            }
+        }
+        $dformat=$gSettingsManager->getString('system_date');
+        $dvalue=$_POST['bexc_date'];
+        $exceptDate = \DateTime::createFromFormat($dformat, $dvalue);
+        if ($exceptDate===False)
+        {
+            $err=DateTime::getLastErrors();
+        }
+        $exception->setValue('bex_rbd_date', $exceptDate->format('Y-m-d H:i:s'));
+        $gDb->startTransaction();
+        // save room booking day in database
+        $returnCode = $exception->save();
+
+        $bex_id = (int) $roombookingday->getValue('bex_id');
+
+        $gDb->endTransaction();
+    }
+    catch(AdmException $e)
+    {
+        $e->showHtml();
+    }
+
+    $gNavigation->deleteLastUrl();
+
+    admRedirect($gNavigation->getUrl());
+    
+} elseif($getMode === 8)  // Create a roombooking or edit.
+{
+    $specialBook = new TableBooking($gDb);
+    try
+    {
+        // write all POST parameters into the date object
+        foreach($_POST as $key => $value) // TODO possible security issue
+        {
+            if(admStrStartsWith($key, 'boo_'))
+            {
+                $specialBook->setValue($key, $value);
+            }
+        }
+    }
+    catch(AdmException $e)
+    {
+        $e->showHtml();
+    }
+    $startDateTime = \DateTime::createFromFormat($gSettingsManager->getString('system_date'), $_POST['book_date']);
+    
+    $specialBook->setValue('boo_bookdate', $startDateTime->format('Y-m-d H:i:s'));
+    $gDb->startTransaction();
+
+    // save room booking day in database
+    $returnCode = $specialBook->save();
+
+    $bookingId = (int) $specialBook->getValue('boo_id');
+
+    $gDb->endTransaction();
+
+    $gNavigation->deleteLastUrl();
+
+    admRedirect($gNavigation->getUrl());
+    // => EXIT
 }

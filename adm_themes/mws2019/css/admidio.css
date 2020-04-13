@@ -829,6 +829,9 @@ body > .admidio-content {
 .admidio-weblink-item {
     padding-top: 15px;
 }
+.admidio-exceptions-item {
+    padding-top: 10px;
+}
 
 .admidio-weblink-description {
     padding: 5px 0;

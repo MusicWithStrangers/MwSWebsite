@@ -211,16 +211,18 @@ else
                 {
                     $htmlBookElements.= ', but you already booked a slot for this room';
                 }
-                $htmlBookElements.='. From ' . $bookNonSongStart->format('D M d'). ', ' . $bookNonSongStart->format('H:i'). ' it can be booked for anything.' . '</div>';
-                if ($getSongId>0)
+                $htmlBookElements.='. From ' . $bookNonSongStart->format('D M d'). ', ' . $bookNonSongStart->format('H:i'). ' it can be booked for anything.' ;
+                if ($getSnrId>0)
                 {
                     $showBookNow=TRUE;
                 }
             } else {
-                $htmlBookElements.= '<div class="panel-body">This room cannot be booked yet. It can be booked for events-registered songs from ' . $bookWithSongStart->format('D M d'). ', ' . $bookWithSongStart->format('H:i') . '</div>';
+                $htmlBookElements.= '<div class="panel-body">This room cannot be booked yet. It can be booked for events-registered songs from ' . $bookWithSongStart->format('D M d'). ', ' . $bookWithSongStart->format('H:i') ;
                 $showBookNow=FALSE;
             }
         }
+
+        $htmlBookElements.='</div>';
         $htmlBookElements.='</div>';
         $slotTimes=$row['slotTimes'];
         $slotBookings=$row['slotBookings'];
@@ -239,8 +241,8 @@ else
             if ($slotBookings[$key]>0)
             {
                 $status='Booked';
-                $bookingSQLWithoutSNR='SELECT mws__bookings.boo_snr_id, mws__user_data.usd_value, mws__roombookingday.rbd_id, mws__roombookingday.rbd_roomDescription, mws__bookings.boo_slotindex, mws__users.usr_id FROM mws__bookings inner join mws__roombookingday on mws__roombookingday.rbd_id=mws__bookings.boo_rbd_id inner join mws__users on mws__users.usr_id=mws__bookings.boo_usr_id inner join mws__user_data on mws__user_data.usd_usr_id=mws__users.usr_id where mws__user_data.usd_usf_id IN (2) and mws__bookings.boo_id='.$slotBookings[$key] ;
-                $bookingSQLWithSNR='SELECT mws__user_data.usd_value, mws__roombookingday.rbd_id, mws__bookings.boo_snr_id, mws__bands.bnd_name, mws__roombookingday.rbd_roomDescription, mws__dates.dat_headline,  mws__songs.son_title, mws__bookings.boo_slotindex, mws__users.usr_id, mws__song_musicianregistration.smr_id, mws__instruments.ins_name FROM mws__song_musicianregistration inner join mws__song_registration on mws__song_musicianregistration.smr_snr_id=mws__song_registration.snr_id inner join mws__bookings on mws__bookings.boo_snr_id=mws__song_registration.snr_id inner join mws__bands on mws__song_registration.snr_bnd_id=mws__bands.bnd_id inner join mws__roombookingday on mws__roombookingday.rbd_id=mws__bookings.boo_rbd_id inner join mws__dates on mws__dates.dat_id=mws__song_registration.snr_dat_id inner join mws__songs on mws__songs.son_id=mws__song_registration.snr_son_id inner join mws__instruments on mws__instruments.ins_id=mws__song_musicianregistration.smr_ins_id inner join mws__users on mws__users.usr_id=mws__bookings.boo_usr_id inner join mws__user_data on mws__user_data.usd_usr_id=mws__users.usr_id where mws__user_data.usd_usf_id IN (2) and mws__bookings.boo_id='.$slotBookings[$key] ;
+                $bookingSQLWithoutSNR='SELECT mws__bookings.boo_snr_id, mws__bookings.boo_comment, mws__user_data.usd_value, mws__roombookingday.rbd_id, mws__roombookingday.rbd_roomDescription, mws__bookings.boo_slotindex, mws__users.usr_id FROM mws__bookings inner join mws__roombookingday on mws__roombookingday.rbd_id=mws__bookings.boo_rbd_id inner join mws__users on mws__users.usr_id=mws__bookings.boo_usr_id inner join mws__user_data on mws__user_data.usd_usr_id=mws__users.usr_id where mws__user_data.usd_usf_id IN (2) and mws__bookings.boo_id='.$slotBookings[$key] ;
+                $bookingSQLWithSNR='SELECT mws__user_data.usd_value, mws__bookings.boo_comment,  mws__roombookingday.rbd_id, mws__bookings.boo_snr_id, mws__bands.bnd_name, mws__roombookingday.rbd_roomDescription, mws__dates.dat_headline,  mws__songs.son_title, mws__bookings.boo_slotindex, mws__users.usr_id, mws__song_musicianregistration.smr_id, mws__instruments.ins_name FROM mws__song_musicianregistration inner join mws__song_registration on mws__song_musicianregistration.smr_snr_id=mws__song_registration.snr_id inner join mws__bookings on mws__bookings.boo_snr_id=mws__song_registration.snr_id inner join mws__bands on mws__song_registration.snr_bnd_id=mws__bands.bnd_id inner join mws__roombookingday on mws__roombookingday.rbd_id=mws__bookings.boo_rbd_id inner join mws__dates on mws__dates.dat_id=mws__song_registration.snr_dat_id inner join mws__songs on mws__songs.son_id=mws__song_registration.snr_son_id inner join mws__instruments on mws__instruments.ins_id=mws__song_musicianregistration.smr_ins_id inner join mws__users on mws__users.usr_id=mws__bookings.boo_usr_id inner join mws__user_data on mws__user_data.usd_usr_id=mws__users.usr_id where mws__user_data.usd_usf_id IN (2) and mws__bookings.boo_id='.$slotBookings[$key] ;
                 $pdoStatementNoSNR = $gDb->queryPrepared($bookingSQLWithoutSNR); // TODO add more params
                 $pdoStatementWithSNR = $gDb->queryPrepared($bookingSQLWithSNR); 
                 $bookedCount=$pdoStatementNoSNR->rowCount();
@@ -248,6 +250,11 @@ else
                 {
                     $bookedResults=array();
                     $bookedData = $pdoStatementNoSNR->fetchAll();
+                    $comment=$bookedData[0]['boo_comment'];
+                    if (strlen($comment)>1)
+                    {
+                        $status=$comment;
+                    }
                     $bookedSong=False;
                     if ($bookedData[0]['boo_snr_id']>0)
                     {
@@ -282,7 +289,7 @@ else
                     if ($row['IBooked']==0)
                     {             
                         $bookNow= '
-                        <a class="admidio-icon-link" href="'.safeUrl(ADMIDIO_URL.FOLDER_MODULES.'/bookings/booking_function.php', array('boo_snr_id'=>$getSnrId, 'rbd_id' => $bookId, 'mode'=>6,'boo_slotindex'=>$key, 'son_id'=>$getSongId, 'boo_bookdate'=> $startValue->format('Y-m-d H:i:s'), 'headline' => $getHeadline)) . '">
+                        <a class="admidio-icon-link" href="'.safeUrl(ADMIDIO_URL.FOLDER_MODULES.'/bookings/booking_function.php', array('boo_snr_id'=>$getSnrId, 'rbd_id' => $bookId, 'mode'=>6,'boo_slotindex'=>$key, 'snr_id'=>$getSnrId, 'boo_bookdate'=> $startValue->format('Y-m-d H:i:s'), 'headline' => $getHeadline)) . '">
                             <img src="'.THEME_URL.'/icons/edit.png" alt="Book Now" title="Book now" /></a>';
                     }
             }
@@ -293,17 +300,35 @@ else
             $htmlBookElements.='</div>';
         }
         
+        $sqlexceptions='SELECT date_format(bex_rbd_date,\'%d %b %Y\') as exceptdate, bex_description, mws__roombookingday.rbd_id  FROM mws__bookexceptions inner join mws__roombookingday on mws__bookexceptions.bex_rbd_id=mws__roombookingday.rbd_id WHERE mws__roombookingday.rbd_id='.$bookId.' AND mws__bookexceptions.bex_rbd_date>now() AND mws__bookexceptions.bex_rbd_date< DATE_ADD(now(), INTERVAL 1 MONTH)';
+        $pdoStatementExcept = $gDb->queryPrepared($sqlexceptions); 
+        $exceptCount=$pdoStatementExcept->rowCount();
+        if ($exceptCount>0)                
+        {
+            $exceptData = $pdoStatementExcept->fetchAll();
+            $htmlBookElements.='<div><b>Upcomming booking exceptions :</b></div>';
+            foreach($exceptData as $except)
+            {
+                $htmlBookElements.='<div class="row">';
+                $htmlBookElements.='<div class="col-sm-2 col-xs-4">'.$except['exceptdate'].'</div>';
+                $htmlBookElements.='<div class="col-sm-2 col-xs-4">'.$except['bex_description'].'</div>';
+                $htmlBookElements.='</div>';
+            }
+
+        }
+        
 
          $outputRoomDescription = $booking->getValue('rbd_roomDescription');
 
         $outputVenueName = $booking->getValue('ven_name');
         $bookHeadline=$outputVenueName . ': ' . $outputRoomDescription.' - '. $startValue->format('D M d');
+        $editHeadline='Edit '. $outputVenueName . ': ' . $outputRoomDescription;
 
                 // change and delete is only for users with additional rights
         if ($bookAdmin)
         {
             $outputButtonEdit = '
-                <a class="admidio-icon-link" href="'.safeUrl(ADMIDIO_URL.FOLDER_MODULES.'/bookings/roombooking_new.php', array('rbd_id' => $bookId, 'headline' => $getHeadline)) . '">
+                <a class="admidio-icon-link" href="'.safeUrl(ADMIDIO_URL.FOLDER_MODULES.'/bookings/roombooking_new.php', array('rbd_id' => $bookId, 'headline' => $editHeadline)) . '">
                     <img src="'.THEME_URL.'/icons/edit.png" alt="' . $gL10n->get('SYS_EDIT') . '" title="' . $gL10n->get('SYS_EDIT') . '" /></a>';
             $outputButtonDelete = '
                 <a class="admidio-icon-link" data-toggle="modal" data-target="#admidio_modal"

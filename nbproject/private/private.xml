@@ -4,18 +4,18 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/M:/wamp64/www/adm_program/system/classes/ModuleBookings.php</file>
-            <file>file:/M:/wamp64/www/adm_program/system/shutdown.php</file>
             <file>file:/M:/wamp64/www/adm_program/modules/bookings/bookings.php</file>
-            <file>file:/M:/wamp64/www/adm_program/system/classes/HtmlPage.php</file>
-            <file>file:/M:/wamp64/www/adm_program/system/popup_message.php</file>
-            <file>file:/M:/wamp64/www/adm_program/system/login_check.php</file>
-            <file>file:/M:/wamp64/www/adm_program/system/js/common_functions.js</file>
-            <file>file:/M:/wamp64/www/index.php</file>
+            <file>file:/M:/wamp64/www/adm_program/modules/bookings/exceptions_new.php</file>
+            <file>file:/M:/wamp64/www/adm_program/modules/members/import.php</file>
+            <file>file:/M:/wamp64/www/adm_program/modules/profile/profile_function.php</file>
+            <file>file:/M:/wamp64/www/adm_program/system/common.php</file>
+            <file>file:/M:/wamp64/www/adm_program/system/classes/TableInstrument</file>
+            <file>file:/M:/wamp64/www/adm_program/modules/profile/profile.php</file>
             <file>file:/M:/wamp64/www/adm_my_files/config.php</file>
-            <file>file:/M:/wamp64/www/adm_program/system/classes/Database.php</file>
-            <file>file:/M:/wamp64/www/adm_program/modules/bookings/booking_function.php</file>
-            <file>file:/M:/wamp64/www/adm_program/system/classes/TableAccess.php</file>
-            <file>file:/M:/wamp64/www/adm_program/modules/dates/dates.php</file>
+            <file>file:/M:/wamp64/www/adm_program/modules/bookings/roombooking_new.php</file>
+            <file>file:/M:/wamp64/www/adm_program/modules/dates/dates_new.php</file>
+            <file>file:/M:/wamp64/www/adm_program/modules/members/members_data.php</file>
+            <file>file:/M:/wamp64/www/adm_program/system/classes/TableMembers.php</file>
             <file>file:/M:/wamp64/www/adm_program/index.php</file>
         </group>
     </open-files>

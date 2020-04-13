@@ -210,7 +210,7 @@ class ModuleBookings extends Modules
                 # WHERE DATE(timestamp) = '2012-05-05'
                 $bookDelayAfterBook=$abook['rbd_hoursBookDelayAfterbooked'];
                 $sql = 'SELECT * FROM mws__roombookingday inner join mws__bookings on mws__roombookingday.rbd_id=mws__bookings.boo_rbd_id inner join mws__users on mws__users.usr_id=mws__bookings.boo_usr_id inner join mws__user_data on mws__user_data.usd_usr_id=mws__users.usr_id where mws__user_data.usd_usf_id IN (1,2) and rbd_id='. $abook['rbd_id'].' AND DATE(mws__bookings.boo_bookdate)=DATE('.$bookDate.')';
-                $sql='SELECT GROUP_CONCAT(mws__user_data.usd_value order by mws__user_data.usd_usf_id DESC SEPARATOR \' \') as \'name\', mws__roombookingday.rbd_startTime, mws__bookings.boo_bookdate, mws__roombookingday.rbd_enable, mws__roombookingday.rbd_slotCount, mws__roombookingday.rbd_slotLength, mws__roombookingday.rbd_id, mws__bookings.boo_id, mws__bookings.boo_usr_id, mws__bookings.boo_slotindex FROM mws__roombookingday inner join mws__bookings on mws__roombookingday.rbd_id=mws__bookings.boo_rbd_id inner join mws__users on mws__users.usr_id=mws__bookings.boo_usr_id inner join mws__user_data on mws__user_data.usd_usr_id=mws__users.usr_id where mws__user_data.usd_usf_id IN (1,2) and mws__roombookingday.rbd_id='.$abook['rbd_id'].' AND DATE(mws__bookings.boo_bookdate)=\''.$bookDate.'\' group by mws__bookings.boo_id';
+                $sql='SELECT GROUP_CONCAT(mws__user_data.usd_value order by mws__user_data.usd_usf_id DESC SEPARATOR \' \') as \'name\', mws__roombookingday.rbd_startTime, mws__bookings.boo_specialbooking, mws__bookings.boo_comment, mws__bookings.boo_bookdate, mws__roombookingday.rbd_enable, mws__roombookingday.rbd_slotCount, mws__roombookingday.rbd_slotLength, mws__roombookingday.rbd_id, mws__bookings.boo_id, mws__bookings.boo_usr_id, mws__bookings.boo_slotindex FROM mws__roombookingday inner join mws__bookings on mws__roombookingday.rbd_id=mws__bookings.boo_rbd_id inner join mws__users on mws__users.usr_id=mws__bookings.boo_usr_id inner join mws__user_data on mws__user_data.usd_usr_id=mws__users.usr_id where mws__user_data.usd_usf_id IN (1,2) and mws__roombookingday.rbd_id='.$abook['rbd_id'].' AND DATE(mws__bookings.boo_bookdate)=\''.$bookDate.'\' group by mws__bookings.boo_id';
                 $pdoStatementbusy = $gDb->queryPrepared($sql); // TODO add more params
                 $bookCountbusy=$pdoStatementbusy->rowCount();
                 $slotData = new stdClass();
@@ -260,7 +260,7 @@ class ModuleBookings extends Modules
                     }
                     foreach ($slotData as $aSlot)
                     {
-                        if ($aSlot['boo_usr_id']===$gCurrentUserId)
+                        if ($aSlot['boo_usr_id']===$gCurrentUserId and $aSlot['boo_specialbooking']===0)
                         {
                             $IBooked++;
                         }

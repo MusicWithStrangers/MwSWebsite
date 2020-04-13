@@ -49,7 +49,7 @@ if(isset($_SESSION['roombook_entry_request']))
 
 
 // create html page object
-$page = new HtmlPage($headline);
+$page = new HtmlPage($getHeadline);
 
 // add back link to module menu
 $bookingsCreateMenu = $page->getMenu();
@@ -169,7 +169,9 @@ $buttonURL = safeUrl(ADMIDIO_URL.FOLDER_MODULES.'/bookings/venue_new.php'); //, 
 $outputButtonAddVenue = '
     <button class="btn btn-default" onclick="window.location.href=\'' . $buttonURL . '\'">
         <img src="'.THEME_URL.'/icons/add.png" alt="Add venue" />Add venue</button>';
-$exceptURL = safeUrl(ADMIDIO_URL.FOLDER_MODULES.'/bookings/exceptions_new.php', array('rbd_id' => $getrbd_id)); //, array('rol_id' => $dateRolId));
+//$get_boo_rbd_id    = admFuncVariableIsValid($_GET, 'boo_rbd_id',       'int');
+//$get_boo_bookdata    = admFuncVariableIsValid($_GET, 'boo_bookdate',   'string');
+$exceptURL = safeUrl(ADMIDIO_URL.FOLDER_MODULES.'/bookings/exceptions_new.php', array('boo_rbd_id' => $getrbd_id)); //, array('rol_id' => $dateRolId));
 $outputButtonExceptions = '
     <button class="btn btn-default" onclick="window.location.href=\'' . $exceptURL . '\'">
     <img src="'.THEME_URL.'/icons/dates.png" alt="Weekly exceptions" />Weekly Exceptions</button>';

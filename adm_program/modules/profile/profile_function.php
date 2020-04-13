@@ -17,6 +17,8 @@
  *           6 - reload future role memberships
  *           7 - save membership data
  *           8 - Export vCard of role
+ *           9 - Add instrument
+ *          10 - Delete instrument
  * user_id : Id of the user to be edited
  * mem_id  : Id of role membership to should be edited
  ***********************************************************************************************
@@ -30,6 +32,7 @@ $getUserId   = admFuncVariableIsValid($_GET, 'user_id', 'int');
 $getRoleId   = admFuncVariableIsValid($_GET, 'rol_id',  'int');
 $getMemberId = admFuncVariableIsValid($_GET, 'mem_id',  'int');
 $getMode     = admFuncVariableIsValid($_GET, 'mode',    'int');
+$getUinId    = admFuncVariableIsValid($_GET, 'uin_id',    'int');
 
 // in ajax mode only return simple text on error
 if($getMode === 7)
@@ -230,4 +233,44 @@ elseif ($getMode === 8)
             echo $user->getVCard();
         }
     }
+} elseif ($getMode === 9)
+{
+    $Instrument = new TableInstrument($gDb);
+
+    try
+    {
+        // write all POST parameters into the date object
+        foreach($_POST as $key => $value) // TODO possible security issue
+        {
+            if(admStrStartsWith($key, 'uin_'))
+            {
+                $Instrument->setValue($key, $value);
+            }
+        }
+    }
+    catch(AdmException $e)
+    {
+        $e->showHtml();
+    }
+
+    $gDb->startTransaction();
+
+    // save event in database
+    $returnCode = $Instrument->save();
+
+    $instrumentId = (int) $Instrument->getValue('uin_id');
+
+    $gDb->endTransaction();
+
+    //$gNavigation->deleteLastUrl();
+
+    admRedirect($gNavigation->getUrl());
+} elseif ($getMode === 10)
+{
+    $Instrument = new TableInstrument($gDb);
+    $Instrument->readDataById($getUinId);
+    $Instrument->delete();
+    // Delete successful -> Return for XMLHttpRequest
+            //echo 'done';
+    admRedirect($gNavigation->getUrl());
 }

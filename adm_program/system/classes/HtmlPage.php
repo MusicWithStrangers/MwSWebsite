@@ -878,4 +878,95 @@ class HtmlPage
 
         return $htmlMenu;
     }
+    
+    public function showMmwsMenu($details = true)
+    {
+        global $gL10n, $gValidLogin, $gSettingsManager, $gDb, $gCurrentUser;
+
+        $menuIcon = '/dummy.png';
+        $htmlMenu = '';
+
+        $mainMenuStatement = self::getMainMenuStatement();
+
+        while ($mainMenu = $mainMenuStatement->fetch())
+        {
+            $unreadBadge = '';
+
+            $menuStatement = self::getMenuStatement($mainMenu['men_id']);
+
+            if ($menuStatement->rowCount() > 0)
+            {
+                $menu = new Menu($mainMenu['men_name_intern'], Language::translateIfTranslationStrId($mainMenu['men_name']));
+
+                while ($row = $menuStatement->fetch())
+                {
+                    if ((int) $row['men_com_id'] === 0 || Component::isVisible($row['com_name_intern']))
+                    {
+                        // Read current roles rights of the menu
+                        $displayMenu = new RolesRights($gDb, 'menu_view', $row['men_id']);
+                        $rolesDisplayRight = $displayMenu->getRolesIds();
+
+                        // check for right to show the menu
+                        if (count($rolesDisplayRight) > 0 && !$displayMenu->hasRight($gCurrentUser->getRoleMemberships()))
+                        {
+                            continue;
+                        }
+
+                        $menuName = Language::translateIfTranslationStrId($row['men_name']);
+                        $menuDescription = Language::translateIfTranslationStrId($row['men_description']);
+                        $menuUrl = $row['men_url'];
+
+                        if (strlen($row['men_icon']) > 2)
+                        {
+                            $menuIcon = $row['men_icon'];
+                        }
+
+                        // special case because there are different links if you are logged in or out for mail
+                        if ($gValidLogin && $row['men_name_intern'] === 'mail')
+                        {
+                            $unreadBadge = self::getUnreadMessagesBadge();
+
+                            $menuUrl = ADMIDIO_URL . FOLDER_MODULES . '/messages/messages.php';
+                            $menuIcon = 'messages.png';
+                            $menuName = $gL10n->get('SYS_MESSAGES') . $unreadBadge;
+                        }
+
+                        $menu->addItem($row['men_name_intern'], $menuUrl, $menuName, $menuIcon, $menuDescription);
+
+                        if ($details)
+                        {
+                            // Submenu for Lists
+                            if ($gValidLogin && $row['men_name_intern'] === 'lists')
+                            {
+                                $menu->addSubItem(
+                                    'lists', 'rolinac', safeUrl(ADMIDIO_URL . FOLDER_MODULES . '/lists/lists.php', array('active_role' => 0)),
+                                    $gL10n->get('ROL_INACTIV_ROLE')
+                                );
+                            }
+
+                            // Submenu for Dates
+                            if ($row['men_name_intern'] === 'dates'
+                                && ((int) $gSettingsManager->get('enable_dates_module') === 1
+                                || ((int) $gSettingsManager->get('enable_dates_module') === 2 && $gValidLogin)))
+                            {
+                                $menu->addSubItem(
+                                    'dates', 'olddates', safeUrl(ADMIDIO_URL . FOLDER_MODULES . '/dates/dates.php', array('mode' => 'old')),
+                                    $gL10n->get('DAT_PREVIOUS_DATES', array($gL10n->get('DAT_DATES')))
+                                );
+                            }
+                        }
+                    }
+                }
+
+                $htmlMenu .= $menu->show($details);
+            }
+
+            $this->menu->addItem(
+                'menu_item_private_message', ADMIDIO_URL . FOLDER_MODULES . '/messages/messages.php', $gL10n->get('SYS_MESSAGES') . $unreadBadge,
+                'messages.png', 'right', 'menu_item_modules', 'admidio-default-menu-item'
+            );
+        }
+
+        return $htmlMenu;
+    }
 }

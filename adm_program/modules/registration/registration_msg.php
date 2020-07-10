@@ -40,7 +40,7 @@ $page->addHtml('Thank you for your interest in Music with Strangers!<br><br>You 
 $page->addHtml('Note that this registration is to become a member of our association, not just for this online booking system.');
 $page->addHtml('Your registration needs to be approved before being activated, so it can take a couple of days.');
 $page->addHtml('However, registration will not be approved when we have never heard from you before either during thursday socializing evenings or by direct contact.');
-$page->addHtml('<br>Continue to <a href="profile_new.php">registration form</a>');
+$page->addHtml('<br>Continue to <a href="registration.php">registration form</a>');
 
 $page->addHtml('</div>');
      

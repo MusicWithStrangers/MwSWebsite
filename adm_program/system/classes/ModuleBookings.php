@@ -178,11 +178,35 @@ class ModuleBookings extends Modules
                 $bookDate=new DateTime();
                 $bookDate->setTimestamp($bookTimestamp);
                  #$bookDate->getTimestamp();
-                if ($abook['rbd_weekly'] === 1)
+                if ($abook['rbd_weekly'] == 1)
                 {
                     $dayweek=date('l',$bookTimestamp);
                     $now = new DateTime();
                     $nextDate = $now->modify('next '.$dayweek);
+                    $sqlexceptions='SELECT * FROM mws__bookexceptions where bex_rbd_id='.$abook['rbd_id'];
+                    $pdoStatementExcept = $gDb->queryPrepared($sqlexceptions); 
+                    $exceptCount=$pdoStatementExcept->rowCount();
+                    $hasExcept=True;
+                    if ($exceptCount>0)                
+                    {
+                        $exceptData = $pdoStatementExcept->fetchAll();
+                        while ($hasExcept)
+                        {
+                            $hasExcept=False;
+                            foreach ($exceptData as $anException)
+                            {
+                                //$exceptDate=new DateTime($anException['bex_rbd_date']);
+                                $exceptDateString=date("m/d/Y h:i:s A T",strtotime($anException['bex_rbd_date']));
+                                $exceptDate=DateTime::createFromFormat('m/d/Y h:i:s A T', $exceptDateString);
+                                if ($exceptDate->format('Y/m/d') == $nextDate->format('Y/m/d'))
+                                {
+                                    $hasExcept=True;
+                                    $nextDate->modify('+7 days');
+                                }
+
+                            }
+                        }
+                    } 
                     $nextTimestamp=$nextDate->getTimestamp();
                     $startTime=date("h:i:s A T",$bookTimestamp);
                     $startDate=date("m/d/Y",$nextTimestamp);
@@ -191,7 +215,8 @@ class ModuleBookings extends Modules
                 } else
                 {
                     // else if date is today
-                    $slotStart=strtotime($abook['rbd_startTime']);
+                    $slotStartString=date("m/d/Y h:i:s A T",strtotime($abook['rbd_startTime']));
+                    $slotStart=DateTime::createFromFormat('m/d/Y h:i:s A T', $slotStartString);
                 }
                 $now = new DateTime();
                 $bookDate=$slotStart->format("Y-m-d");
@@ -229,7 +254,7 @@ class ModuleBookings extends Modules
                 $IBooked=0;
                 if ($showRoom)
                 {
-                    $sql='SELECT * FROM mws__bookexceptions where bex_rbd_id="'.$abook['rbd_id'].'"';
+
                     // bex_rbd_from bex_rbd_to
                     // check bookable   
                     $now = new DateTime();

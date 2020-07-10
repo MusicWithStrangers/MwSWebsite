@@ -10,6 +10,7 @@
  */
 
 // if config file doesn't exists, than show installation dialog
+global $gValidLogin;
 if (!is_file(dirname(__DIR__) . '/adm_my_files/config.php'))
 {
     header('Location: installation/index.php');
@@ -61,6 +62,54 @@ else
 }
 
 // display Menu
-$page->addHtml($page->showMainMenu());
-
+//$page->addHtml($page->showMainMenu());
+  if ($gValidLogin)
+        {
+        $getUserId = (int) $gCurrentUser->getValue('usr_id');
+        $instrument_sql='SELECT uin_id, uin_offering_description, ins_name, off_description FROM mws__user_instruments inner join mws__instruments on uin_ins_id=mws__instruments.ins_id inner join mws__offering on mws__offering.off_id=uin_off_id WHERE uin_usr_id='.$getUserId;
+        $instrumentData= $gDb->queryPrepared($instrument_sql);
+        $page->addHtml('<div class="media-left" id="profile_instruments_box">');
+                if ($instrumentData->rowCount()>0)
+                {
+                    $page->addHtml('<h2>Instruments and interests you registered:</h2>');
+                    $instrumentfetch      = $instrumentData->fetchAll();
+                    $page->addHtml('<div class="panel-body row" id="profile_instruments_box_body">');
+                    foreach ($instrumentfetch as $instrument)
+                    {
+                        $deleteButton = '<a class="admidio-icon-link" href="'.safeUrl(ADMIDIO_URL.FOLDER_MODULES.'/profile/profile_function.php', array('uin_id'=>$instrument['uin_id'], 'mode'=>10,)) . '">
+                                <img src="'.THEME_URL.'/icons/delete.png" alt="' . $gL10n->get('SYS_DELETE') . '" title="' . $gL10n->get('SYS_DELETE') . '" /></a>';
+                        $page->addHtml('<div class="col-sm-4">'.$deleteButton.' '.$instrument['ins_name'].'</div>');
+                        $page->addHtml('<div class="col-sm-4">Interest: '.$instrument['off_description'].'</div>');
+                        $page->addHtml('<div class="col-sm-4">Style: '.$instrument['uin_offering_description'].'</div>');
+                    }
+                    $page->addHtml('</div>');
+                } else {
+                    $page->addHtml('<h2>You did not regiser any instruments or interests yet!</h2>');
+                }
+                $page->addHtml('<div class="panel-body row" id="profile_instruments_box_body">'
+                        . '<div class="col-sm-10"><b>Add instruments:</b><br>');
+                        $form = new HtmlForm('add_instrument_form', safeUrl(ADMIDIO_URL.FOLDER_MODULES.'/profile/profile_function.php', array('user_id' => $userId, 'mode' => 9)), $page);
+                        $form->addInput('uin_usr_id', 'User', $getUserId,array('property' => HtmlForm::FIELD_HIDDEN));
+                        $sqlInstruments='Select * from mws__instruments';
+                        $sqlOffering='Select * from mws__offering';
+                        $form->addSelectBoxFromSql('uin_ins_id', 'Instrument', $gDb, $sqlInstruments, array('property' => HtmlForm::FIELD_REQUIRED, 'search' => true));
+                        $form->addSelectBoxFromSql('uin_off_id', 'Interest joining bands', $gDb, $sqlOffering, array('property' => HtmlForm::FIELD_REQUIRED, 'search' => true, 'defaultValue'=>1));
+                        $form->addInput('uin_offering_description', 'What genre, style, thing has your interest?', '', array('type' => 'text'));
+                        $form->addSubmitButton('btn_add', 'Add', array('icon' => THEME_URL.'/icons/add.png'));
+                        $page->addHtml($form->show(false));
+            $page->addHtml('</div></div></div>');
+            $page->addHtml('<h2>Upcomming Events</h2>');
+            $sqlEvents='SELECT * FROM `mws__dates` WHERE dat_begin >= NOW()';
+            $eventData= $gDb->queryPrepared($sqlEvents);
+            if ($eventData->rowCount()>0)
+            {
+            }                    
+        }
+        else
+        {
+                $page->addHtml('<div class="media-left" id="association">');
+                $page->addHtml('This domain is for registered members of the Music with Strangers association only.<br>');
+                $page->addHtml('Please log in or register to our association.');
+                $page->addHtml('</div>');
+        }
 $page->show();

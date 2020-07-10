@@ -441,7 +441,7 @@ $form->addEditor('dat_description', '', $date->getValue('dat_description'));
 $form->closeGroupBox();
 
 $form->openGroupBox('gb_concept', $gL10n->get('DAT_CONCEPT'), 'admidio-panel-editor');
-$form->addEditor('dat_doncept', '', $date->getValue('dat_concept'));
+$form->addEditor('dat_concept', '', $date->getValue('dat_concept'));
 $form->closeGroupBox();
 
 $form->openGroupBox('gb_financial', $gL10n->get('DAT_FINANCIAL'), 'admidio-panel-editor');

@@ -94,9 +94,9 @@ $form->addInput('son_title', "Song title", $song->getValue('son_title'),
     array('maxLength' => 25, 'property' => HtmlForm::FIELD_REQUIRED));
 $form->addInput('son_artist', "Song artist", $song->getValue('son_artist'),
     array('maxLength' => 25));
-$form->addInput('son_duration', "Song duration", $song->getValue('son_duration'),
+$form->addInput('son_duration', "Song duration [min]", $song->getValue('son_duration'),
     array('type' => 'number', 'minNumber' => 0, 'maxNumber' => 60, 'step' => 0.5));
-$form->addCheckbox('son_is_original', 'Is original', (bool) $song->getValue('son_is_original'));
+$form->addCheckbox('son_is_original', 'Is an original song', (bool) $song->getValue('son_is_original'));
 
 $form->closeGroupBox();
 

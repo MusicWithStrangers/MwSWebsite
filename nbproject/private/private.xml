@@ -5,17 +5,20 @@
         <group>
             <file>file:/M:/wamp64/www/adm_program/system/classes/ModuleBookings.php</file>
             <file>file:/M:/wamp64/www/adm_program/modules/bookings/bookings.php</file>
-            <file>file:/M:/wamp64/www/adm_program/modules/bookings/exceptions_new.php</file>
-            <file>file:/M:/wamp64/www/adm_program/modules/members/import.php</file>
-            <file>file:/M:/wamp64/www/adm_program/modules/profile/profile_function.php</file>
-            <file>file:/M:/wamp64/www/adm_program/system/common.php</file>
-            <file>file:/M:/wamp64/www/adm_program/system/classes/TableInstrument</file>
-            <file>file:/M:/wamp64/www/adm_program/modules/profile/profile.php</file>
+            <file>file:/M:/wamp64/www/adm_program/modules/registration/registration.php</file>
+            <file>file:/M:/wamp64/www/adm_program/modules/songs/songs_show.php</file>
+            <file>file:/M:/wamp64/www/adm_program/modules/songs/songs_function.php</file>
+            <file>file:/M:/wamp64/www/adm_program/system/classes/User.php</file>
+            <file>file:/M:/wamp64/www/index.php</file>
             <file>file:/M:/wamp64/www/adm_my_files/config.php</file>
-            <file>file:/M:/wamp64/www/adm_program/modules/bookings/roombooking_new.php</file>
+            <file>file:/M:/wamp64/www/config.php</file>
+            <file>file:/M:/wamp64/www/adm_program/system/function.php</file>
+            <file>file:/M:/wamp64/www/adm_program/libs/phpmailer/class.phpmailer.php</file>
+            <file>file:/M:/wamp64/www/adm_program/system/classes/TableDate.php</file>
             <file>file:/M:/wamp64/www/adm_program/modules/dates/dates_new.php</file>
-            <file>file:/M:/wamp64/www/adm_program/modules/members/members_data.php</file>
-            <file>file:/M:/wamp64/www/adm_program/system/classes/TableMembers.php</file>
+            <file>file:/M:/wamp64/www/adm_program/modules/bookings/booking_function.php</file>
+            <file>file:/M:/wamp64/www/adm_program/languages/en.xml</file>
+            <file>file:/M:/wamp64/www/adm_program/modules/preferences/fields.php</file>
             <file>file:/M:/wamp64/www/adm_program/index.php</file>
         </group>
     </open-files>

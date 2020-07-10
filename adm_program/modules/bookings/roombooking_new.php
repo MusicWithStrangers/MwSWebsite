@@ -145,6 +145,10 @@ $form->addInput(
     'rbd_hoursBookingNonSNR', 'Hours ahead booking for non-songs', $roombookingDay->getValue('rbd_hoursBookingNonSNR'),
     array('type' => 'number', 'minNumber' => 0, 'maxNumber' => 200, 'step' => 1,'helpTextIdLabel' => 'RBD_HOURSBOOKNONSNR_LINK')
 );
+$form->addInput(
+    'rbd_slotprice', 'Rent per slot', $roombookingDay->getValue('rbd_slotpricce'),
+    array('type' => 'number', 'minNumber' => 0, 'maxNumber' => 200, 'step' => 1, 'property' => HtmlForm::FIELD_REQUIRED)
+);
 //$form->addInput(
 //    'rbd_repeatdays', 'Repeat frequency (days)', $roombookingDay->getValue('rbd_rbd_repeatdays'),
 //    array('type' => 'number', 'minNumber' => 0, 'maxNumber' => 20, 'step' => 1)
@@ -155,6 +159,15 @@ $form->addInput(
 $form->addCheckbox('rbd_weekly','Weekly', $roombookingDay->getValue('rbd_weekly'),array('helpTextIdLabel' => 'RBD_WEEKLY_LINK'));
 $form->addCheckbox('rbd_enable','Enabled', $roombookingDay->getValue('rbd_enable'), array('helpTextIdLabel' => 'RBD_ENABLED_LINK'));
 $form->addCheckbox('rbd_autoDisable','Auto disable', $roombookingDay->getValue('rbd_Autodisable'),array('helpTextIdLabel' => 'RBD_AUTODISABLE_LINK'));
+$form->openGroupBox('gb_description0', 'Gear available', 'admidio-panel-editor');
+$form->addEditor('rbd_gear_available', '', $roombookingDay->getValue('rbd_gear_available'));
+$form->closeGroupBox();
+$form->openGroupBox('gb_description1', 'Notes for first slot users', 'admidio-panel-editor');
+$form->addEditor('rbd_first_slot_remark', '', $roombookingDay->getValue('rbd_first_slot_remark'));
+$form->closeGroupBox();
+$form->openGroupBox('gb_description2', 'Notes for last slot users', 'admidio-panel-editor');
+$form->addEditor('rbd_last_slot_remark', '', $roombookingDay->getValue('rbd_last_slot_remark'));
+$form->closeGroupBox();
 
 
 // show information about user who creates the recordset and changed it

@@ -332,6 +332,14 @@ elseif($getMode === 7)
         {
             if(admStrStartsWith($key, 'smr_'))
             {
+                if ($key == 'smr_ins_id_guest')
+                {
+                    $key= 'smr_ins_id';
+                }
+                if ($key == 'smr_snr_id_guest')
+                {
+                    $key = 'smr_snr_id';
+                }
                 $regist->setValue($key, $value);
             }
         }
@@ -354,6 +362,12 @@ elseif($getMode === 7)
 
     admRedirect($gNavigation->getUrl());
     // => EXIT
+} elseif ( $getMode == 13) {
+    // Delete musician registration from song
+    $regist = new TableMusicianRegister($gDb);
+    $regist->readDataById(admFuncVariableIsValid($_GET, 'smr_id', 'int'));
+    $regist->delete();
+    admRedirect($gNavigation->getUrl());
 }
 
 

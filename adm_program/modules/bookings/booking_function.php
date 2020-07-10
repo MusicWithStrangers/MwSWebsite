@@ -16,6 +16,7 @@
  *          6 - Book a room
  *          7 - Create an exception
  *          8 - Create a new special booking
+ *          9 - Pay for booking
 
  * rol_id : vorselektierte Rolle der Rollenauswahlbox
  * copy   : true - The event of the dat_id will be copied and the base for this new event
@@ -120,6 +121,16 @@ elseif($getMode === 2)
     {
             $booking = new TableBooking($gDb);
             $booking->readDataById($getBookId);
+            if ($booking->getValue('boo_payed')>0)
+            {
+                $balance=$gCurrentUser->getValue('usr_balance');
+                $rbd_id=$booking->getValue('boo_rbd_id');
+                $roombookingday = new TableRoomBookingDay($gDb);
+                $roombookingday->readDataById($rbd_id);
+                $balance=$balance + $roombookingday->getValue('rbd_slotprice');
+                $gCurrentUser->setValue('usr_balance',$balance);
+                #$gCurrentUser[ $getUserId
+            }
             $booking->delete();
     // Delete successful -> Return for XMLHttpRequest
             //echo 'done';
@@ -135,6 +146,16 @@ elseif($getMode === 2)
     $booking->setValue('boo_usr_id', $getUserId);
     $booking->setValue('boo_slotindex', $getslotindex);
     $booking->setValue('boo_bookdate', $bookDate);
+   
+    $balance = $gCurrentUser->getValue('usr_balance','float');
+    $amount = $roombookingday->getValue('rbd_slotprice','float');
+    if ($amount>0)
+    #if ($balance >= $amount and $amount > 0)
+    {
+        $newBalance=$balance-$amount;
+        $gCurrentUser->setValue('usr_balance',$newBalance);
+        $booking->setValue('boo_payed',1);
+    } 
     
     $gDb->startTransaction();
     // save room booking day in database
@@ -143,6 +164,7 @@ elseif($getMode === 2)
     $booking = (int) $roombookingday->getValue('boo_id');
 
     $gDb->endTransaction();
+   
 
     $gNavigation->deleteLastUrl();
 
@@ -218,4 +240,19 @@ elseif($getMode === 2)
 
     admRedirect($gNavigation->getUrl());
     // => EXIT
+} elseif($getMode === 9)  // Create a roombooking or edit.
+{
+    $balance = $gCurrentUser->getValue('usr_balance');
+    $amount = admFuncVariableIsValid($_GET, 'rbd_slotprice', 'float');
+    if ($balance >= $amount and $amount > 0)
+    {
+        $newBalance=$balance-$amount;
+        $gCurrent->setValue('usr_balance',$newBalance);
+    } else
+    {
+        echo "ToDo: make 'em pay by Paypal";
+    }
+    $gNavigation->deleteLastUrl();
+
+    admRedirect($gNavigation->getUrl());
 }

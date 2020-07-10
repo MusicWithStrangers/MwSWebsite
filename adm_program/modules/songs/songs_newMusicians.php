@@ -55,16 +55,36 @@ $sql = 'SELECT u.usr_id, b.bnd_name, s.son_title, r.smr_snr_id , r.smr_id, i.ins
      WHERE r.smr_snr_id = ? -- $$getSnrId    
      AND d.usd_usf_id IN (1,2)
      GROUP BY r.smr_id';
+$sql_guests = 'SELECT smr_id, smr_guest_name, mws__instruments.ins_name FROM mws__song_musicianregistration '
+        . 'INNER JOIN mws__song_registration on mws__song_registration.snr_id = mws__song_musicianregistration.smr_snr_id '
+        . 'INNER JOIN mws__songs on mws__songs.son_id = mws__song_registration.snr_son_id '
+        . 'INNER JOIN mws__instruments on mws__instruments.ins_id = mws__song_musicianregistration.smr_ins_id '
+        . 'WHERE smr_snr_id = '.$getSnrId. ' and smr_guest_name is not null '
+        . 'GROUP BY smr_id';
 $queryParams = array($getSnrId);
 $musiciansStatement = $gDb->queryPrepared($sql, $queryParams);
+$musiciansGuestsStatement = $gDb->queryPrepared($sql_guests);
 if ($musiciansStatement->rowCount()>0)
 {
     $musiciansData      = $musiciansStatement->fetchAll();
     foreach ($musiciansData as $aMusician)
     {
-        $editDeleteRegister = '<a class="admidio-icon-link" href="'.safeUrl(ADMIDIO_URL.FOLDER_MODULES.'/songs/songs_function.php', array('son_id' => $aMusician['smr_id'], 'mode' => 12)).'">'.
-            '<img src="'.THEME_URL.'/icons/delete.png" alt="delete musician from song" title="delete musician from song" /></a>';
-        $htmlRegistered->addRowByArray(array($editDeleteRegister,$aMusician['name'] , $aMusician['ins_name']));
+        $editDeleteRegister = '<a class="admidio-icon-link" href="'.safeUrl(ADMIDIO_URL.FOLDER_MODULES.'/songs/songs_function.php', array('smr_id' => $aMusician['smr_id'], 'mode' => 13)).'">'.
+        '<img src="'.THEME_URL.'/icons/delete.png" alt="delete musician from song" title="delete musician from song" /></a>';
+        $name=$aMusician['name'];
+        $htmlRegistered->addRowByArray(array($editDeleteRegister,$name , $aMusician['ins_name']));
+    }
+}
+$guestCount=$musiciansGuestsStatement->rowCount();
+if ($guestCount>0)
+{
+    $musiciansData      = $musiciansGuestsStatement->fetchAll();
+    foreach ($musiciansData as $aMusician)
+    {
+        $editDeleteRegister = '<a class="admidio-icon-link" href="'.safeUrl(ADMIDIO_URL.FOLDER_MODULES.'/songs/songs_function.php', array('smr_id' => $aMusician['smr_id'], 'mode' => 13)).'">'.
+        '<img src="'.THEME_URL.'/icons/delete.png" alt="delete musician from song" title="delete musician from song" /></a>';
+        $name=$aMusician['smr_guest_name'];
+        $htmlRegistered->addRowByArray(array($editDeleteRegister,$name. ' [guest]' , $aMusician['ins_name']));
     }
 }
 // define title (html) and headline
@@ -144,7 +164,7 @@ $form1->openGroupBox('gb_myRegistrations', 'Musicians registered for song \'' . 
 $form1->addHtml($htmlRegistered->show());
 $form1->addInput('smr_snr_id','Register Id',$getSnrId, array('property' => HtmlForm::FIELD_HIDDEN));
 $form1->closeGroupBox();
-$form1->openGroupBox('gb_newRegistrations','Register new musicisans');
+$form1->openGroupBox('gb_newRegistrations','Register new musicians');
 
 $form1->addSelectBoxFromSql('smr_usr_id', 'Musician', $gDb, $sqlData,
     array('property' => HtmlForm::FIELD_REQUIRED, 'search' => true));
@@ -153,7 +173,30 @@ $form1->addSelectBoxFromSql('smr_ins_id', 'Instrument', $gDb, $sqlInstruments,
 $form1->addSubmitButton('btn_send', 'Add musician');
 $form1->closeGroupBox();
 
+$sql_number_non_member_max='SELECT dat_id, dat_maxGuests FROM mws__dates where dat_id='.$dateId;
+$guestStatement = $gDb->queryPrepared($sql_number_non_member_max);
+$countGuests=$guestStatement->rowCount();
+if ($countGuests > 0)
+{
+    $guests      = $guestStatement->fetchAll();
+    $max_guests=$guests[0]['dat_maxGuests'];
+}
+
 $page->addHtml($form1->show(false));
+if ($guestCount< $max_guests)
+{
+    $form2 = new HtmlForm('song_nonmemberedit', safeUrl(ADMIDIO_URL.FOLDER_MODULES.'/songs/songs_function.php', array('type'=>'band', 'mode' => $mode, 'smr_snr_id' =>$getSnrId)), $page);
+    $form2->openGroupBox('gb_nonmemberRegistrations', 'Register non-members to this song (max '.$max_guests.', '. ($max_guests-$guestCount). ' left)');
+    $form2->addSelectBoxFromSql('smr_ins_id_guest', 'Instrument', $gDb, $sqlInstruments,
+        array('property' => HtmlForm::FIELD_REQUIRED, 'search' => true));
+    $form2->addInput('smr_guest_name', "Musician name", '',
+        array('maxLength' => 25, 'property' => HtmlForm::FIELD_REQUIRED));
+    $form2->addSubmitButton('btn_send', 'Add musician');
+    $form2->addInput('smr_snr_id_guest','Register Id',$getSnrId, array('property' => HtmlForm::FIELD_HIDDEN));
+    $form2->closeGroupBox();
+    $page->addHtml($form2->show(false));
+}
+
 
 // show complete html page
 $page->show();

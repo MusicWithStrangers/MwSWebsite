@@ -122,12 +122,19 @@ else
         INNER JOIN mws__dates ON mws__dates.dat_id= mws__song_registration.snr_dat_id
         WHERE mws__song_registration.snr_usr_id = '.$gCurrentUserId.'
         ORDER BY mws__song_registration.snr_bnd_id';
-    
+    $sqlParticipatingSongs = 'SELECT mws__song_registration.snr_id, CONCAT(mws__songs.son_title, \' for "\',mws__dates.dat_headline, \'"\' ) AS \'SongEvent\' FROM mws__song_registration 
+        INNER JOIN mws__songs ON mws__song_registration.snr_son_id = mws__songs.son_id
+        INNER JOIN mws__bands ON mws__song_registration.snr_bnd_id = mws__bands.bnd_id
+        INNER JOIN mws__dates ON mws__dates.dat_id= mws__song_registration.snr_dat_id
+        INNER JOIN mws__song_musicianregistration ON mws__song_musicianregistration.smr_snr_id=mws__song_registration.snr_id
+        WHERE mws__song_musicianregistration.smr_usr_id= '.$gCurrentUserId.' 
+        GROUP BY mws__song_registration.snr_id
+        ORDER BY mws__song_registration.snr_bnd_id';
     #($id, $name = null, HtmlPage $htmlPage = null, $type = 'default')
     $filterNavbar = new HtmlNavbar('menu_dates_filter', "Select song to work on", null, null);
     $form = new HtmlForm('navbar_filter_form', '', $page, array('type' => 'navbar', 'setFocus' => false));
     $form->addInput('view', '', $getView, array('property' => HtmlForm::FIELD_HIDDEN));
-    $form->addSelectBoxFromSql('sel_change_son', 'Book room to work on song:', $gDb, $sqlRegisteredSongs,array('firstEntry' => 'Select song', 'defaultValue' => $getSnrId));
+    $form->addSelectBoxFromSql('sel_change_son', 'Book room to work on song:', $gDb, $sqlParticipatingSongs,array('firstEntry' => 'Select song', 'defaultValue' => $getSnrId));
     $filterNavbar->addForm($form->show(false));
     $page->addHtml($filterNavbar->show());
     
@@ -220,9 +227,9 @@ else
                 $htmlBookElements.= '<div class="panel-body">This room cannot be booked yet. It can be booked for events-registered songs from ' . $bookWithSongStart->format('D M d'). ', ' . $bookWithSongStart->format('H:i') ;
                 $showBookNow=FALSE;
             }
+            $htmlBookElements.='</div>';
         }
 
-        $htmlBookElements.='</div>';
         $htmlBookElements.='</div>';
         $slotTimes=$row['slotTimes'];
         $slotBookings=$row['slotBookings'];
@@ -238,11 +245,12 @@ else
             $moreinfo='';
             $Ibooked=FALSE;
             $deleteButton='';
+            $payButton='';
             if ($slotBookings[$key]>0)
             {
                 $status='Booked';
-                $bookingSQLWithoutSNR='SELECT mws__bookings.boo_snr_id, mws__bookings.boo_comment, mws__user_data.usd_value, mws__roombookingday.rbd_id, mws__roombookingday.rbd_roomDescription, mws__bookings.boo_slotindex, mws__users.usr_id FROM mws__bookings inner join mws__roombookingday on mws__roombookingday.rbd_id=mws__bookings.boo_rbd_id inner join mws__users on mws__users.usr_id=mws__bookings.boo_usr_id inner join mws__user_data on mws__user_data.usd_usr_id=mws__users.usr_id where mws__user_data.usd_usf_id IN (2) and mws__bookings.boo_id='.$slotBookings[$key] ;
-                $bookingSQLWithSNR='SELECT mws__user_data.usd_value, mws__bookings.boo_comment,  mws__roombookingday.rbd_id, mws__bookings.boo_snr_id, mws__bands.bnd_name, mws__roombookingday.rbd_roomDescription, mws__dates.dat_headline,  mws__songs.son_title, mws__bookings.boo_slotindex, mws__users.usr_id, mws__song_musicianregistration.smr_id, mws__instruments.ins_name FROM mws__song_musicianregistration inner join mws__song_registration on mws__song_musicianregistration.smr_snr_id=mws__song_registration.snr_id inner join mws__bookings on mws__bookings.boo_snr_id=mws__song_registration.snr_id inner join mws__bands on mws__song_registration.snr_bnd_id=mws__bands.bnd_id inner join mws__roombookingday on mws__roombookingday.rbd_id=mws__bookings.boo_rbd_id inner join mws__dates on mws__dates.dat_id=mws__song_registration.snr_dat_id inner join mws__songs on mws__songs.son_id=mws__song_registration.snr_son_id inner join mws__instruments on mws__instruments.ins_id=mws__song_musicianregistration.smr_ins_id inner join mws__users on mws__users.usr_id=mws__bookings.boo_usr_id inner join mws__user_data on mws__user_data.usd_usr_id=mws__users.usr_id where mws__user_data.usd_usf_id IN (2) and mws__bookings.boo_id='.$slotBookings[$key] ;
+                $bookingSQLWithoutSNR='SELECT mws__bookings.boo_snr_id, mws__bookings.boo_payed, mws__bookings.boo_comment, mws__user_data.usd_value,mws__roombookingday.rbd_slotprice, mws__roombookingday.rbd_id, mws__roombookingday.rbd_roomDescription, mws__bookings.boo_slotindex, mws__users.usr_id FROM mws__bookings inner join mws__roombookingday on mws__roombookingday.rbd_id=mws__bookings.boo_rbd_id inner join mws__users on mws__users.usr_id=mws__bookings.boo_usr_id inner join mws__user_data on mws__user_data.usd_usr_id=mws__users.usr_id where mws__user_data.usd_usf_id IN (2) and mws__bookings.boo_id='.$slotBookings[$key] ;
+                $bookingSQLWithSNR='SELECT mws__user_data.usd_value, mws__bookings.boo_payed, mws__bookings.boo_comment,  mws__roombookingday.rbd_id, mws__roombookingday.rbd_slotprice, mws__bookings.boo_snr_id, mws__bands.bnd_name, mws__roombookingday.rbd_roomDescription, mws__dates.dat_headline,  mws__songs.son_title, mws__bookings.boo_slotindex, mws__users.usr_id, mws__song_musicianregistration.smr_id, mws__instruments.ins_name FROM mws__song_musicianregistration inner join mws__song_registration on mws__song_musicianregistration.smr_snr_id=mws__song_registration.snr_id inner join mws__bookings on mws__bookings.boo_snr_id=mws__song_registration.snr_id inner join mws__bands on mws__song_registration.snr_bnd_id=mws__bands.bnd_id inner join mws__roombookingday on mws__roombookingday.rbd_id=mws__bookings.boo_rbd_id inner join mws__dates on mws__dates.dat_id=mws__song_registration.snr_dat_id inner join mws__songs on mws__songs.son_id=mws__song_registration.snr_son_id inner join mws__instruments on mws__instruments.ins_id=mws__song_musicianregistration.smr_ins_id inner join mws__users on mws__users.usr_id=mws__bookings.boo_usr_id inner join mws__user_data on mws__user_data.usd_usr_id=mws__users.usr_id where mws__user_data.usd_usf_id IN (2) and mws__bookings.boo_id='.$slotBookings[$key] ;
                 $pdoStatementNoSNR = $gDb->queryPrepared($bookingSQLWithoutSNR); // TODO add more params
                 $pdoStatementWithSNR = $gDb->queryPrepared($bookingSQLWithSNR); 
                 $bookedCount=$pdoStatementNoSNR->rowCount();
@@ -263,6 +271,17 @@ else
                     }
                     if ($bookedData[0]['usr_id'] == $gCurrentUserId)
                     {
+                        if ($bookedData[0]['rbd_slotprice'] > 0)
+                        {
+                            if ($bookedData[0]['boo_payed'] == 0)
+                            {
+                                $payButton= '
+                                <a class="admidio-icon-link" href="'.safeUrl(ADMIDIO_URL.FOLDER_MODULES.'/bookings/booking_function.php', array('boo_id'=>$slotBookings[$key], 'mode'=>9, 'rbd_slotprice'=>$bookedData['rbd_slotprice'])) . '">
+                                <img src="'.THEME_URL.'/icons/euro.png" alt="' . $gL10n->get('SYS_DELETE') . '" title="Pay for this booking. Unpayed bookings are deleted overnight" /></a>';
+                            } else {
+                                $payButton='&nbsp[payed]';
+                            }
+                        }
                         $Ibooked=TRUE;
                         $deleteButton = '
                         <a class="admidio-icon-link" href="'.safeUrl(ADMIDIO_URL.FOLDER_MODULES.'/bookings/booking_function.php', array('boo_id'=>$slotBookings[$key], 'mode'=>2,)) . '">
@@ -296,7 +315,7 @@ else
             }
 
             $htmlBookElements.='<div class="col-sm-2 col-xs-4">'.$status.$bookNow.'</div>';
-            $htmlBookElements.='<div class="col-sm-4 col-xs-4">'.$slotBookingsName[$key].$moreinfo.$deleteButton.'</div>';
+            $htmlBookElements.='<div class="col-sm-4 col-xs-4">'.$slotBookingsName[$key].$moreinfo.$deleteButton.$payButton.'</div>';
             $htmlBookElements.='</div>';
         }
         

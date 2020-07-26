@@ -183,7 +183,7 @@ elseif($getMode === 2)
         }
         $dformat=$gSettingsManager->getString('system_date');
         $dvalue=$_POST['bexc_date'];
-        $exceptDate = \DateTime::createFromFormat($dformat, $dvalue);
+        $exceptDate = DateTime::createFromFormat($dformat, $dvalue);
         if ($exceptDate===False)
         {
             $err=DateTime::getLastErrors();
@@ -250,7 +250,7 @@ elseif($getMode === 2)
         $gCurrent->setValue('usr_balance',$newBalance);
     } else
     {
-        echo "ToDo: make 'em pay by Paypal";
+        echo "ToDo: make 'em pay by Paypal and save the payment in mws__payments";
     }
     $gNavigation->deleteLastUrl();
 

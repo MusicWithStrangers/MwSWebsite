@@ -52,7 +52,7 @@ https://github.com/Admidio/admidio/issues
 
  5. Licence
 -------------------------------------------------------------------------
-The Admidio membership administration and this plugin are under the
+The Admidio membership w and this plugin are under the
 GNU General Public License 2. Before using Admidio or this plugin,
 be sure to read the supplied licence.txt or look at the GNU website.
 https://www.gnu.org/licenses/gpl-2.0.html

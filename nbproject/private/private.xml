@@ -4,21 +4,40 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/M:/wamp64/www/adm_program/system/classes/ModuleBookings.php</file>
+            <file>file:/M:/wamp64/www/adm_program/system/classes/ModuleMessages.php</file>
             <file>file:/M:/wamp64/www/adm_program/modules/bookings/bookings.php</file>
+            <file>file:/M:/wamp64/www/adm_program/modules/payments/payment_function.php</file>
             <file>file:/M:/wamp64/www/adm_program/modules/registration/registration.php</file>
-            <file>file:/M:/wamp64/www/adm_program/modules/songs/songs_show.php</file>
+            <file>file:/M:/wamp64/www/adm_program/system/login_check.php</file>
             <file>file:/M:/wamp64/www/adm_program/modules/songs/songs_function.php</file>
-            <file>file:/M:/wamp64/www/adm_program/system/classes/User.php</file>
-            <file>file:/M:/wamp64/www/index.php</file>
             <file>file:/M:/wamp64/www/adm_my_files/config.php</file>
-            <file>file:/M:/wamp64/www/config.php</file>
-            <file>file:/M:/wamp64/www/adm_program/system/function.php</file>
-            <file>file:/M:/wamp64/www/adm_program/libs/phpmailer/class.phpmailer.php</file>
+            <file>file:/M:/wamp64/www/adm_program/modules/payments/contribution.php</file>
             <file>file:/M:/wamp64/www/adm_program/system/classes/TableDate.php</file>
             <file>file:/M:/wamp64/www/adm_program/modules/dates/dates_new.php</file>
-            <file>file:/M:/wamp64/www/adm_program/modules/bookings/booking_function.php</file>
-            <file>file:/M:/wamp64/www/adm_program/languages/en.xml</file>
+            <file>file:/M:/wamp64/www/adm_program/system/classes/Database.php</file>
+            <file>file:/M:/wamp64/www/adm_program/system/classes/TableContribution.php</file>
+            <file>file:/M:/wamp64/www/adm_plugins/appmidio/commands/get_members.php</file>
+            <file>file:/M:/wamp64/www/adm_program/system/classes/TableUserField.php</file>
             <file>file:/M:/wamp64/www/adm_program/modules/preferences/fields.php</file>
+            <file>file:/M:/wamp64/www/adm_program/system/autoload.php</file>
+            <file>file:/M:/wamp64/www/adm_program/modules/roles/roles_new.php</file>
+            <file>file:/M:/wamp64/www/adm_program/modules/messages/messages.php</file>
+            <file>file:/M:/wamp64/www/adm_program/modules/songs/songs_show.php</file>
+            <file>file:/M:/wamp64/www/adm_program/modules/messages/messages_send.php</file>
+            <file>file:/M:/wamp64/www/adm_program/system/classes/ComponentUpdateSteps.php</file>
+            <file>file:/M:/wamp64/www/adm_program/modules/menu/menu.php</file>
+            <file>file:/M:/wamp64/www/adm_program/languages/nb.xml</file>
+            <file>file:/M:/wamp64/www/index.php</file>
+            <file>file:/M:/wamp64/www/adm_program/modules/roles/roles.php</file>
+            <file>file:/M:/wamp64/www/config.php</file>
+            <file>file:/M:/wamp64/www/adm_plugins/login_form/login_form.php</file>
+            <file>file:/M:/wamp64/www/adm_program/system/function.php</file>
+            <file>file:/M:/wamp64/www/adm_program/modules/messages/messages_functions.php</file>
+            <file>file:/M:/wamp64/www/adm_plugins/login_form/languages/en.xml</file>
+            <file>file:/M:/wamp64/www/adm_program/modules/payments/contribution_new.php</file>
+            <file>file:/M:/wamp64/www/adm_plugins/appmidio/commands/get_member_details.php</file>
+            <file>file:/M:/wamp64/www/adm_program/languages/en.xml</file>
+            <file>file:/M:/wamp64/www/adm_program/modules/bookings/booking_function.php</file>
             <file>file:/M:/wamp64/www/adm_program/index.php</file>
         </group>
     </open-files>

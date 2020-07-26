@@ -267,6 +267,10 @@ if($role->getValue('cat_name_intern') !== 'EVENTS')
         'rol_bookingadmin', 'Booking editor', (bool) $role->getValue('rol_bookingadmin'),
         array( 'icon' => 'bookings.png')
     );
+    $form->addCheckbox(
+        'rol_finance', 'Finance admin', (bool) $role->getValue('rol_finance'),
+        array( 'icon' => 'finance.png')
+    );
     if($gSettingsManager->getBool('enable_mail_module'))
     {
         $form->addCheckbox(

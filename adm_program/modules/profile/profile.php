@@ -677,6 +677,14 @@ if($gSettingsManager->getBool('profile_show_roles'))
                 'icon'  => 'songs.png'
             );
         }
+        if($user->checkRolesRight('rol_finance'))
+        {
+            $profileRightsArray[] =array (
+                'roles' => $rightsOrigin['rol_finance'],
+                'right' => 'Finance administrator',
+                'icon'  => 'finance.png'
+            );
+        }
         if($user->checkRolesRight('rol_bookingadmin'))
         {
             $profileRightsArray[] = array(

@@ -401,6 +401,7 @@ class User extends TableAccess
                 'rol_profile'            => false,
                 'rol_bookandregister'    => false,
                 'rol_bookingadmin'       => false,
+                'rol_finance'            => False,
                 'rol_weblinks'           => false
             );
 
@@ -1359,6 +1360,10 @@ class User extends TableAccess
      * @param int $roleId Id of the role that should be checked.
      * @return bool Return **true** if the user has the right to send an email to the role.
      */
+    public function editFinance()
+    {
+        return $this->checkRolesRight('rol_finance');
+    }
     public function editBookings()
     {
         return $this->checkRolesRight('rol_bookingadmin');
@@ -1372,6 +1377,38 @@ class User extends TableAccess
         return $this->hasRightRole($this->listMailRights, 'rol_mail_to_all', $roleId);
     }
 
+    
+    public function userPayedUntil()
+    {
+        $now = new DateTime();
+        $sql_payed='SELECT pay_id,pay_user, fee_to from mws__payments inner join mws__contribution_fees on mws__contribution_fees.fee_id = mws__payments.pay_contribution_id where pay_user = '.$this->getValue('usr_id'). ' and mws__contribution_fees.fee_from<CURRENT_TIMESTAMP and mws__contribution_fees.fee_to>CURRENT_TIMESTAMP' ;
+        $pdoStatement = $this->db->queryPrepared($sql_payed);
+        $payed=$pdoStatement->rowCount();
+        if ($payed>0)
+        {
+            $payments = $pdoStatement->fetchAll();
+            return $payments[0]['pay_to'];
+        } else {
+            return FALSE;
+        }
+    }
+    
+    /**
+     * Check if the current user has payed any contribution fee valid for today.
+     */
+    public function userPayedNow()
+    {
+        $now = new DateTime();
+        $sql_payednow='SELECT pay_id,pay_user from mws__payments inner join mws__contribution_fees on mws__contribution_fees.fee_id = mws__payments.pay_contribution_id where pay_user = '.$this->getValue('usr_id'). ' and mws__contribution_fees.fee_from<CURRENT_TIMESTAMP and mws__contribution_fees.fee_to>CURRENT_TIMESTAMP' ;
+        $pdoStatement = $this->db->queryPrepared($sql_payednow);
+        $payed=$pdoStatement->rowCount();
+        if ($payed>0)
+        {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
     /**
      * Checks the necessary rights if this user could view former roles members. Therefore
      * the user must also have the right to view the role. So you must also check this right.

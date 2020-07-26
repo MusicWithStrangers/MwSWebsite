@@ -10,7 +10,9 @@
  */
 
 // if config file doesn't exists, than show installation dialog
-global $gValidLogin;
+global $gValidLogin, $gDb, $gCurrentOrganization, $gCurrentUser;
+
+    
 if (!is_file(dirname(__DIR__) . '/adm_my_files/config.php'))
 {
     header('Location: installation/index.php');
@@ -66,9 +68,29 @@ else
   if ($gValidLogin)
         {
         $getUserId = (int) $gCurrentUser->getValue('usr_id');
+
         $instrument_sql='SELECT uin_id, uin_offering_description, ins_name, off_description FROM mws__user_instruments inner join mws__instruments on uin_ins_id=mws__instruments.ins_id inner join mws__offering on mws__offering.off_id=uin_off_id WHERE uin_usr_id='.$getUserId;
         $instrumentData= $gDb->queryPrepared($instrument_sql);
         $page->addHtml('<div class="media-left" id="profile_instruments_box">');
+                    # Contribution payments
+            $page->addHtml('<h2>Contribution</h2>');
+            $page->addHtml('<div class="panel-body row" id="contribution">');
+            $payed = $gCurrentUser->userPayedNow();
+            $untilDate=  $gCurrentUser->userPayedUntil();
+            if ($payed)
+            {
+                $page->addHtml('You have payed contribution until: '.$untilDate->format('D M d'));
+            } else {
+                $page->addHtml('You have not payed contribution. Please pay to be a member of Music with Strangers:');
+                $valid_contributions_sql='SELECT * from mws__contribution_fees WHERE mws__contribution_fees.fee_to>CURRENT_TIMESTAMP';
+                $pdoStatement = $gDb->queryPrepared($valid_contributions_sql);
+                $contr_count=$pdoStatement->rowCount();
+                if ($contr_count>0)
+                {
+                    $contr_items = $pdoStatement->fetchAll();
+                }
+            }
+            $page->addHtml('</div>');
                 if ($instrumentData->rowCount()>0)
                 {
                     $page->addHtml('<h2>Instruments and interests you registered:</h2>');
@@ -98,6 +120,7 @@ else
                         $form->addSubmitButton('btn_add', 'Add', array('icon' => THEME_URL.'/icons/add.png'));
                         $page->addHtml($form->show(false));
             $page->addHtml('</div></div></div>');
+           
             $page->addHtml('<h2>Upcomming Events</h2>');
             $sqlEvents='SELECT * FROM `mws__dates` WHERE dat_begin >= NOW()';
             $eventData= $gDb->queryPrepared($sqlEvents);

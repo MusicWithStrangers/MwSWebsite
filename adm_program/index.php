@@ -12,7 +12,6 @@
 // if config file doesn't exists, than show installation dialog
 global $gValidLogin, $gDb, $gCurrentOrganization, $gCurrentUser;
 
-    
 if (!is_file(dirname(__DIR__) . '/adm_my_files/config.php'))
 {
     header('Location: installation/index.php');
@@ -20,7 +19,7 @@ if (!is_file(dirname(__DIR__) . '/adm_my_files/config.php'))
 }
 
 require_once(__DIR__ . '/system/common.php');
-
+$currentUserId = (int) $gCurrentUser->getValue('usr_id');
 $headline = 'MWS '.$gL10n->get('SYS_OVERVIEW');
 
 // Navigation of the module starts here
@@ -81,13 +80,54 @@ else
             {
                 $page->addHtml('You have payed contribution until: '.$untilDate->format('D M d'));
             } else {
-                $page->addHtml('You have not payed contribution. Please pay to be a member of Music with Strangers:');
+                $page->addHtml('You have not payed contribution. Please pay any of the contribution options below to become a member of Music with Strangers:');
                 $valid_contributions_sql='SELECT * from mws__contribution_fees WHERE mws__contribution_fees.fee_to>CURRENT_TIMESTAMP';
                 $pdoStatement = $gDb->queryPrepared($valid_contributions_sql);
                 $contr_count=$pdoStatement->rowCount();
                 if ($contr_count>0)
                 {
-                    $contr_items = $pdoStatement->fetchAll();
+                    $table = new HtmlTable('adm_lists_table', $page, true, FALSE);
+                    $table->setColumnAlignByArray(array('left', 'left', 'left', 'left', 'right'));
+                    $table->addRowHeadingByArray(array(
+                        'Description',
+                        'Amount',
+                        'To',
+                        ''
+                    ));
+                    $table->disableDatatablesColumnsSort(array(5));
+                    // open some additional functions for contribution
+                    $usrId = (int) $gCurrentUser->getValue('usr_id');
+                    $rowIndex = 0;
+                    while ($row = $pdoStatement->fetch())
+                    {
+                        ++$rowIndex;
+                        $description = $row['fee_description'];
+                        $amount = number_format($row['fee_amount'],2);
+                        $from = strtotime($row['fee_from']);
+                        $to = strtotime($row['fee_to']);
+                        $toDate=new DateTime();
+                        $toDate->setTimestamp($to);
+                        $toString=$toDate->format('M d Y');
+                        $feeId = (int) $row['fee_id'];
+                        $buttonURL = safeUrl(ADMIDIO_URL.FOLDER_MODULES.'/payments/pay_now.php', array('source' => 1, 'contribution_id' => $feeId, 'amount' => $amount, 'description' => $description));
+                        $outputButtonSongRegister  = '
+                        <button class="btn btn-default" onclick="window.location.href=\'' . $buttonURL . '\'"><img src="' . THEME_URL . '/icons/finance.png" alt="Pay contribution" />' . 'Pay' . '</button>';
+                
+                        $table->addRowByArray(
+                            array(
+                                $description,
+                                $amount,
+                                $toString,
+                                $outputButtonSongRegister
+                            ),
+                            'row_message_'.$rowIndex
+                        );
+                    }
+
+                    // special settings for the table
+                    $table->setDatatablesOrderColumns(array(array(4, 'desc')));
+                    // add table to the form
+                    $page->addHtml($table->show());
                 }
             }
             $page->addHtml('</div>');
@@ -110,7 +150,7 @@ else
                 }
                 $page->addHtml('<div class="panel-body row" id="profile_instruments_box_body">'
                         . '<div class="col-sm-10"><b>Add instruments:</b><br>');
-                        $form = new HtmlForm('add_instrument_form', safeUrl(ADMIDIO_URL.FOLDER_MODULES.'/profile/profile_function.php', array('user_id' => $userId, 'mode' => 9)), $page);
+                        $form = new HtmlForm('add_instrument_form', safeUrl(ADMIDIO_URL.FOLDER_MODULES.'/profile/profile_function.php', array('user_id' => $currentUserId, 'mode' => 9)), $page);
                         $form->addInput('uin_usr_id', 'User', $getUserId,array('property' => HtmlForm::FIELD_HIDDEN));
                         $sqlInstruments='Select * from mws__instruments';
                         $sqlOffering='Select * from mws__offering';

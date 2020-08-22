@@ -354,7 +354,7 @@ function admFuncVariableIsValid(array $array, $variableName, $datatype, array $o
         {
             // if a default value was set then take this value
             $value = $optionsAll['defaultValue'];
-        }
+        } 
         else
         {
             // no value set then initialize the parameter

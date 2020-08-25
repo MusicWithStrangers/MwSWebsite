@@ -1399,7 +1399,7 @@ class User extends TableAccess
     public function userPayedNow()
     {
         $now = new DateTime();
-        $sql_payednow='SELECT pay_id,pay_user from mws__payments inner join mws__contribution_fees on mws__contribution_fees.fee_id = mws__payments.pay_contribution_id where pay_user = '.$this->getValue('usr_id'). ' and mws__contribution_fees.fee_from<CURRENT_TIMESTAMP and mws__contribution_fees.fee_to>CURRENT_TIMESTAMP' ;
+        $sql_payednow='SELECT pay_id,pay_user from mws__payments inner join mws__contribution_fees on mws__contribution_fees.fee_id = mws__payments.pay_contribution_id where mws__payments.pay_status = 1 and pay_user = '.$this->getValue('usr_id'). ' and mws__contribution_fees.fee_from<CURRENT_TIMESTAMP and mws__contribution_fees.fee_to>CURRENT_TIMESTAMP' ;
         $pdoStatement = $this->db->queryPrepared($sql_payednow);
         $payed=$pdoStatement->rowCount();
         if ($payed>0)

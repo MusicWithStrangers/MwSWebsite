@@ -28,15 +28,17 @@ try {
      * Generate a unique order id for this example. It is important to include this unique attribute
      * in the redirectUrl (below) so a proper return page can be shown to the customer.
      */
-    $pay= new TablePay($gDb);
-    $pay->setValue('pay_source',$getPaySource);
+    $pay = new TablePay($gDb);
+    $paymentSources = new TablePaymentSources($gDb);
     if (!empty($getBookingId))
     {
         $pay->setValue('pay_booking_id',$getBookingId);
+        $pay->setValue('pay_source', $paymentSources->getBookingTypeId());
     }
     if (!empty($getContributionId))
     {
         $pay->setValue('pay_contribution_id', $getContributionId);
+        $pay->setValue('pay_source', $paymentSources->getContributionTypeId());
     }
     $pay->setValue('pay_descripion',$getPayDescription);
     $pay->setValue('pay_amount',floatval($getPayAmount));
@@ -69,7 +71,7 @@ try {
         "description" => 'Contribution "' . $getPayDescription.'"'. " Order #{$orderId}",
         "redirectUrl" => "{$protocol}://{$hostname}{$path}/payments/return.php?order_id={$orderId}",
         "webhookUrl" => "https://members.musicwithstrangers.com/adm_program/modules/payments/payments/webhook.php",
-                "metadata" => [ "order_id" => $orderId,  ],
+                "metadata" => [ "order_id" => $orderId ],
     ]);
 
     /*

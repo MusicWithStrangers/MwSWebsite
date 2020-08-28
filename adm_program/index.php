@@ -76,7 +76,7 @@ else
             $page->addHtml('<div class="panel-body row" id="contribution">');
             $payed = $gCurrentUser->userPayedNow();
             $untilDate=  $gCurrentUser->userPayedUntil();
-            if ($payed)
+            if ($untilDate)
             {
                 $page->addHtml('You have payed contribution until: '.$untilDate->format('D M d'));
             } else {

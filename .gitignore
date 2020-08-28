@@ -1,2 +1,10 @@
 /adm_my_files/logs/
 /adm_program/modules/payments/database/
+**/nbproject/private/
+**/nbproject/Makefile-*.mk
+**/nbproject/Package-*.bash
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/

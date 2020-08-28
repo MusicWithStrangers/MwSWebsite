@@ -11,8 +11,10 @@
             <file>file:/M:/wamp64/www/adm_program/system/login_check.php</file>
             <file>file:/M:/wamp64/www/adm_program/modules/songs/songs_function.php</file>
             <file>file:/M:/wamp64/www/adm_program/system/classes/User.php</file>
+            <file>file:/M:/wamp64/www/adm_program/modules/registration/registration_msg.php</file>
             <file>file:/M:/wamp64/www/adm_program/modules/payments/pay_now.php</file>
             <file>file:/M:/wamp64/www/adm_program/modules/payments/initialize.php</file>
+            <file>file:/M:/wamp64/www/adm_program/system/classes/TablePay.php</file>
             <file>file:/M:/wamp64/www/adm_program/modules/payments/functions.php</file>
             <file>file:/M:/wamp64/www/adm_my_files/config.php</file>
             <file>file:/M:/wamp64/www/adm_program/modules/payments/contribution.php</file>
@@ -28,9 +30,11 @@
             <file>file:/M:/wamp64/www/adm_program/modules/rooms/rooms_function.php</file>
             <file>file:/M:/wamp64/www/adm_program/modules/menu/menu.php</file>
             <file>file:/M:/wamp64/www/index.php</file>
-            <file>file:/M:/wamp64/www/vendor/guzzlehttp/promises/src/TaskQueue.php</file>
+            <file>file:/M:/wamp64/www/nbproject/private/private.xml</file>
             <file>file:/M:/wamp64/www/config.php</file>
+            <file>file:/M:/wamp64/www/adm_plugins/login_form/login_form.php</file>
             <file>file:/M:/wamp64/www/adm_program/system/function.php</file>
+            <file>file:/M:/wamp64/www/adm_program/modules/registration/registration_function.php</file>
             <file>file:/M:/wamp64/www/adm_program/modules/payments/contribution_new.php</file>
             <file>file:/M:/wamp64/www/adm_plugins/login_form/languages/en.xml</file>
             <file>file:/M:/wamp64/www/adm_program/modules/payments/payments/return.php</file>

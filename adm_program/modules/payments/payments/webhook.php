@@ -4,6 +4,7 @@
  *
  * See: https://docs.mollie.com/guides/webhooks
  */
+$myfile = fopen("webhook_log.txt", "w") or die("Unable to open file!");
 
 try {
     /*
@@ -20,18 +21,20 @@ try {
     //$payment = $mollie->payments->get($_POST["order_id"]);
     $payment = $mollie->payments->get($_POST["id"]);
     $orderId = $payment->metadata->order_id;
-
+    foreach ($payment->metadata as $param_name => $param_val) {
+        fwrite($myfile, $param_name . ": ". $param_val. " \n");
+    }
     /*
      * Update the order in the database.
      */
-
+    
     if ($payment->isPaid() && !$payment->hasRefunds() && !$payment->hasChargebacks()) {
         /*
          * The payment is paid and isn't refunded or charged back.
          * At this point you'd probably want to start the process of delivering the product to the customer.
          */
         $pay=new TablePay($gDb);
-        $pay->readDataById(orderId);
+        $pay->readDataById($orderId);
         foreach ($_POST as $key => $value) // TODO possible security issue
         {
             if (admStrStartsWith($key, 'pay'))
@@ -78,3 +81,4 @@ try {
     echo "<script type='text/javascript'>alert('webhook failed');</script>"; 
     echo "API call failed: " . htmlspecialchars($e->getMessage());
 }
+fclose($myfile);

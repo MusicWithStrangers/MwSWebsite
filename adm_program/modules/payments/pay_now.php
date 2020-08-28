@@ -69,7 +69,7 @@ try {
         "description" => 'Contribution "' . $getPayDescription.'"'. " Order #{$orderId}",
         "redirectUrl" => "{$protocol}://{$hostname}{$path}/payments/return.php?order_id={$orderId}",
         "webhookUrl" => "https://members.musicwithstrangers.com/adm_program/modules/payments/payments/webhook.php",
-                "metadata" => [ "order_id" => $orderId,  ],
+                "metadata" => [ "order_id" => $orderId, "test_var" => 2 , "or2" => strval($orderId), ],
     ]);
 
     /*

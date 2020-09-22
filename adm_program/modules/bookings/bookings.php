@@ -279,7 +279,7 @@ else
                                 <a class="admidio-icon-link" href="'.safeUrl(ADMIDIO_URL.FOLDER_MODULES.'/bookings/booking_function.php', array('boo_id'=>$slotBookings[$key], 'mode'=>9, 'rbd_slotprice'=>$bookedData['rbd_slotprice'])) . '">
                                 <img src="'.THEME_URL.'/icons/euro.png" alt="' . $gL10n->get('SYS_DELETE') . '" title="Pay for this booking. Unpayed bookings are deleted overnight" /></a>';
                             } else {
-                                $payButton='&nbsp[payed]';
+                                $payButton='&nbsp[Booked]';
                             }
                         }
                         $Ibooked=TRUE;

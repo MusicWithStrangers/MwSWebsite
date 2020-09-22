@@ -43,7 +43,7 @@ $getMode                = admFuncVariableIsValid($_GET, 'mode',   'int', array('
 $getUserId              = admFuncVariableIsValid($_GET, 'usr_id', 'int', array('defaultValue' => $gCurrentUser->getValue('usr_id')));
 
 // check if the module is enabled and disallow access if it's disabled
-if (!$gCurrentUser->editBookings())
+if (!$gCurrentUser->ViewBookings())
 {
     $gMessage->show("Please log in with a booking-enabled user to edit bookings");
     // => EXIT

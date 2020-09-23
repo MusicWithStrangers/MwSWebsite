@@ -31,6 +31,10 @@ $page = new HtmlPage($headline);
 // main menu of the page
 $mainMenu = $page->getMenu();
 
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
+
 if($gValidLogin)
 {
     // show link to own profile
@@ -83,7 +87,7 @@ else
                 $page->addHtml('You have not payed contribution. Please pay any of the contribution options below to become a member of Music with Strangers:');
                 $valid_contributions_sql='SELECT * from mws__contribution_fees WHERE mws__contribution_fees.fee_to>CURRENT_TIMESTAMP';
                 $pdoStatement = $gDb->queryPrepared($valid_contributions_sql);
-                $contr_count=$pdoStatement->rowCount();
+                $contr_count = $pdoStatement->rowCount();
                 if ($contr_count>0)
                 {
                     $table = new HtmlTable('adm_lists_table', $page, true, FALSE);
@@ -110,9 +114,16 @@ else
                         $toDate->setTimestamp($to);
                         $toString=$toDate->format('M d Y');
                         $feeId = (int) $row['fee_id'];
+                        $sql_payed = 'SELECT * from mws__payments WHERE pay_contribution_id = ? AND pay_user = ? AND pay_status = 1';
+                        $arr = array($feeId, $usrId);
+                        $stmt = $gDb->queryPrepared($sql_payed, $arr);
+                        echo $stmt->rowCount();
                         $buttonURL = safeUrl(ADMIDIO_URL.FOLDER_MODULES.'/payments/pay_now.php', array('source' => 1, 'contribution_id' => $feeId, 'amount' => $amount, 'description' => $description));
-                        $outputButtonSongRegister  = '
-                        <button class="btn btn-default" onclick="window.location.href=\'' . $buttonURL . '\'"><img src="' . THEME_URL . '/icons/finance.png" alt="Pay contribution" />' . 'Pay' . '</button>';
+                        if ($stmt->rowCount() > 0) {
+                            $outputButton = '<button class="btn btn-success">Ok!</button>';
+                        } else {
+                            $outputButton = '<button class="btn btn-default" onclick="window.location.href=\'' . $buttonURL . '\'"><img src="' . THEME_URL . '/icons/finance.png" alt="Pay contribution" />' . 'Pay' . '</button>';
+                        }
                         if ($amount == 0) {
                             // Free
                             $display_amount = "FREE";
@@ -122,7 +133,7 @@ else
                                 $description,
                                 $display_amount,
                                 $toString,
-                                $outputButtonSongRegister
+                                $outputButton
                             ),
                             'row_message_'.$rowIndex
                         );
@@ -150,7 +161,7 @@ else
                     }
                     $page->addHtml('</div>');
                 } else {
-                    $page->addHtml('<h2>You did not regiser any instruments or interests yet!</h2>');
+                    $page->addHtml('<h2>You did not register any instruments or interests yet!</h2>');
                 }
                 $page->addHtml('<div class="panel-body row" id="profile_instruments_box_body">'
                         . '<div class="col-sm-10"><b>Add instruments:</b><br>');

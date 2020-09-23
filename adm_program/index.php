@@ -103,6 +103,7 @@ else
                         ++$rowIndex;
                         $description = $row['fee_description'];
                         $amount = number_format($row['fee_amount'],2);
+                        $display_amount = $amount;
                         $from = strtotime($row['fee_from']);
                         $to = strtotime($row['fee_to']);
                         $toDate=new DateTime();
@@ -112,11 +113,14 @@ else
                         $buttonURL = safeUrl(ADMIDIO_URL.FOLDER_MODULES.'/payments/pay_now.php', array('source' => 1, 'contribution_id' => $feeId, 'amount' => $amount, 'description' => $description));
                         $outputButtonSongRegister  = '
                         <button class="btn btn-default" onclick="window.location.href=\'' . $buttonURL . '\'"><img src="' . THEME_URL . '/icons/finance.png" alt="Pay contribution" />' . 'Pay' . '</button>';
-                
+                        if ($amount == 0) {
+                            // Free
+                            $display_amount = "FREE";
+                        }
                         $table->addRowByArray(
                             array(
                                 $description,
-                                $amount,
+                                $display_amount,
                                 $toString,
                                 $outputButtonSongRegister
                             ),
@@ -176,3 +180,4 @@ else
                 $page->addHtml('</div>');
         }
 $page->show();
+

@@ -28,17 +28,26 @@ try {
      * Generate a unique order id for this example. It is important to include this unique attribute
      * in the redirectUrl (below) so a proper return page can be shown to the customer.
      */
+    $pay = new TablePay($gDb);
+    $paymentSources = new TablePaymentSources($gDb);
     if (!empty($getBookingId))
     {
         $pay->setValue('pay_booking_id',$getBookingId);
+        $pay->setValue('pay_source', $paymentSources->getBookingTypeId());
     }
     if (!empty($getContributionId))
     {
         $pay->setValue('pay_contribution_id', $getContributionId);
+        $pay->setValue('pay_source', $paymentSources->getContributionTypeId());
     }
     $pay->setValue('pay_descripion',$getPayDescription);
-    $pay->setValue('pay_amount',floatval($getPayAmount));
+    $pay->setValue('pay_amount', floatval($getPayAmount));
     $pay->setValue('pay_user',$getUserId);
+    // If it is free we do not need to start Mollie
+    if (floatval($getPayAmount) == 0) {
+        // Mark the payment as ok
+        $pay->setValue('pay_status', 1);
+    }
     $pay->save();
     $orderId = $pay->getValue('pay_id');
 
@@ -50,7 +59,12 @@ try {
     $hostname='members.musicwithstrangers.com';
     $path = dirname(isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : $_SERVER['PHP_SELF']);
 
-    
+    $redirectUrl = "{$protocol}://{$hostname}{$path}/payments/return.php?order_id={$orderId}";
+    // If it is free we do not need to start Mollie
+    if (floatval($getPayAmount) == 0) {
+        header("Location: $redirectUrl", true, 303);
+        exit(0);
+    }
     /*
      * Payment parameters:
      *   amount        Amount in EUROs. This example creates a â‚¬ 10,- payment.
@@ -65,8 +79,9 @@ try {
             "value" => $getPayAmount // You must send the correct number of decimals, thus we enforce the use of strings
         ],
         "description" => 'Contribution "' . $getPayDescription.'"'. " Order #{$orderId}",
-        "redirectUrl" => "{$protocol}://{$hostname}{$path}/payments/return.php?order_id={$orderId}",
+        "redirectUrl" => $redirectUrl,
         "webhookUrl" => "https://members.musicwithstrangers.com/adm_program/modules/payments/payments/webhook.php",
+                "metadata" => [ "order_id" => $orderId,  ],
     ]);
 
     /*
@@ -82,3 +97,4 @@ try {
 } catch (\Mollie\Api\Exceptions\ApiException $e) {
     echo "API call failed: " . htmlspecialchars($e->getMessage());
 }
+

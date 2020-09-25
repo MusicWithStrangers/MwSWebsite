@@ -82,8 +82,12 @@ switch ($getType)
         $url = safeUrl(ADMIDIO_URL . FOLDER_MODULES . '/menu/menu_function.php', array('mode' => 2, 'men_id' => $getDatabaseId));
         break;
     case 'fee':
-        $url = safeUrl(ADMIDIO_URL . FOLDER_MODULES . '/payments/contribution.php', array('fee_id' => $getDatabaseId));
-        $text = 'Get rid of this damn contribution fee';
+        $url = safeUrl(ADMIDIO_URL . FOLDER_MODULES . '/payments/payment_function.php', array('mode' => 2, 'fee_id' => $getDatabaseId));
+        $text = 'FEE_DELETE';
+        break;
+    case 'pay':
+        $url = safeUrl(ADMIDIO_URL . FOLDER_MODULES . '/payments/payment_function.php', array('mode' => 4, 'pay_id' => $getDatabaseId));
+        $text = 'PAY_DELETE';
         break;
     case 'msg':
         $url = safeUrl(ADMIDIO_URL . FOLDER_MODULES . '/messages/messages.php', array('msg_id' => $getDatabaseId));

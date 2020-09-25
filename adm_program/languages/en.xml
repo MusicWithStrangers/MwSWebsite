@@ -206,6 +206,8 @@
   <string name="ECA_TEMPLATE_DESC">Here you can define the default template (default: postcard).</string>
   <string name="ECA_VIEW_PICTURE_FULL_SIZED">Show full size picture</string>
   <string name="ECA_TEMPLATE_FOLDER_OPEN">Template folder could not be opened/read.</string>
+  <string name="FEE_DELETE">Delete this contribution item including all payments ever made for this item?</string>
+  <string name="PAY_DELETE">Delete the contribution payment record for this user?</string>
   <!--Phrases only in Guestbookmodule-->
   <string name="GBO_BACK_TO_GUESTBOOK">Back to guestbook</string>
   <string name="GBO_CAPTCHA_DESC">If this option is activated users that are not logged in will get a picture with a captcha code or a simple calculation. It\'s necessary to fill in the correct code or result to save the entry. The captcha is part of antispam solution in Admidio. (default: yes)</string>

@@ -255,17 +255,19 @@ while ($row = $allContributionsPdo->fetch())
     $to = $row['fee_to'];
     $feeId = (int) $row['fee_id'];
     $payId=$row['pay_id'];
-
-    $tablePersonal->addRowByArray(
-        array(
-            $description,
-            $amount,
-            $from,
-            $to,
-            getAdministrationLinkPersonal($rowIndex, $feeId, $description,$userId, $amount, $description, $userName,$has_payed, $payId)
-        ),
-        'pay_id_'.$payId
-    );
+    if ($has_payed)
+    {
+        $tablePersonal->addRowByArray(
+            array(
+                $description,
+                $amount,
+                $from,
+                $to,
+                getAdministrationLinkPersonal($rowIndex, $feeId, $description,$userId, $amount, $description, $userName,$has_payed, $payId)
+            ),
+            'pay_id_'.$payId
+        );
+    }
 }
 
 // List contribution items for admin override pay:

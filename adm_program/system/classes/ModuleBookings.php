@@ -293,13 +293,13 @@ class ModuleBookings extends Modules
                         $slotBookings[$sindex]=$aSlot['boo_id'];
                         $slotBookingsDescription[$sindex]=$aSlot['name'];
                     }
+                    $aBooking['slotTimes']=$slotTimes;
+                    $aBooking['IBooked']=$IBooked;
+                    $aBooking['slotBookings']=$slotBookings;
+                    $aBooking['slotBookingsName']=$slotBookingsDescription;
+                    // create slots from start time
+                    $bookResults[]=$aBooking;
                 }
-                $aBooking['slotTimes']=$slotTimes;
-                $aBooking['IBooked']=$IBooked;
-                $aBooking['slotBookings']=$slotBookings;
-                $aBooking['slotBookingsName']=$slotBookingsDescription;
-                // create slots from start time
-                $bookResults[]=$aBooking;
             }
         }
 

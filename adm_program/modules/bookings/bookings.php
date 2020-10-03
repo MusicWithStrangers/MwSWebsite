@@ -254,7 +254,8 @@ else
         {
             $htmlBookElements.='<div class="row">';
             $htmlBookElements.='<div class="col-sm-2 col-xs-4">'.$key.'</div>';
-            $htmlBookElements.='<div class="col-sm-2 col-xs-4">'.$value->format('H:i').'</div>';
+            $timeString=$value->format('H:i');
+            $htmlBookElements.='<div class="col-sm-2 col-xs-4">'.$timeString.'</div>';
             $status='Free';
             $bookNow='';
             $moreinfo='';
@@ -325,7 +326,7 @@ else
                         if (!$nonPayers)
                         {
                         $bookNow= '
-                        <a class="admidio-icon-link" href="'.safeUrl(ADMIDIO_URL.FOLDER_MODULES.'/bookings/booking_function.php', array('boo_snr_id'=>$getSnrId, 'rbd_id' => $bookId, 'mode'=>6,'boo_slotindex'=>$key, 'snr_id'=>$getSnrId, 'boo_bookdate'=> $startValue->format('Y-m-d H:i:s'), 'headline' => $getHeadline)) . '">
+                        <a class="admidio-icon-link" href="'.safeUrl(ADMIDIO_URL.FOLDER_MODULES.'/bookings/booking_function.php', array('boo_snr_id'=>$getSnrId, 'rbd_id' => $bookId, 'mode'=>6,'boo_slotindex'=>$key, 'snr_id'=>$getSnrId, 'boo_bookdate'=> $startValue->format('Y-m-d H:i:s'),'slot_time'=>$timeString, 'headline' => $getHeadline)) . '">
                             <img src="'.THEME_URL.'/icons/edit.png" alt="Book Now" title="Book now" /></a>';
                         }
                     }

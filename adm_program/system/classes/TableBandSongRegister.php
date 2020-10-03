@@ -189,6 +189,7 @@ class TableBandSongRegister extends TableAccess
     }
     public function participants_all()
     {
+        global $gDb, $gL10n, $gProfileFields;
         $song_id = $this->getValue('snr_son_id');
         $song = new TableSong($gDb, $song_id);
         $userlist = $song->users_in_song();
@@ -198,7 +199,7 @@ class TableBandSongRegister extends TableAccess
             $user=new User($gDb,$gProfileFields,$a_user);
             $participants[$user->getValue('usr_id')]=$user->getValue('FIRST_NAME') . ' ' . $user->getValue('LAST_NAME');
         }
-        return participants;
+        return $participants;
     }
     public function participants_not_payed_now()
     {

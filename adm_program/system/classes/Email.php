@@ -145,7 +145,39 @@ class Email extends PHPMailer
      * @param string $address
      * @param string $name
      * @return true|string
+
      */
+    public function addRecipientSongRegisterId($id)
+    {
+        global $gDb, $gProfileFields,$gCurrentUser;
+        if ($id>0)
+        {
+            $songregister=new TableBandSongRegister($gDb, $id);
+            $musicians=$songregister->participants_all();
+            foreach($musicians as $key => $value) {
+                $user=new User($gDb, $gProfileFields,$key);
+                $address=$user->getValue('EMAIL');
+                $name=$user->getValue('FIRST_NAME').' '.$user->getValue('LAST_NAME');
+                $this->addRecipient($address, $name);
+            }
+            $sender=new User($gDb,$gProfileFields , $songregister->getValue('snr_usr_id'));
+            $name=$sender->getValue('FIRST_NAME').' '.$user->getValue('LAST_NAME');
+            $address=$sender->getValue('EMAIL');
+            $this->setSender($address, $name);
+        } else {
+            $address=$gCurrentUser->getValue('EMAIL');
+            $name=$gCurrentUser->getValue('FIRST_NAME').' '.$user->getValue('LAST_NAME');
+            $this->addRecipient($address,$name);
+            $this->setSender($address, $name);
+        }
+    }
+    public function addRecipientById($id)
+    {
+        global $gDb, $gProfileFields;
+        $user=new User($gDb, $gProfileFields, $id);
+        $address=$user->getValue('EMAIL');
+        $name=$user->getValue('FIRST_NAME').' '.$user->getValue('LAST_NAME');
+    }
     public function addRecipient($address, $name = '')
     {
         $address = admStrToLower($address);

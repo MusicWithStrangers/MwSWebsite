@@ -24,6 +24,7 @@
  ***********************************************************************************************
  */
 require_once(__DIR__ . '/../../system/common.php');
+require_once(__DIR__ . '/../../libs/phpmailer/extras/EasyPeasyICS.php');
 
 if($_GET['mode'] == 2)
 {
@@ -33,12 +34,17 @@ if($_GET['mode'] == 2)
 // Initialize and check the parameters
 $getRoomBookingDayId    = admFuncVariableIsValid($_GET, 'rbd_id', 'int');
 $getSnrId               = admFuncVariableIsValid($_GET, 'boo_snr_id', 'int');
+if (!$getSnrId>0)
+{
+    $getSnrId               = admFuncVariableIsValid($_GET, 'snr_id', 'int');
+}
 $get_bexdate            = admFuncVariableIsValid($_GET, 'bex_rbd_date', 'string');
 $get_bexdescription     = admFuncVariableIsValid($_GET, 'bex_description', 'string');
 $getBookId              = admFuncVariableIsValid($_GET, 'boo_id', 'int');
 $getExceptionId         = admFuncVariableIsValid($_GET, 'bex_id', 'int');
 $getslotindex           = admFuncVariableIsValid($_GET, 'boo_slotindex', 'int');
 $bookDate               = admFuncVariableIsValid($_GET, 'boo_bookdate', 'string');
+$timeString             = admFuncVariableIsValid($_GET, 'slot_time', 'string');
 $getMode                = admFuncVariableIsValid($_GET, 'mode',   'int', array('requireValue' => true));
 $getUserId              = admFuncVariableIsValid($_GET, 'usr_id', 'int', array('defaultValue' => $gCurrentUser->getValue('usr_id')));
 
@@ -185,11 +191,83 @@ elseif($getMode === 2)
         // save room booking day in database
         $returnCode = $booking->save();
 
-        $booking = (int) $roombookingday->getValue('boo_id');
+        $booking = (int) $booking->getValue('boo_id');
 
         $gDb->endTransaction();
+        
+        // Send mail to participants
+        // mailfrom, namefrom, subject, msg_body, delivery_confirmation, msg_to
+        $mail = new Email();
+        $mail->addRecipientSongRegisterId($getSnrId);
+        #$mail->setCopyToSenderFlag();
+        $mail->sendDataAsHtml();
+        $subject='';
+        $roomBookingDay = new TableRoomBookingDay($gDb,$getRoomBookingDayId);
+        $roomName=$roomBookingDay->getValue('rbd_roomDescription');
+        $firstSlotRemark=$roomBookingDay->getValue('rbd_first_slot_remarks');
+        $lastSlotRemark=$roomBookingDay->getValue('rbd_last_slot_remarks');
+        $gearRemark=$roomBookingDay->getValue('rbd_gear_available');
+        global $gDb, $gProfileFields,$gCurrentUser;
+        $contact=new User($gDb,$gProfileFields,$roomBookingDay->getValue('rbd_operationalContact'));
+        
+        $venue=new TableVenue($gDb, $roomBookingDay->getValue('rbd_venue'));
+        $venueName=$venue->getValue('ven_name');
+        $venueAddress=$venue->getValue('ven_address');
+        $startDateTime = \DateTime::createFromFormat('Y-m-d H:i:s' ,$bookDate);
+        $startTime=\DateTime::createFromFormat('Y-m-d H:i' ,$startDateTime->format('Y-m-d').' '.$timeString);
+        $icsText='';
+        $text='<H1>Room booked</H1>';
+        $icsText.='Rehearsal\n\n';
+        $text.='<table border="0">';
+        $text.="<tr><td>Date:</td><td>".$startDateTime->format('d M Y').'</td></tr>';
+        $text.="<tr><td>Time:</td><td>".$timeString.'</td></tr>';
+        $text.="<tr><td>Room:</td><td>".$roomName.'</td></tr>';        
+        $icsText.='Room: '.$roomName.'\n';
+        $text.="<tr><td>Venue:</td><td>".$venueName.'</td></tr>';
+        $icsText.='Venue: '.$venueName.'\n';
+        $text.="<tr><td>Address:</td><td>".$venueAddress.'</td></tr>';
+        if ($getSnrId>0)
+        {
+            $songregister=new TableBandSongRegister($gDb, $getSnrId);
+            $band = new TableBand($gDb,$id=$songregister->getValue('snr_bnd_id'));
+            $bandName=$band->getValue('bnd_name');
+            $text.="<tr><td>Band:</td><td>".$bandName.'</td></tr>';
+            $icsText.='Band: '.$bandName.'\n';
+            $subject="Room '".$roomName."' booked for '".$bandName."' in ".$venueName;
+        } else {
+            $subject="Room booked";
+        }
+        $text.='</table>';
+        if ($getslotindex==1)
+        {
+            $text.='<h3>You booked the 1st slot</h3>';
+            $text.='<p>'.$firstSlotRemark.'</p>';
+        }
+        if ($getslotindex==$roomBookingDay->getValue('rbd_slotCount'))
+        {
+            $text.='<h3>You booked the last slot</h3>';
+            $text.='<p>'.$lastSlotRemark.'</p>';
+        }
+        $text.='<h3>Gear available</h3>';
+        $text.='<p>'.$gearRemark.'</p>';
+        $text.='<p>For questons, please contact '.$contact->getValue('FIRST_NAME'). ' '.$contact->getValue('LAST_NAME').
+                ' email: <a href="mailto:.'.$contact->getValue('EMAIL').'">'.$contact->getValue('EMAIL').
+                '</a>, phone: '.$contact->getValue('MOBILE').'</p>';
+        $ics = new EasyPeasyICS($gCurrentUser->getValue('usr_id').'_booking');
+        $summary="Rehearsal with '".$bandName."' in ".$venueName;
+        $ics->addEvent($startTime->getTimestamp(),$startTime->modify('+'.$roomBookingDay->getValue('rbd_slotLength').' minutes')->getTimestamp(),$summary,$icsText,'https://members.musicwithstrangers.com',$bandName);
+        $ics_render=$ics->render(FALSE);
+        $fname=__DIR__ . '/'.$gCurrentUser->getValue('usr_id').'_booking.ics';
+        file_put_contents($fname,$ics_render);
+        //$start, $end,$summary = '', $description = '', $url = '', $uid = ''
+        $mail->addAttachment($fname, 'booking.ics');
+        $mail->setSubject($subject);
+        $mail->setText($text);
 
-
+        // finally send the mail
+        $sendResult = $mail->sendEmail();
+        unlink($fname);
+    
         $gNavigation->deleteLastUrl();
 
         admRedirect($gNavigation->getUrl());

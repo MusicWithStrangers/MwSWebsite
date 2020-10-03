@@ -127,7 +127,7 @@ else
         INNER JOIN mws__bands ON mws__song_registration.snr_bnd_id = mws__bands.bnd_id
         INNER JOIN mws__dates ON mws__dates.dat_id= mws__song_registration.snr_dat_id
         INNER JOIN mws__song_musicianregistration ON mws__song_musicianregistration.smr_snr_id=mws__song_registration.snr_id
-        WHERE mws__song_musicianregistration.smr_usr_id= '.$gCurrentUserId.' 
+        WHERE mws__song_musicianregistration.smr_usr_id= '.$gCurrentUserId.' AND dat_begin>NOW()
         GROUP BY mws__song_registration.snr_id
         ORDER BY mws__song_registration.snr_bnd_id';
     #($id, $name = null, HtmlPage $htmlPage = null, $type = 'default')
@@ -195,7 +195,7 @@ else
         $bookNonSongStart=$row['bookNonSongStart'];
         $showBookNow=FALSE;
         $songId=0;
-
+        $nonPayers=FALSE;
 
         if($firstElement)
         {
@@ -218,6 +218,21 @@ else
                 {
                     $htmlBookElements.= ', but you already booked a slot for this room';
                 }
+                if ($getSnrId>0)
+                    {
+                        $songRegister =  new TableBandSongRegister($gDb);
+                        $songRegister->readDataById($getSnrId);
+                        $nonPayers=$songRegister->participants_not_payed_now();
+                        if (count($nonPayers)>0)
+                            {
+                                $htmlBookElements.= '<br>Note however that you cannot book it early for the song you selected, because ';
+                                foreach ($nonPayers as $user)
+                                {
+                                    $htmlBookElements.=$user.', ';
+                                }
+                                $htmlBookElements.='did not pay contribution.<br>';
+                            }
+                    }
                 $htmlBookElements.='. From ' . $bookNonSongStart->format('D M d'). ', ' . $bookNonSongStart->format('H:i'). ' it can be booked for anything.' ;
                 if ($getSnrId>0)
                 {
@@ -306,10 +321,13 @@ else
                 if ($showBookNow)
                 {
                     if ($row['IBooked']==0)
-                    {             
+                    {
+                        if (!$nonPayers)
+                        {
                         $bookNow= '
                         <a class="admidio-icon-link" href="'.safeUrl(ADMIDIO_URL.FOLDER_MODULES.'/bookings/booking_function.php', array('boo_snr_id'=>$getSnrId, 'rbd_id' => $bookId, 'mode'=>6,'boo_slotindex'=>$key, 'snr_id'=>$getSnrId, 'boo_bookdate'=> $startValue->format('Y-m-d H:i:s'), 'headline' => $getHeadline)) . '">
                             <img src="'.THEME_URL.'/icons/edit.png" alt="Book Now" title="Book now" /></a>';
+                        }
                     }
             }
             }

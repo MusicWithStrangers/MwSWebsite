@@ -48,7 +48,7 @@ try {
     /*
      * In this example we store the order with its payment status in a database.
      */
-    database_write($orderId, $payment->status);
+    //database_write($orderId, $payment->status);
 
     /*
      * Send the customer off to complete the payment.

@@ -187,4 +187,53 @@ class TableBandSongRegister extends TableAccess
     {
         return parent::setValue($columnName, $newValue, $checkValue);
     }
+    public function participants_all()
+    {
+        $song_id = $this->getValue('snr_son_id');
+        $song = new TableSong($gDb, $song_id);
+        $userlist = $song->users_in_song();
+        $participants=array();
+        foreach ($userlist as $a_user)
+        {
+            $user=new User($gDb,$gProfileFields,$a_user);
+            $participants[$user->getValue('usr_id')]=$user->getValue('FIRST_NAME') . ' ' . $user->getValue('LAST_NAME');
+        }
+        return participants;
+    }
+    public function participants_not_payed_now()
+    {
+        global $gDb, $gL10n, $gProfileFields;
+        $song_id = $this->getValue('snr_son_id');
+        $song = new TableSong($gDb, $song_id);
+        $userlist = $song->users_in_song();
+        $nonpayers=array();
+        foreach ($userlist as $a_user)
+        {
+            $user=new User($gDb,$gProfileFields,$a_user);
+            $blocked_message='';
+            if (!$user->userPayedNow())
+            {
+                $nonpayers[$user->getValue('usr_id')]=$user->getValue('FIRST_NAME') . ' ' . $user->getValue('LAST_NAME');
+            }
+        }
+        return $nonpayers;
+    }
+    public function participants_not_payed_during_event()
+    {
+        global $gDb, $gL10n, $gProfileFields;
+        $song_id = $this->getValue('snr_son_id');
+        $song = new TableSong($gDb, $song_id);
+        $userlist = $song->users_in_song();
+        $nonpayers=array();
+        foreach ($userlist as $a_user)
+        {
+            $user=new User($gDb,$gProfileFields,$a_user);
+            $blocked_message='';
+            if (!$user->userPayedNow())
+            {
+                $nonpayers[$user->getValue('usr_id')]=$user->getValue('FIRST_NAME') . ' ' . $user->getValue('LAST_NAME');
+            }
+        }
+        return $nonpayers;
+    }
 }

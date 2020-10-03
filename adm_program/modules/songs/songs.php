@@ -52,7 +52,7 @@ $getView     = admFuncVariableIsValid($_GET, 'view',      'string', array('defau
 
 try
 {
-    $songs = new ModuleSongs();
+    $songs = new TableSong();
     $songs->setParameter('mode', $getMode);
     $songs->setParameter('cat_id', $getCatId);
     $songs->setParameter('id', $getId);

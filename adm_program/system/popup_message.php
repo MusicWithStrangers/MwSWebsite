@@ -60,6 +60,10 @@ switch ($getType)
             $text = 'CAT_DELETE_CATEGORY';
         }
         break;
+    case 'payup':
+        $text = 'PAYUP';
+        $url='.';
+        break;
     case 'dat':
         $url = safeUrl(ADMIDIO_URL . FOLDER_MODULES . '/dates/dates_function.php', array('mode' => 2, 'dat_id' => $getDatabaseId));
         break;

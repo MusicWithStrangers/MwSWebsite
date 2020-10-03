@@ -1396,6 +1396,19 @@ class User extends TableAccess
     /**
      * Check if the current user has payed any contribution fee valid for today.
      */
+    public function userPayedByDate($targetDate)
+    {
+        $now = new DateTime();
+        $sql_payednow='SELECT pay_id,pay_user from mws__payments inner join mws__contribution_fees on mws__contribution_fees.fee_id = mws__payments.pay_contribution_id where mws__payments.pay_status = 1 and pay_user = '.$this->getValue('usr_id'). ' and mws__contribution_fees.fee_from<CURRENT_TIMESTAMP and mws__contribution_fees.fee_to>'.$targetDate ;
+        $pdoStatement = $this->db->queryPrepared($sql_payednow);
+        $payed=$pdoStatement->rowCount();
+        if ($payed>0)
+        {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
     public function userPayedNow()
     {
         $now = new DateTime();

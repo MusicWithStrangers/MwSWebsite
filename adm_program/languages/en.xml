@@ -1,6 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
   <!--Phrases only in Announcementmodule-->
+  <string name="PAYUP">You cannot make this registration, because it includes people that did not pay contribution for this period.</string>
   <string name="ANN_ANNOUNCEMENT">Announcement</string>
   <string name="ANN_ANNOUNCEMENTS">Announcements</string>
   <string name="ANN_ANNOUNCEMENTS_DESC">Display or edit announcements, news and other information.</string>

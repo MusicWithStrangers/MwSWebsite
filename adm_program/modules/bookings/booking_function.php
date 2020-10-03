@@ -146,29 +146,54 @@ elseif($getMode === 2)
     $booking->setValue('boo_usr_id', $getUserId);
     $booking->setValue('boo_slotindex', $getslotindex);
     $booking->setValue('boo_bookdate', $bookDate);
-   
-    $balance = $gCurrentUser->getValue('usr_balance','float');
-    $amount = $roombookingday->getValue('rbd_slotprice','float');
-    if ($amount>0)
-    #if ($balance >= $amount and $amount > 0)
+    $pay_blocked=FALSE;
+    if ($getSnrId>0)
     {
-        $newBalance=$balance-$amount;
-        $gCurrentUser->setValue('usr_balance',$newBalance);
-        $booking->setValue('boo_payed',1);
-    } 
-    
-    $gDb->startTransaction();
-    // save room booking day in database
-    $returnCode = $booking->save();
+        $song_registration = new TableBandSongRegister($gDb, $id=$getSnrId);
+        $song_id = $song_registration->getValue('snr_son_id');
+        $song = new TableSong($gDb, $song_id);
+        $userlist = $song->users_in_song();
+        foreach ($userlist as $a_user)
+        {
+            $user=new User($gDb,$gProfileFields,$a_user);
+            $blocked_message='';
+            if (!$user->userPayedNow())
+            {
+                $pay_blocked=TRUE;
+                $blocked_message = $blocked_message . $user->getValue('FIRST_NAME') . ' ' . $user->getValue('LAST_NAME');
+            }
+        }
+    }
+    if ($pay_blocked)
+        {
+            $blocked_message="Can't book this room for the selected song, because some people in it didn't pay contribution. (".$blocked_message.")";
+            $location=safeUrl(ADMIDIO_URL.'/adm_program/system/popup_message.php', array('type' => 'payup', 'name' => 'Registration failed - contribution payment behind', 'element_id' =>'nopay','database_id'=>'nopay'));
+            //header('Location: '.$location);
+        }
+    else {
+        $balance = $gCurrentUser->getValue('usr_balance','float');
+        $amount = $roombookingday->getValue('rbd_slotprice','float');
+        if ($amount>0)
+        #if ($balance >= $amount and $amount > 0)
+        {
+            $newBalance=$balance-$amount;
+            $gCurrentUser->setValue('usr_balance',$newBalance);
+            $booking->setValue('boo_payed',1);
+        } 
 
-    $booking = (int) $roombookingday->getValue('boo_id');
+        $gDb->startTransaction();
+        // save room booking day in database
+        $returnCode = $booking->save();
 
-    $gDb->endTransaction();
-   
+        $booking = (int) $roombookingday->getValue('boo_id');
 
-    $gNavigation->deleteLastUrl();
+        $gDb->endTransaction();
 
-    admRedirect($gNavigation->getUrl());
+
+        $gNavigation->deleteLastUrl();
+
+        admRedirect($gNavigation->getUrl());
+        }
 } elseif ($getMode ===7) {
     $exception=new TableBookingException($gDb);
     try

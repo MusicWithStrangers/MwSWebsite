@@ -107,10 +107,15 @@ $htmlRegistered=new HtmlTable('registered_table', null,true,true);
 if ($countSongParticipate > 0)
 {
     // get registered songs
+    $paymentRemarks='';
     $songsDataUser      = $userSongsStatement->fetchAll();
     $htmlRegistered->addRowHeadingByArray(array('', 'Band', 'Song', 'Musicians'));
     foreach ($songsDataUser as $aSong)
     {
+        $remark='';
+        $songregister=new TableBandSongRegister($gDb,$id=$aSong['snr_id']);
+        $nonPayers=$songregister->participants_not_payed_during_event();
+        
         $songsUser[$aSong['son_id']] = $aSong['son_title'];
         $editUnregisterSong='<a class="admidio-icon-link" data-toggle="modal" data-target="#admidio_modal"
                         href="'.safeUrl(ADMIDIO_URL.'/adm_program/system/popup_message.php', array('type' => 'snr', 'element_id' => 'snr_' . $aSong['snr_id'],
@@ -155,7 +160,16 @@ if ($countSongParticipate > 0)
                 $musicianshtml.=  '<small>' . $aMusician['name'] . ' [' . $aMusician['ins_name'] . '], </small>';
             }
         }
-        $htmlRegistered->addRowByArray(array($editUnregisterSong,$aSong['bnd_name'] . $editEditBand,$aSong['son_title'] . $editEditSong, $musicianshtml. $editEditMusicians),'snr_'.$getsnr_id);
+        if (count($nonPayers)>0)
+        {
+            $remark.='<br><small>Note you cannot join event or rehearsals until contribution is payed for ';
+            foreach ($nonPayers as $payuser)
+            {
+                $remark.=$payuser.=', ';
+            }
+            $remark.='</small>';
+        }
+        $htmlRegistered->addRowByArray(array($editUnregisterSong,$aSong['bnd_name'] . $editEditBand,$aSong['son_title'] . $editEditSong, $musicianshtml. $editEditMusicians.$remark),'snr_'.$getsnr_id);
     }
 }
 //All registered bands from user to this event

@@ -83,7 +83,26 @@ class TableSong extends TableAccess
     {
         return $this->getValidDeadline() < DATETIME_NOW;
     }
-
+    public function users_in_song()
+    {
+        global $gCurrentUser, $gDb;
+        $sonId     = (int) $this->getValue('son_id');
+        $sql = 'SELECT mws__songs.son_id, mws__song_musicianregistration.smr_usr_id from mws__songs inner join mws__song_registration on mws__song_registration.snr_son_id = mws__songs.son_id INNER JOIN mws__song_musicianregistration on mws__song_musicianregistration.smr_snr_id = mws__song_registration.snr_id where son_id='.$sonId;
+        $musiciansStatement = $gDb->queryPrepared($sql);
+        $array_users = array();
+        if ($musiciansStatement->rowCount()>0)
+        {
+            $musiciansData      = $musiciansStatement->fetchAll();
+            foreach ($musiciansData as $aMusician)
+            {
+               if (!empty($aMusician['smr_usr_id']))
+               {
+                   array_push($array_users,$aMusician['smr_usr_id']);
+               }
+            }
+        }
+        return $array_users;
+    }
     /**
      * Deletes the selected record of the table and all references in other tables.
      * After that the class will be initialize.

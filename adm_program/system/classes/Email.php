@@ -166,7 +166,7 @@ class Email extends PHPMailer
             $this->setSender($address, $name);
         } else {
             $address=$gCurrentUser->getValue('EMAIL');
-            $name=$gCurrentUser->getValue('FIRST_NAME').' '.$user->getValue('LAST_NAME');
+            $name=$gCurrentUser->getValue('FIRST_NAME').' '.$gCurrentUser->getValue('LAST_NAME');
             $this->addRecipient($address,$name);
             $this->setSender($address, $name);
         }

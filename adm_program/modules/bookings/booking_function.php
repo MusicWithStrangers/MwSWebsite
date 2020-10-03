@@ -153,20 +153,26 @@ elseif($getMode === 2)
     $booking->setValue('boo_slotindex', $getslotindex);
     $booking->setValue('boo_bookdate', $bookDate);
     $pay_blocked=FALSE;
+    $people_in_song='';
+    $song_name='';
     if ($getSnrId>0)
     {
         $song_registration = new TableBandSongRegister($gDb, $id=$getSnrId);
         $song_id = $song_registration->getValue('snr_son_id');
         $song = new TableSong($gDb, $song_id);
+        $song_name=$song->getValue('son_title');
         $userlist = $song->users_in_song();
         foreach ($userlist as $a_user)
         {
             $user=new User($gDb,$gProfileFields,$a_user);
+            $userName=$user->getValue('FIRST_NAME') . ' ' . $user->getValue('LAST_NAME');
+            $people_in_song.=$userName.', ';
             $blocked_message='';
             if (!$user->userPayedNow())
             {
+                
                 $pay_blocked=TRUE;
-                $blocked_message = $blocked_message . $user->getValue('FIRST_NAME') . ' ' . $user->getValue('LAST_NAME');
+                $blocked_message = $blocked_message . $userName;
             }
         }
     }
@@ -226,6 +232,10 @@ elseif($getMode === 2)
         $text.="<tr><td>Venue:</td><td>".$venueName.'</td></tr>';
         $icsText.='Venue: '.$venueName.'\n';
         $text.="<tr><td>Address:</td><td>".$venueAddress.'</td></tr>';
+        $text.="<tr><td>Song:</td><td>".$song_name.'</td></tr>';
+        $icsText.='Song: '.$song_name.'\n';
+        $text.="<tr><td>People:</td><td>".$people_in_song.'</td></tr>';
+        $icsText.='People: '.$people_in_song.'\n';
         if ($getSnrId>0)
         {
             $songregister=new TableBandSongRegister($gDb, $getSnrId);
